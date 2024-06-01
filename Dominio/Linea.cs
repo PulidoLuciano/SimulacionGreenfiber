@@ -155,6 +155,7 @@ namespace Dominio
                 }
 
                 AlmacenCelulosa += MasaProducto;
+                horas--;
             }
 
             Console.WriteLine($"PapelNetoReciclado: {PapelNetoReciclado} Kg");
