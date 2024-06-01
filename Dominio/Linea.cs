@@ -20,21 +20,30 @@ namespace Dominio
         Refinadora MaquinaRefinadora = new Refinadora();
         Empaquetadora MaquinaEmpaquetadora = new Empaquetadora();
 
-
+        // Resultados totales.
         double PapelNetoReciclado = 0;
+        double ProductoNetoProducido = 0;
+        double TotalBolsas = 0;
 
+        // Cantidades segun nivel de basura
         double PapelEscaso = 0;
         double PapelIntermedio = 0;
         double PapelExcesivo = 0;
 
+        // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
         double AlmacenPapel = 0;
         double AlmacenBasura = 0;
-        double AlmacenFibra = 0;
         double AlmacenCelulosa = 0;
         double AlmacenBolsas = 0;
 
+        // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido"
         double PerdidaRefinadora = 0;
-        
+        double PerdidaEmpaquetadora = 0;
+
+        // Consumos de quimicos.
+        double ConsumoBorax = 0;
+        double ConsumoAcidoBorico = 0;
+
         public void iniciar()
         {
             int horas = 8;
@@ -95,22 +104,60 @@ namespace Dominio
 
                 // ----- REFINACION -----
                 double MasaFibra = 0;
-                NumerosAleatorios.Distribuciones.Poisson(MaquinaTrituradora.CapacidadPromedio, ref MasaFibra);
+                NumerosAleatorios.Distribuciones.Poisson(MaquinaRefinadora.CapacidadPromedio, ref MasaFibra);
 
                 if(MasaFibra > AlmacenPapel)
                 {
                     PerdidaRefinadora += MasaFibra - AlmacenPapel;
-                    AlmacenFibra += AlmacenPapel;
+                    PapelNetoReciclado += AlmacenPapel;
                     AlmacenPapel = 0;
                 }
                 else
                 {
                     AlmacenPapel -= MasaFibra;
-                    AlmacenFibra += MasaFibra;
+                    PapelNetoReciclado += MasaFibra;
                 }
 
-                NumerosAleatorios.Generador.G(ref u);
+                double porcQuimico = 0;
+                NumerosAleatorios.Distribuciones.Uniform(0.2, 0.05, ref porcQuimico);
 
+                double MasaQuimicos = MasaFibra * porcQuimico;
+                ConsumoBorax += (MasaQuimicos - 11.6) / 1.185;
+                ConsumoAcidoBorico += 11.6 + (0.185 * ConsumoBorax);
+
+                double MasaCelusa = MasaFibra + MasaQuimicos;
+                AlmacenCelulosa += MasaCelusa;
+
+                // ----- EMPAQUETADO -----
+                double MasaEmpaquetada = 0;
+                NumerosAleatorios.Distribuciones.Poisson(MaquinaEmpaquetadora.CapacidadPromedio, ref MasaEmpaquetada);
+
+                double MasaProducto = 0;
+
+                if (MasaEmpaquetada > AlmacenCelulosa)
+                {
+                    PerdidaEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
+                    MasaProducto = AlmacenCelulosa;
+                    AlmacenCelulosa = 0;
+                }
+                else
+                {
+                    AlmacenCelulosa -= MasaEmpaquetada;
+                    MasaProducto = MasaEmpaquetada;
+                }
+
+                ProductoNetoProducido += MasaProducto;
+
+                double MasaBolsa = 0;
+
+                while (MasaProducto > 13)
+                {
+                    NumerosAleatorios.Distribuciones.Uniform(13, 2, ref  MasaBolsa);
+                    MasaProducto -= MasaBolsa;
+                    TotalBolsas++;
+                }
+
+                AlmacenCelulosa += MasaProducto;
             }
         }
     }
