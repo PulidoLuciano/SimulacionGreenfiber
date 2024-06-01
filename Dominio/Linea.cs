@@ -34,11 +34,10 @@ namespace Dominio
         double AlmacenPapel = 0;
         double AlmacenBasura = 0;
         double AlmacenCelulosa = 0;
-        double AlmacenBolsas = 0;
 
         // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido"
-        double PerdidaRefinadora = 0;
-        double PerdidaEmpaquetadora = 0;
+        double DesperdicioRefinadora = 0;
+        double DesperdicioEmpaquetadora = 0;
 
         // Consumos de quimicos.
         double ConsumoBorax = 0;
@@ -108,7 +107,7 @@ namespace Dominio
 
                 if(MasaFibra > AlmacenPapel)
                 {
-                    PerdidaRefinadora += MasaFibra - AlmacenPapel;
+                    DesperdicioRefinadora += MasaFibra - AlmacenPapel;
                     PapelNetoReciclado += AlmacenPapel;
                     AlmacenPapel = 0;
                 }
@@ -136,7 +135,7 @@ namespace Dominio
 
                 if (MasaEmpaquetada > AlmacenCelulosa)
                 {
-                    PerdidaEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
+                    DesperdicioEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
                     MasaProducto = AlmacenCelulosa;
                     AlmacenCelulosa = 0;
                 }
@@ -146,19 +145,19 @@ namespace Dominio
                     MasaProducto = MasaEmpaquetada;
                 }
 
-                ProductoNetoProducido += MasaProducto;
-
                 double MasaBolsa = 0;
-
                 while (MasaProducto > 13)
                 {
                     NumerosAleatorios.Distribuciones.Uniform(13, 2, ref  MasaBolsa);
                     MasaProducto -= MasaBolsa;
+                    ProductoNetoProducido += MasaBolsa;
                     TotalBolsas++;
                 }
 
                 AlmacenCelulosa += MasaProducto;
             }
+
+
         }
     }
 }
