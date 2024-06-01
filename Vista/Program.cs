@@ -5,6 +5,7 @@ using Infraestructura;
 using Vistas.Interfaces;
 using Presentacion.Interfaces;
 using Presentacion.Tareas;
+using Dominio;
 
 namespace Presentacion
 {
@@ -16,6 +17,9 @@ namespace Presentacion
         [STAThread]
         static void Main()
         {
+            Linea l = new Linea();
+            l.iniciar();
+
             var container = new UnityContainer();
             Factoria.Instance.SetContenedor(container);
             Application.EnableVisualStyles();

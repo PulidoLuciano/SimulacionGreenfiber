@@ -13,7 +13,7 @@ namespace Dominio
         ESCASO,
     }
 
-    internal class Linea
+    public class Linea
     {
         Trituradora MaquinaTrituradora = new Trituradora();
         Limpiadora MaquinaLimpiadora = new Limpiadora();
@@ -24,6 +24,7 @@ namespace Dominio
         double PapelNetoReciclado = 0;
         double ProductoNetoProducido = 0;
         double TotalBolsas = 0;
+        double BasuraProducida = 0;
 
         // Cantidades segun nivel de basura
         double PapelEscaso = 0;
@@ -31,8 +32,7 @@ namespace Dominio
         double PapelExcesivo = 0;
 
         // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
-        double AlmacenPapel = 0;
-        double AlmacenBasura = 0;
+        double LotePapel = 0;
         double AlmacenCelulosa = 0;
 
         // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido"
@@ -98,22 +98,22 @@ namespace Dominio
                     PapelExcesivo += Papel;
                 }
 
-                AlmacenPapel += Papel;
-                AlmacenBasura += Basura;
+                LotePapel += Papel;
+                BasuraProducida += Basura;
 
                 // ----- REFINACION -----
                 double MasaFibra = 0;
                 NumerosAleatorios.Distribuciones.Poisson(MaquinaRefinadora.CapacidadPromedio, ref MasaFibra);
 
-                if(MasaFibra > AlmacenPapel)
+                if(MasaFibra > LotePapel)
                 {
-                    DesperdicioRefinadora += MasaFibra - AlmacenPapel;
-                    PapelNetoReciclado += AlmacenPapel;
-                    AlmacenPapel = 0;
+                    DesperdicioRefinadora += MasaFibra - LotePapel;
+                    PapelNetoReciclado += LotePapel;
+                    LotePapel = 0;
                 }
                 else
                 {
-                    AlmacenPapel -= MasaFibra;
+                    LotePapel -= MasaFibra;
                     PapelNetoReciclado += MasaFibra;
                 }
 
@@ -157,7 +157,10 @@ namespace Dominio
                 AlmacenCelulosa += MasaProducto;
             }
 
-
+            Console.WriteLine($"PapelNetoReciclado: {PapelNetoReciclado} Kg");
+            Console.WriteLine($"ProductoNetoProducido: {ProductoNetoProducido} Kg");
+            Console.WriteLine($"TotalBolsas: {TotalBolsas} bolsas");
+            Console.WriteLine($"Basura: {BasuraProducida} Kg");
         }
     }
 }

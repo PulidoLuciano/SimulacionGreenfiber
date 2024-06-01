@@ -16,6 +16,7 @@ namespace NumerosAleatorios
             {
                 double x = Math.Pow(semilla, 2);
                 string cadenaX = x.ToString();
+
                 if ((cadenaX.Length - digitos) % 2 != 0)
                 {
                     x = x * 10;
