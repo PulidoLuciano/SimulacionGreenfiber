@@ -21,10 +21,10 @@ namespace Dominio
         Empaquetadora MaquinaEmpaquetadora = new Empaquetadora();
 
         // Resultados totales.
-        double PapelNetoReciclado = 0;
-        double ProductoNetoProducido = 0;
-        double TotalBolsas = 0;
-        double BasuraProducida = 0;
+        public double PapelNetoReciclado = 0;
+        public double ProductoNetoProducido = 0;
+        public double TotalBolsas = 0;
+        public double BasuraProducida = 0;
 
         // Cantidades segun nivel de basura
         double PapelEscaso = 0;
@@ -53,7 +53,7 @@ namespace Dominio
             {
                 // ----- TRITURACION -----
                 double MasaTriturada = 0;
-                NumerosAleatorios.Distribuciones.Poisson(MaquinaTrituradora.CapacidadPromedio, ref MasaTriturada);
+                NumerosAleatorios.Distribuciones.Normal(MaquinaTrituradora.CapacidadPromedio, 60, ref MasaTriturada);
 
                 NumerosAleatorios.Generador.G(ref u);
 
@@ -103,7 +103,7 @@ namespace Dominio
 
                 // ----- REFINACION -----
                 double MasaFibra = 0;
-                NumerosAleatorios.Distribuciones.Poisson(MaquinaRefinadora.CapacidadPromedio, ref MasaFibra);
+                NumerosAleatorios.Distribuciones.Normal(MaquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
 
                 if(MasaFibra > LotePapel)
                 {
@@ -118,7 +118,7 @@ namespace Dominio
                 }
 
                 double porcQuimico = 0;
-                NumerosAleatorios.Distribuciones.Uniform(0.2, 0.05, ref porcQuimico);
+                NumerosAleatorios.Distribuciones.Uniform(0.2, 0.25, ref porcQuimico);
 
                 double MasaQuimicos = MasaFibra * porcQuimico;
                 ConsumoBorax += (MasaQuimicos - 11.6) / 1.185;
@@ -129,7 +129,7 @@ namespace Dominio
 
                 // ----- EMPAQUETADO -----
                 double MasaEmpaquetada = 0;
-                NumerosAleatorios.Distribuciones.Poisson(MaquinaEmpaquetadora.CapacidadPromedio, ref MasaEmpaquetada);
+                NumerosAleatorios.Distribuciones.Normal(MaquinaEmpaquetadora.CapacidadPromedio, 60, ref MasaEmpaquetada);
 
                 double MasaProducto = 0;
 
@@ -148,7 +148,7 @@ namespace Dominio
                 double MasaBolsa = 0;
                 while (MasaProducto > 13)
                 {
-                    NumerosAleatorios.Distribuciones.Uniform(13, 2, ref  MasaBolsa);
+                    NumerosAleatorios.Distribuciones.Uniform(13, 15, ref  MasaBolsa);
                     MasaProducto -= MasaBolsa;
                     ProductoNetoProducido += MasaBolsa;
                     TotalBolsas++;
@@ -161,6 +161,12 @@ namespace Dominio
             Console.WriteLine($"PapelNetoReciclado: {PapelNetoReciclado} Kg");
             Console.WriteLine($"ProductoNetoProducido: {ProductoNetoProducido} Kg");
             Console.WriteLine($"TotalBolsas: {TotalBolsas} bolsas");
+            Console.WriteLine($"LotePapel: {LotePapel} Kg");
+
+            Console.WriteLine($"Desperdicio Refinadora: {DesperdicioRefinadora} Kg");
+            Console.WriteLine($"Desperdicio Empaquetadora: {DesperdicioEmpaquetadora} Kg");
+
+            Console.WriteLine($"AlmacenCelulosa: {AlmacenCelulosa} Kg");
             Console.WriteLine($"Basura: {BasuraProducida} Kg");
         }
     }

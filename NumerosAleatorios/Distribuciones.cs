@@ -61,16 +61,36 @@ namespace NumerosAleatorios
         static public void Poisson(double a, ref double x)
         {
             double b = Math.Exp(-a);
-            x = 0;
+            double inc = 0;
             double p = 1;
-            while (p > b)
+            do
             {
                 double u = 0;
                 Generador.G(ref u);
 
                 p *= u;
-                x += 1;
+                inc += 1;
+            } while (p > b);
+
+            x = inc;
+        }
+
+        public static int PoissonDistribution(double lambda)
+        {
+            double L = Math.Exp(-lambda);
+            double p = 1.0;
+            int k = 0;
+
+            do
+            {
+                k++;
+                double u = 0;
+                Generador.G(ref u); // Generate a Uniform Random Number
+                p *= u;
             }
+            while (p > L);
+
+            return k - 1;
         }
         #endregion
     }

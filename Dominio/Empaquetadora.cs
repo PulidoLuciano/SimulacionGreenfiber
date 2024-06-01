@@ -8,7 +8,7 @@ namespace Dominio
 {
     internal class Empaquetadora
     {
-        public double CapacidadPromedio { get; set; }
+        public double CapacidadPromedio { get { return 2520; } }
         public double Potencia { get; set; }
 
         public double Consumo

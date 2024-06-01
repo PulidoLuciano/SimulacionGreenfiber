@@ -6,6 +6,8 @@ using Vistas.Interfaces;
 using Presentacion.Interfaces;
 using Presentacion.Tareas;
 using Dominio;
+using Extreme;
+using Extreme.Statistics.Distributions;
 
 namespace Presentacion
 {
@@ -20,12 +22,18 @@ namespace Presentacion
             Linea l = new Linea();
             l.iniciar();
 
+            Console.WriteLine($"PapelNetoReciclado: {l.PapelNetoReciclado} Kg");
+            Console.WriteLine($"ProductoNetoProducido: {l.ProductoNetoProducido} Kg");
+            Console.WriteLine($"TotalBolsas: {l.TotalBolsas} bolsas");
+            Console.WriteLine($"Basura: {l.BasuraProducida} Kg");
+
+
             /*for(int i = 0; i < 1000; i++) {
                 double u = 0;
                 NumerosAleatorios.Generador.G(ref u);
                 Console.WriteLine(u);
             }*/
-            
+
 
             var container = new UnityContainer();
             Factoria.Instance.SetContenedor(container);

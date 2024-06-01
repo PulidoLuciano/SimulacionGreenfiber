@@ -8,7 +8,7 @@ namespace Dominio
 {
     internal class Refinadora
     {
-        public double CapacidadPromedio { get; set; }
+        public double CapacidadPromedio { get { return 1280; } }
         public double Potencia { get; set; }
 
         public double Consumo

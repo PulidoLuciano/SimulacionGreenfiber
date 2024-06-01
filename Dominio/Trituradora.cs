@@ -9,7 +9,7 @@ namespace Dominio
 {
     internal class Trituradora
     {
-        public double CapacidadPromedio { get; set; }
+        public double CapacidadPromedio { get { return 1800; } } 
         public double Potencia { get; set; }
 
         public double Consumo
