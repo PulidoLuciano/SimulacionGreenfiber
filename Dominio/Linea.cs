@@ -7,74 +7,111 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    enum NivelBasura {
+        EXCESIVO = 0,
+        INTERMEDIO,
+        ESCASO,
+    }
+
     internal class Linea
     {
-        Tolva tolva = new Tolva();
-        Triturador triturador = new Triturador();
-        Filtro filtro = new Filtro();
-        Refinador refinador = new Refinador();
+        Trituradora MaquinaTrituradora = new Trituradora();
+        Limpiadora MaquinaLimpiadora = new Limpiadora();
+        Refinadora MaquinaRefinadora = new Refinadora();
+        Empaquetadora MaquinaEmpaquetadora = new Empaquetadora();
 
-        public void Start()
+
+        double PapelNetoReciclado = 0;
+
+        double PapelEscaso = 0;
+        double PapelIntermedio = 0;
+        double PapelExcesivo = 0;
+
+        double AlmacenPapel = 0;
+        double AlmacenBasura = 0;
+        double AlmacenFibra = 0;
+        double AlmacenCelulosa = 0;
+        double AlmacenBolsas = 0;
+
+        double PerdidaRefinadora = 0;
+        
+        public void iniciar()
         {
-            double p_0 = 1000; // Normal
+            int horas = 8;
+            double u = 0;
+            List<double> nums = [];
 
-            /////////////////// ETAPA 1 - Ingreso de Papel ////////////////////
+            while (horas > 0)
+            {
+                // ----- TRITURACION -----
+                double MasaTriturada = 0;
+                NumerosAleatorios.Distribuciones.Poisson(MaquinaTrituradora.CapacidadPromedio, ref MasaTriturada);
 
-            tolva.PapelEntrada = p_0;
-            tolva.Velocidad = 10;
+                NumerosAleatorios.Generador.G(ref u);
 
-            double p_1 = tolva.PapelSalida;
+                // ----- LIMPIEZA -----
+                double porcPapel = 0;
+                NivelBasura nivelBasura;
 
-            Console.WriteLine("> Tolva: ");
-            Console.WriteLine($"\t Papel de entrada: {p_1} Kg.");
-            Console.WriteLine($"\t Velocidad: {tolva.Velocidad} Kg/h.");
-            Console.WriteLine($"\t Tiempo: {tolva.Tiempo} h.");
+                if (u <= 0.2)
+                {
+                    nivelBasura = NivelBasura.ESCASO;
 
-            /////////////////// ETAPA 2 - Trituración ////////////////////
+                    NumerosAleatorios.Generador.G(ref u);
 
-            triturador.PapelEntrada = p_1;
-            triturador.Velocidad = 10;
+                    NumerosAleatorios.Distribuciones.Uniform(0.90, 0.98, ref porcPapel);
 
-            double p_2 = triturador.PapelSalida;
+                }
+                else if (u <= 0.95)
+                {
+                    nivelBasura = NivelBasura.INTERMEDIO;
 
-            Console.WriteLine("> Triturador: ");
-            Console.WriteLine($"\t Papel de entrada: {p_2} Kg.");
-            Console.WriteLine($"\t Velocidad: {triturador.Velocidad} Kg/h.");
-            Console.WriteLine($"\t Tiempo: {triturador.Tiempo} h.");
+                    NumerosAleatorios.Distribuciones.Normal(0.7,0.08, ref porcPapel);
+                }
+                else
+                {
+                    nivelBasura = NivelBasura.EXCESIVO;
 
-            /////////////////// ETAPA 3 - Filtrado y Separación de Polvo ////////////////////
+                    NumerosAleatorios.Distribuciones.Normal(0.5, 0.05, ref porcPapel);
+                }
 
-            filtro.PapelEntrada = p_2;
-            filtro.Velocidad = 10;
+                double Papel = MasaTriturada * porcPapel;
+                double Basura = MasaTriturada * (1 - porcPapel);
 
-            double p_3 = filtro.PapelSalida;
+                if (nivelBasura == NivelBasura.ESCASO) {
+                    PapelEscaso += Papel;
+                }
+                else if (nivelBasura == NivelBasura.INTERMEDIO)
+                {
+                    PapelIntermedio += Papel;
+                }
+                else
+                {
+                    PapelExcesivo += Papel;
+                }
 
-            Console.WriteLine("> Filtro: ");
-            Console.WriteLine($"\t Papel de entrada: {p_3} Kg.");
-            Console.WriteLine($"\t Velocidad: {filtro.Velocidad} Kg/h.");
-            Console.WriteLine($"\t Tiempo: {filtro.Tiempo} h.");
+                AlmacenPapel += Papel;
+                AlmacenBasura += Basura;
 
-            /////////////////// ETAPA 4 - Refinación y Dosificación de Quimicos ////////////////////
+                // ----- REFINACION -----
+                double MasaFibra = 0;
+                NumerosAleatorios.Distribuciones.Poisson(MaquinaTrituradora.CapacidadPromedio, ref MasaFibra);
 
-            refinador.PapelEntrada = p_3;
-            refinador.Velocidad = 10;
+                if(MasaFibra > AlmacenPapel)
+                {
+                    PerdidaRefinadora += MasaFibra - AlmacenPapel;
+                    AlmacenFibra += AlmacenPapel;
+                    AlmacenPapel = 0;
+                }
+                else
+                {
+                    AlmacenPapel -= MasaFibra;
+                    AlmacenFibra += MasaFibra;
+                }
 
-            double p_4 = refinador.PapelSalida;
+                NumerosAleatorios.Generador.G(ref u);
 
-            Console.WriteLine("> Refinador: ");
-            Console.WriteLine($"\t Papel de entrada: {p_4} Kg.");
-            Console.WriteLine($"\t AcidoBorico: {refinador.AcidoBorico} Kg.");
-            Console.WriteLine($"\t Borax: {refinador.Borax} Kg.");
-            Console.WriteLine($"\t Velocidad: {filtro.Velocidad} Kg/h.");
-            Console.WriteLine($"\t Tiempo: {filtro.Tiempo} h.");
-
-
-
-        }
-
-        public void Show()
-        {
-
+            }
         }
     }
 }

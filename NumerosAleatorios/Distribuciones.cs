@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NumerosAleatorios
 {
-    internal class Distribuciones
+    public class Distribuciones
     {
         #region CONTINUOUS Distributions.
         static public void Uniform(double a, double b, ref double x)
