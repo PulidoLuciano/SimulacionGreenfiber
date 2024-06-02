@@ -80,7 +80,6 @@ namespace Dominio
                 System.Diagnostics.Debug.WriteLine($"Producto neto producido: {l.ProductoNetoProducido} Kg");
                 System.Diagnostics.Debug.WriteLine($"Total de bolsas: {l.TotalBolsas} bolsas");
                 System.Diagnostics.Debug.WriteLine($"Papel neto reciclado: {l.PapelNetoReciclado} Kg");
-                System.Diagnostics.Debug.WriteLine($"Total de basura: {l.AlmacenBasura} Kg");
                 System.Diagnostics.Debug.WriteLine($"Consumo total de ácido bórico: {l.ConsumoAcidoBorico} Kg");
                 System.Diagnostics.Debug.WriteLine($"Consumo total de bórax: {l.ConsumoBorax} Kg");
                 System.Diagnostics.Debug.WriteLine($"Potencia total consumida: {l.PotenciaTotal} kW");
@@ -105,10 +104,11 @@ namespace Dominio
                 System.Diagnostics.Debug.WriteLine($"\t Refinadora: {l.DesperdicioRefinadoraV2} Kg");
                 System.Diagnostics.Debug.WriteLine($"\t Empaquetadora: {l.DesperdicioEmpaquetadoraV2} Kg");
 
-                System.Diagnostics.Debug.WriteLine($"EXCEDENTES.");
+                System.Diagnostics.Debug.WriteLine($"ALMACENES.");
                 System.Diagnostics.Debug.WriteLine($"\t Almacen de recolección: {l.AlmacenRecolectado} Kg");
                 System.Diagnostics.Debug.WriteLine($"\t Almacen de papel: {l.AlmacenPapel} Kg");
-                System.Diagnostics.Debug.WriteLine($"\t Almacen de refinacion: {l.AlmacenFibra} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Almacen de basura: {l.AlmacenBasura} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Almacen de celulosa: {l.AlmacenFibra} Kg");
             }
         }
 
