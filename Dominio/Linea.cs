@@ -46,16 +46,19 @@ namespace Dominio
             set { _maquinaEmpaquetadora = value; }
         }
 
-        // Resultados totales.
-        public double ProductoNetoProducido = 0;
-        public double TotalBolsas = 0;
-        public double PapelNetoReciclado = 0;
-        public double PotenciaTotal = 0;
-        public double ArbolesSalvados = 0;
-        public double ConsumoBorax = 0;
-        public double ConsumoAcidoBorico = 0;
+        //
+        public double MasaNominalRecolectada = 0; // MOSTRAR
 
-        // Cantidades segun nivel de basura
+        // Resultados totales.
+        public double ProductoNetoProducido = 0;  // MOSTRAR
+        public double TotalBolsas = 0;  // MOSTRAR
+        public double PapelNetoReciclado = 0;  // MOSTRAR
+        public double PotenciaTotal = 0;  // MOSTRAR
+        public double ArbolesSalvados = 0;  // MOSTRAR
+        public double ConsumoBorax = 0;  // MOSTRAR 
+        public double ConsumoAcidoBorico = 0; // MOSTRAR
+
+        // Cantidades segun nivel de basura /// ESTO LO BORRARIA PORQUE SIEMPRE SERAN ENTRE LOS MISMOS VALORES. Siempre sera mayor el intermedio que el resto.
         public double PapelEscaso = 0;
         public double PapelIntermedio = 0;
         public double PapelExcesivo = 0;
@@ -67,10 +70,35 @@ namespace Dominio
         public double AlmacenFibra = 0;
         public double AlmacenCelulosa = 0;
 
-        // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido"
+        // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido" YO SACARIA ESTOS ACUMULADORES
         public double DesperdicioTrituradora = 0;
         public double DesperdicioRefinadora = 0;
         public double DesperdicioEmpaquetadora = 0;
+
+        // Lo que hubiera producido cada maquina;
+        public double ProduccionNominalTrituradora = 0; // MOSTRAR
+        public double ProduccionNominalRefinadora= 0; // MOSTRAR
+        public double ProduccionNominalEmpaquetadora = 0; // MOSTRAR
+
+        // Lo que hubiera producido cada maquina;
+        public double ProduccionRealTrituradora = 0; // MOSTRAR
+        public double ProduccionRealRefinadora = 0; // MOSTRAR
+        public double ProduccionRealEmpaquetadora = 0; // MOSTRAR
+
+        public double DesperdicioTrituradoraV2
+        {
+            get { return ProduccionNominalTrituradora - ProduccionRealTrituradora; }
+        }
+
+        public double DesperdicioRefinadoraV2
+        {
+            get { return ProduccionNominalRefinadora - ProduccionRealRefinadora; }
+        }
+
+        public double DesperdicioEmpaquetadoraV2
+        {
+            get { return ProduccionRealRefinadora - ProduccionRealEmpaquetadora; }
+        }
 
         public void iniciar(int HorasJornada, double MinPapel, double MaxPapel)
         {
@@ -93,16 +121,18 @@ namespace Dominio
                     // ----- RECOLECCION -----
                     double MasaRecolectada = 0;
                     NumerosAleatorios.Distribuciones.Uniform(MinPapel, MaxPapel, ref MasaRecolectada);
+                    MasaNominalRecolectada += MasaRecolectada;
 
                     AlmacenRecolectado += MasaRecolectada;
 
                     // ----- TRITURACION -----
                     double MasaTriturada = 0;
                     NumerosAleatorios.Distribuciones.Normal(_maquinaTrituradora.CapacidadPromedio, 60, ref MasaTriturada);
+                    ProduccionNominalTrituradora += MasaTriturada;
 
                     if(MasaTriturada > AlmacenRecolectado)
                     {
-                        DesperdicioTrituradora += MasaTriturada - AlmacenRecolectado;
+                        //DesperdicioTrituradora += MasaTriturada - AlmacenRecolectado;
                         MasaTriturada = AlmacenRecolectado;
                         AlmacenRecolectado = 0;
                     }
@@ -110,6 +140,8 @@ namespace Dominio
                     {
                         AlmacenRecolectado -= MasaTriturada;
                     }
+
+                    ProduccionRealTrituradora += MasaTriturada;
 
                     // ----- LIMPIEZA -----
                     NumerosAleatorios.Generador.G(ref u);
@@ -160,10 +192,11 @@ namespace Dominio
                     // ----- REFINACION -----
                     double MasaFibra = 0;
                     NumerosAleatorios.Distribuciones.Normal(_maquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
+                    ProduccionNominalRefinadora += MasaFibra;
 
-                    if(MasaFibra > AlmacenPapel)
+                    if (MasaFibra > AlmacenPapel)
                     {
-                        DesperdicioRefinadora += MasaFibra - AlmacenPapel;
+                        //DesperdicioRefinadora += MasaFibra - AlmacenPapel;
                         MasaFibra = AlmacenPapel;
                         AlmacenPapel = 0;
                     }
@@ -171,6 +204,8 @@ namespace Dominio
                     {
                         AlmacenPapel -= MasaFibra;
                     }
+
+                    ProduccionRealRefinadora += MasaFibra;
 
                     AlmacenFibra += MasaFibra;
                     PapelNetoReciclado += MasaFibra;
@@ -188,10 +223,11 @@ namespace Dominio
                     // ----- EMPAQUETADO -----
                     double MasaEmpaquetada = 0;
                     NumerosAleatorios.Distribuciones.Normal(_maquinaEmpaquetadora.CapacidadPromedio, 60, ref MasaEmpaquetada);
+                    ProduccionNominalEmpaquetadora += MasaEmpaquetada;
 
                     if (MasaEmpaquetada > AlmacenCelulosa)
                     {
-                        DesperdicioEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
+                        //DesperdicioEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
                         MasaEmpaquetada = AlmacenCelulosa;
                         AlmacenCelulosa = 0;
                     }
@@ -199,6 +235,8 @@ namespace Dominio
                     {
                         AlmacenCelulosa -= MasaEmpaquetada;
                     }
+
+                    ProduccionRealEmpaquetadora += MasaEmpaquetada;
 
                     double MasaBolsa = 0;
                     while (MasaEmpaquetada > 13)

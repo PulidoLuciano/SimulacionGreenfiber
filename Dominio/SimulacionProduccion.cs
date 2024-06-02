@@ -76,6 +76,7 @@ namespace Dominio
                 PapelIntermedio += l.PapelIntermedio;
                 PapelExcesivoPlanta += l.PapelExcesivo;
 
+                System.Diagnostics.Debug.WriteLine($"INFORMACION GENERAL.");
                 System.Diagnostics.Debug.WriteLine($"Producto neto producido: {l.ProductoNetoProducido} Kg");
                 System.Diagnostics.Debug.WriteLine($"Total de bolsas: {l.TotalBolsas} bolsas");
                 System.Diagnostics.Debug.WriteLine($"Papel neto reciclado: {l.PapelNetoReciclado} Kg");
@@ -85,18 +86,29 @@ namespace Dominio
                 System.Diagnostics.Debug.WriteLine($"Potencia total consumida: {l.PotenciaTotal} kW");
                 System.Diagnostics.Debug.WriteLine($"Cantidad de árboles salvados: {l.ArbolesSalvados} árboles");
                 
-                System.Diagnostics.Debug.WriteLine($"Cantidad de papel escaso: {l.PapelEscaso} Kg");
-                System.Diagnostics.Debug.WriteLine($"Cantidad de papel intermedio: {l.PapelIntermedio} Kg");
-                System.Diagnostics.Debug.WriteLine($"Cantidad de papel excesivo: {l.PapelExcesivo} Kg");
+                //System.Diagnostics.Debug.WriteLine($"Cantidad de papel escaso: {l.PapelEscaso} Kg");
+                //System.Diagnostics.Debug.WriteLine($"Cantidad de papel intermedio: {l.PapelIntermedio} Kg");
+                //System.Diagnostics.Debug.WriteLine($"Cantidad de papel excesivo: {l.PapelExcesivo} Kg");
 
-                System.Diagnostics.Debug.WriteLine($"Desperdicio Trituradora: {l.DesperdicioTrituradora} Kg");
-                System.Diagnostics.Debug.WriteLine($"Desperdicio Refinadora: {l.DesperdicioRefinadora} Kg");
-                System.Diagnostics.Debug.WriteLine($"Desperdicio Empaquetadora: {l.DesperdicioEmpaquetadora} Kg");
+                System.Diagnostics.Debug.WriteLine($"PRODUCCION NOMINAL.");
+                System.Diagnostics.Debug.WriteLine($"\t Trituradora: {l.ProduccionNominalTrituradora} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Refinadora: {l.ProduccionNominalRefinadora} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Empaquetdora: {l.ProduccionNominalEmpaquetadora} Kg");
 
-                System.Diagnostics.Debug.WriteLine($"Sobrante de la etapa de recolectado: {l.AlmacenRecolectado} Kg");
-                System.Diagnostics.Debug.WriteLine($"Sobrante de la etapa de limpieza: {l.AlmacenPapel} Kg");
-                System.Diagnostics.Debug.WriteLine($"Sobrante de la etapa de refinacion: {l.AlmacenFibra} Kg");
-                System.Diagnostics.Debug.WriteLine($"Sobrante de la etapa de empaquetado: {l.AlmacenCelulosa} Kg");
+                System.Diagnostics.Debug.WriteLine($"PRODUCCION REAL.");
+                System.Diagnostics.Debug.WriteLine($"\t Trituradora: {l.ProduccionRealTrituradora} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Refinadora: {l.ProduccionRealRefinadora} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Empaquetdora: {l.ProduccionRealEmpaquetadora} Kg");
+
+                System.Diagnostics.Debug.WriteLine($"DESPERDICIO DE CAPACIDAD.");
+                System.Diagnostics.Debug.WriteLine($"\t Trituradora: {l.DesperdicioTrituradoraV2} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Refinadora: {l.DesperdicioRefinadoraV2} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Empaquetadora: {l.DesperdicioEmpaquetadoraV2} Kg");
+
+                System.Diagnostics.Debug.WriteLine($"EXCEDENTES.");
+                System.Diagnostics.Debug.WriteLine($"\t Almacen de recolección: {l.AlmacenRecolectado} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Almacen de papel: {l.AlmacenPapel} Kg");
+                System.Diagnostics.Debug.WriteLine($"\t Almacen de refinacion: {l.AlmacenFibra} Kg");
             }
         }
 
