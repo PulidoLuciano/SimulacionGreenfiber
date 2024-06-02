@@ -27,7 +27,7 @@ namespace Presentacion.Presentadores
 
         private void ActualizarLineasVista()
         {
-            Vista.ListarLineas(simulacion.Lineas);
+            Vista.ListarLineas(simulacion.LineasProduccion);
         }
 
         public void AbrirVistaProducto(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace Presentacion.Presentadores
 
         public void AgregarLinea(object sender, EventArgs e)
         {
-            simulacion.Lineas.Add(new Linea());
+            simulacion.agregarLinea();
             ActualizarLineasVista();
         }
 
@@ -55,7 +55,7 @@ namespace Presentacion.Presentadores
                 index = controles.FindIndex(c => c.Seleccionado);
                 if(index == -1) break;
                 controles.RemoveAt(index);
-                simulacion.Lineas.RemoveAt(index);
+                simulacion.LineasProduccion.RemoveAt(index);
             }
             ActualizarLineasVista();
         }

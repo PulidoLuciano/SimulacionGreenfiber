@@ -19,17 +19,6 @@ namespace Presentacion
         [STAThread]
         static void Main()
         {
-            SimulacionProduccion sp = new SimulacionProduccion();
-            sp.simular();
-
-
-            /*for(int i = 0; i < 1000; i++) {
-                double u = 0;
-                NumerosAleatorios.Generador.G(ref u);
-                Console.WriteLine(u);
-            }*/
-
-
             var container = new UnityContainer();
             Factoria.Instance.SetContenedor(container);
             Application.EnableVisualStyles();
