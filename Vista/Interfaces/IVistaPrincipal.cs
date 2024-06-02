@@ -16,6 +16,7 @@ namespace Presentacion.Interfaces
         event EventHandler AgregarLineaProduccion;
         event EventHandler QuitarLineaProduccion;
         event EventHandler Simular;
+        event EventHandler Reiniciar;
         event EventHandler Resize;
 
         public void ListarLineas(List<Linea> lineas);

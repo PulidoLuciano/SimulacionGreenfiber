@@ -23,6 +23,7 @@ namespace Presentacion.Presentadores
             Vista.Resize += MostrarLineas;
             Vista.QuitarLineaProduccion += EliminarLineas;
             Vista.Simular += SimularProduccion;
+            Vista.Reiniciar += ReiniciarProduccion;
             _simulacion = new SimulacionProduccion();
             ActualizarSimulacion();
             ActualizarLineasVista();
@@ -71,6 +72,13 @@ namespace Presentacion.Presentadores
         {
             _simulacion.simular();
             ActualizarSimulacion();
+        }
+
+        public void ReiniciarProduccion(object sender, EventArgs args)
+        {
+            _simulacion.reiniciar();
+            ActualizarSimulacion();
+            ActualizarLineasVista();
         }
     }
 }

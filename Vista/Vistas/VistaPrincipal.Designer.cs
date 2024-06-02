@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
-            button1 = new Button();
+            botonReiniciar = new Button();
             textBox2 = new TextBox();
             simulacionProduccionBS = new BindingSource(components);
             textBox1 = new TextBox();
@@ -151,16 +151,16 @@
             panel1.BackColor = Color.FromArgb(234, 234, 234);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1060, 1);
+            panel1.Location = new Point(1323, 1);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(3);
-            panel1.Size = new Size(293, 639);
+            panel1.Size = new Size(293, 720);
             panel1.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panel3.Controls.Add(button1);
+            panel3.Controls.Add(botonReiniciar);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label4);
@@ -176,18 +176,18 @@
             panel3.Controls.Add(botonAgregarLinea);
             panel3.Location = new Point(0, 6);
             panel3.Name = "panel3";
-            panel3.Size = new Size(290, 627);
+            panel3.Size = new Size(290, 708);
             panel3.TabIndex = 0;
             // 
-            // button1
+            // botonReiniciar
             // 
-            button1.Location = new Point(122, 351);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 13;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            botonReiniciar.Location = new Point(6, 587);
+            botonReiniciar.Name = "botonReiniciar";
+            botonReiniciar.Size = new Size(281, 40);
+            botonReiniciar.TabIndex = 13;
+            botonReiniciar.Text = "Reiniciar";
+            botonReiniciar.UseVisualStyleBackColor = true;
+            botonReiniciar.Click += button1_Click;
             // 
             // textBox2
             // 
@@ -276,7 +276,7 @@
             botonProducto.FlatStyle = FlatStyle.Flat;
             botonProducto.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             botonProducto.ForeColor = Color.FromArgb(255, 255, 248);
-            botonProducto.Location = new Point(0, 587);
+            botonProducto.Location = new Point(0, 668);
             botonProducto.Name = "botonProducto";
             botonProducto.Size = new Size(290, 40);
             botonProducto.TabIndex = 5;
@@ -369,8 +369,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
-            splitContainer1.Size = new Size(1059, 639);
-            splitContainer1.SplitterDistance = 438;
+            splitContainer1.Size = new Size(1322, 720);
+            splitContainer1.SplitterDistance = 493;
             splitContainer1.TabIndex = 2;
             // 
             // panelLineas
@@ -382,7 +382,7 @@
             panelLineas.Location = new Point(6, 6);
             panelLineas.Name = "panelLineas";
             panelLineas.Padding = new Padding(3);
-            panelLineas.Size = new Size(1045, 424);
+            panelLineas.Size = new Size(1308, 479);
             panelLineas.TabIndex = 0;
             // 
             // splitContainer2
@@ -482,18 +482,19 @@
             splitContainer2.Panel2.Controls.Add(label84);
             splitContainer2.Panel2.Controls.Add(labelLineas);
             splitContainer2.Panel2.Padding = new Padding(3);
-            splitContainer2.Size = new Size(1059, 197);
-            splitContainer2.SplitterDistance = 530;
+            splitContainer2.Size = new Size(1322, 223);
+            splitContainer2.SplitterDistance = 688;
             splitContainer2.TabIndex = 0;
             // 
             // label40
             // 
             label40.AutoSize = true;
             label40.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PotenciaPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label40.Font = new Font("Segoe UI", 11.25F);
             label40.ForeColor = SystemColors.ButtonHighlight;
-            label40.Location = new Point(424, 166);
+            label40.Location = new Point(527, 192);
             label40.Name = "label40";
-            label40.Size = new Size(12, 15);
+            label40.Size = new Size(15, 20);
             label40.TabIndex = 41;
             label40.Text = "-";
             // 
@@ -501,10 +502,11 @@
             // 
             label43.AutoSize = true;
             label43.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ConsumoAcidoBoricoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label43.Font = new Font("Segoe UI", 11.25F);
             label43.ForeColor = SystemColors.ButtonHighlight;
-            label43.Location = new Point(424, 143);
+            label43.Location = new Point(163, 163);
             label43.Name = "label43";
-            label43.Size = new Size(12, 15);
+            label43.Size = new Size(15, 20);
             label43.TabIndex = 40;
             label43.Text = "-";
             // 
@@ -512,10 +514,11 @@
             // 
             label44.AutoSize = true;
             label44.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ConsumoBoraxPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label44.Font = new Font("Segoe UI", 11.25F);
             label44.ForeColor = SystemColors.ButtonHighlight;
-            label44.Location = new Point(424, 122);
+            label44.Location = new Point(164, 140);
             label44.Name = "label44";
-            label44.Size = new Size(12, 15);
+            label44.Size = new Size(15, 20);
             label44.TabIndex = 39;
             label44.Text = "-";
             // 
@@ -523,10 +526,11 @@
             // 
             label45.AutoSize = true;
             label45.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "DesperdicioEmpaquetadoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label45.Font = new Font("Segoe UI", 11.25F);
             label45.ForeColor = SystemColors.ButtonHighlight;
-            label45.Location = new Point(424, 101);
+            label45.Location = new Point(528, 83);
             label45.Name = "label45";
-            label45.Size = new Size(12, 15);
+            label45.Size = new Size(15, 20);
             label45.TabIndex = 38;
             label45.Text = "-";
             // 
@@ -534,10 +538,11 @@
             // 
             label46.AutoSize = true;
             label46.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "DesperdicioRefinacionPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label46.Font = new Font("Segoe UI", 11.25F);
             label46.ForeColor = SystemColors.ButtonHighlight;
-            label46.Location = new Point(424, 80);
+            label46.Location = new Point(528, 58);
             label46.Name = "label46";
-            label46.Size = new Size(12, 15);
+            label46.Size = new Size(15, 20);
             label46.TabIndex = 37;
             label46.Text = "-";
             // 
@@ -545,10 +550,11 @@
             // 
             label47.AutoSize = true;
             label47.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "DesperdicioTrituracionPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label47.Font = new Font("Segoe UI", 11.25F);
             label47.ForeColor = SystemColors.ButtonHighlight;
-            label47.Location = new Point(424, 58);
+            label47.Location = new Point(528, 32);
             label47.Name = "label47";
-            label47.Size = new Size(12, 15);
+            label47.Size = new Size(15, 20);
             label47.TabIndex = 36;
             label47.Text = "-";
             // 
@@ -556,10 +562,11 @@
             // 
             label48.AutoSize = true;
             label48.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "BasuraTotalPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            label48.Font = new Font("Segoe UI", 11.25F);
             label48.ForeColor = SystemColors.ButtonHighlight;
-            label48.Location = new Point(424, 37);
+            label48.Location = new Point(163, 190);
             label48.Name = "label48";
-            label48.Size = new Size(12, 15);
+            label48.Size = new Size(15, 20);
             label48.TabIndex = 35;
             label48.Text = "-";
             // 
@@ -567,10 +574,11 @@
             // 
             labelMasaBasuraEscesivaPlanta.AutoSize = true;
             labelMasaBasuraEscesivaPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PapelExcesivoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelMasaBasuraEscesivaPlanta.Font = new Font("Segoe UI", 11.25F);
             labelMasaBasuraEscesivaPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelMasaBasuraEscesivaPlanta.Location = new Point(169, 166);
+            labelMasaBasuraEscesivaPlanta.Location = new Point(527, 161);
             labelMasaBasuraEscesivaPlanta.Name = "labelMasaBasuraEscesivaPlanta";
-            labelMasaBasuraEscesivaPlanta.Size = new Size(12, 15);
+            labelMasaBasuraEscesivaPlanta.Size = new Size(15, 20);
             labelMasaBasuraEscesivaPlanta.TabIndex = 34;
             labelMasaBasuraEscesivaPlanta.Text = "-";
             // 
@@ -578,10 +586,11 @@
             // 
             labelMasaBasuraInterPlanta.AutoSize = true;
             labelMasaBasuraInterPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PapelIntermedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelMasaBasuraInterPlanta.Font = new Font("Segoe UI", 11.25F);
             labelMasaBasuraInterPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelMasaBasuraInterPlanta.Location = new Point(169, 143);
+            labelMasaBasuraInterPlanta.Location = new Point(528, 133);
             labelMasaBasuraInterPlanta.Name = "labelMasaBasuraInterPlanta";
-            labelMasaBasuraInterPlanta.Size = new Size(12, 15);
+            labelMasaBasuraInterPlanta.Size = new Size(15, 20);
             labelMasaBasuraInterPlanta.TabIndex = 33;
             labelMasaBasuraInterPlanta.Text = "-";
             // 
@@ -589,10 +598,11 @@
             // 
             labelMasaBasuraEscasaPlanta.AutoSize = true;
             labelMasaBasuraEscasaPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PapelEscasoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelMasaBasuraEscasaPlanta.Font = new Font("Segoe UI", 11.25F);
             labelMasaBasuraEscasaPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelMasaBasuraEscasaPlanta.Location = new Point(169, 122);
+            labelMasaBasuraEscasaPlanta.Location = new Point(528, 108);
             labelMasaBasuraEscasaPlanta.Name = "labelMasaBasuraEscasaPlanta";
-            labelMasaBasuraEscasaPlanta.Size = new Size(12, 15);
+            labelMasaBasuraEscasaPlanta.Size = new Size(15, 20);
             labelMasaBasuraEscasaPlanta.TabIndex = 32;
             labelMasaBasuraEscasaPlanta.Text = "-";
             // 
@@ -600,10 +610,11 @@
             // 
             labelArbolesSalvadosPlanta.AutoSize = true;
             labelArbolesSalvadosPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ArbolesSalvadosPlanta", true, DataSourceUpdateMode.OnValidation, null, "N0"));
+            labelArbolesSalvadosPlanta.Font = new Font("Segoe UI", 11.25F);
             labelArbolesSalvadosPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelArbolesSalvadosPlanta.Location = new Point(169, 101);
+            labelArbolesSalvadosPlanta.Location = new Point(163, 54);
             labelArbolesSalvadosPlanta.Name = "labelArbolesSalvadosPlanta";
-            labelArbolesSalvadosPlanta.Size = new Size(12, 15);
+            labelArbolesSalvadosPlanta.Size = new Size(15, 20);
             labelArbolesSalvadosPlanta.TabIndex = 31;
             labelArbolesSalvadosPlanta.Text = "-";
             // 
@@ -611,10 +622,11 @@
             // 
             labelTotalBolsasPlanta.AutoSize = true;
             labelTotalBolsasPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "TotalBolsasPlanta", true));
+            labelTotalBolsasPlanta.Font = new Font("Segoe UI", 11.25F);
             labelTotalBolsasPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelTotalBolsasPlanta.Location = new Point(169, 80);
+            labelTotalBolsasPlanta.Location = new Point(163, 30);
             labelTotalBolsasPlanta.Name = "labelTotalBolsasPlanta";
-            labelTotalBolsasPlanta.Size = new Size(12, 15);
+            labelTotalBolsasPlanta.Size = new Size(15, 20);
             labelTotalBolsasPlanta.TabIndex = 30;
             labelTotalBolsasPlanta.Text = "-";
             // 
@@ -622,10 +634,11 @@
             // 
             labelProductoNetoPlanta.AutoSize = true;
             labelProductoNetoPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ProductoNetoProducidoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelProductoNetoPlanta.Font = new Font("Segoe UI", 11.25F);
             labelProductoNetoPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelProductoNetoPlanta.Location = new Point(169, 33);
+            labelProductoNetoPlanta.Location = new Point(163, 90);
             labelProductoNetoPlanta.Name = "labelProductoNetoPlanta";
-            labelProductoNetoPlanta.Size = new Size(12, 15);
+            labelProductoNetoPlanta.Size = new Size(15, 20);
             labelProductoNetoPlanta.TabIndex = 29;
             labelProductoNetoPlanta.Text = "-";
             // 
@@ -633,272 +646,299 @@
             // 
             labelPapelNetoRecicladoPlanta.AutoSize = true;
             labelPapelNetoRecicladoPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "TotalPapelNetoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelPapelNetoRecicladoPlanta.Font = new Font("Segoe UI", 11.25F);
             labelPapelNetoRecicladoPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelPapelNetoRecicladoPlanta.Location = new Point(169, 56);
+            labelPapelNetoRecicladoPlanta.Location = new Point(164, 115);
             labelPapelNetoRecicladoPlanta.Name = "labelPapelNetoRecicladoPlanta";
-            labelPapelNetoRecicladoPlanta.Size = new Size(12, 15);
+            labelPapelNetoRecicladoPlanta.Size = new Size(15, 20);
             labelPapelNetoRecicladoPlanta.TabIndex = 28;
             labelPapelNetoRecicladoPlanta.Text = "-";
             // 
             // label28
             // 
             label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI", 11.25F);
             label28.ForeColor = SystemColors.ButtonHighlight;
-            label28.Location = new Point(472, 164);
+            label28.Location = new Point(622, 190);
             label28.Name = "label28";
-            label28.Size = new Size(24, 15);
+            label28.Size = new Size(30, 20);
             label28.TabIndex = 27;
             label28.Text = "kW";
             // 
             // label29
             // 
             label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI", 11.25F);
             label29.ForeColor = SystemColors.ButtonHighlight;
-            label29.Location = new Point(472, 141);
+            label29.Location = new Point(268, 164);
             label29.Name = "label29";
-            label29.Size = new Size(21, 15);
+            label29.Size = new Size(27, 20);
             label29.TabIndex = 26;
             label29.Text = "Kg";
             // 
             // label30
             // 
             label30.AutoSize = true;
+            label30.Font = new Font("Segoe UI", 11.25F);
             label30.ForeColor = SystemColors.ButtonHighlight;
-            label30.Location = new Point(472, 120);
+            label30.Location = new Point(268, 136);
             label30.Name = "label30";
-            label30.Size = new Size(21, 15);
+            label30.Size = new Size(27, 20);
             label30.TabIndex = 25;
             label30.Text = "Kg";
             // 
             // label31
             // 
             label31.AutoSize = true;
+            label31.Font = new Font("Segoe UI", 11.25F);
             label31.ForeColor = SystemColors.ButtonHighlight;
-            label31.Location = new Point(472, 99);
+            label31.Location = new Point(622, 83);
             label31.Name = "label31";
-            label31.Size = new Size(21, 15);
+            label31.Size = new Size(27, 20);
             label31.TabIndex = 24;
             label31.Text = "Kg";
             // 
             // label32
             // 
             label32.AutoSize = true;
+            label32.Font = new Font("Segoe UI", 11.25F);
             label32.ForeColor = SystemColors.ButtonHighlight;
-            label32.Location = new Point(472, 78);
+            label32.Location = new Point(623, 56);
             label32.Name = "label32";
-            label32.Size = new Size(21, 15);
+            label32.Size = new Size(27, 20);
             label32.TabIndex = 23;
             label32.Text = "Kg";
             // 
             // label33
             // 
             label33.AutoSize = true;
+            label33.Font = new Font("Segoe UI", 11.25F);
             label33.ForeColor = SystemColors.ButtonHighlight;
-            label33.Location = new Point(472, 56);
+            label33.Location = new Point(623, 30);
             label33.Name = "label33";
-            label33.Size = new Size(21, 15);
+            label33.Size = new Size(27, 20);
             label33.TabIndex = 22;
             label33.Text = "Kg";
             // 
             // label34
             // 
             label34.AutoSize = true;
+            label34.Font = new Font("Segoe UI", 11.25F);
             label34.ForeColor = SystemColors.ButtonHighlight;
-            label34.Location = new Point(472, 33);
+            label34.Location = new Point(268, 193);
             label34.Name = "label34";
-            label34.Size = new Size(21, 15);
+            label34.Size = new Size(27, 20);
             label34.TabIndex = 21;
             label34.Text = "Kg";
             // 
             // label27
             // 
             label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 11.25F);
             label27.ForeColor = SystemColors.ButtonHighlight;
-            label27.Location = new Point(221, 166);
+            label27.Location = new Point(622, 160);
             label27.Name = "label27";
-            label27.Size = new Size(21, 15);
+            label27.Size = new Size(27, 20);
             label27.TabIndex = 20;
             label27.Text = "Kg";
             // 
             // label26
             // 
             label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI", 11.25F);
             label26.ForeColor = SystemColors.ButtonHighlight;
-            label26.Location = new Point(221, 143);
+            label26.Location = new Point(622, 133);
             label26.Name = "label26";
-            label26.Size = new Size(21, 15);
+            label26.Size = new Size(27, 20);
             label26.TabIndex = 19;
             label26.Text = "Kg";
             // 
             // label25
             // 
             label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 11.25F);
             label25.ForeColor = SystemColors.ButtonHighlight;
-            label25.Location = new Point(221, 122);
+            label25.Location = new Point(622, 105);
             label25.Name = "label25";
-            label25.Size = new Size(21, 15);
+            label25.Size = new Size(27, 20);
             label25.TabIndex = 18;
             label25.Text = "Kg";
             // 
             // label22
             // 
             label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 11.25F);
             label22.ForeColor = SystemColors.ButtonHighlight;
-            label22.Location = new Point(221, 58);
+            label22.Location = new Point(268, 111);
             label22.Name = "label22";
-            label22.Size = new Size(21, 15);
+            label22.Size = new Size(27, 20);
             label22.TabIndex = 15;
             label22.Text = "Kg";
             // 
             // label21
             // 
             label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 11.25F);
             label21.ForeColor = SystemColors.ButtonHighlight;
-            label21.Location = new Point(221, 35);
+            label21.Location = new Point(268, 85);
             label21.Name = "label21";
-            label21.Size = new Size(21, 15);
+            label21.Size = new Size(27, 20);
             label21.TabIndex = 14;
             label21.Text = "Kg";
             // 
             // label20
             // 
             label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 11.25F);
             label20.ForeColor = SystemColors.ButtonHighlight;
-            label20.Location = new Point(6, 166);
+            label20.Location = new Point(317, 160);
             label20.Name = "label20";
-            label20.Size = new Size(143, 15);
+            label20.Size = new Size(179, 20);
             label20.TabIndex = 13;
             label20.Text = "Masa con basura excesiva";
             // 
             // label19
             // 
             label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 11.25F);
             label19.ForeColor = SystemColors.ButtonHighlight;
-            label19.Location = new Point(6, 143);
+            label19.Location = new Point(317, 133);
             label19.Name = "label19";
-            label19.Size = new Size(156, 15);
+            label19.Size = new Size(196, 20);
             label19.TabIndex = 12;
             label19.Text = "Masa con basura intermedia";
             // 
             // label18
             // 
             label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 11.25F);
             label18.ForeColor = SystemColors.ButtonHighlight;
-            label18.Location = new Point(6, 122);
+            label18.Location = new Point(317, 107);
             label18.Name = "label18";
-            label18.Size = new Size(133, 15);
+            label18.Size = new Size(167, 20);
             label18.TabIndex = 11;
             label18.Text = "Masa con basura escasa";
             // 
             // label17
             // 
             label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 11.25F);
             label17.ForeColor = SystemColors.ButtonHighlight;
-            label17.Location = new Point(257, 143);
+            label17.Location = new Point(7, 166);
             label17.Name = "label17";
-            label17.Size = new Size(146, 15);
+            label17.Size = new Size(95, 20);
             label17.TabIndex = 10;
-            label17.Text = "Consumo de Ácido Bórico";
+            label17.Text = "Ácido Bórico";
             // 
             // label16
             // 
             label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 11.25F);
             label16.ForeColor = SystemColors.ButtonHighlight;
-            label16.Location = new Point(257, 121);
+            label16.Location = new Point(8, 143);
             label16.Name = "label16";
-            label16.Size = new Size(108, 15);
+            label16.Size = new Size(47, 20);
             label16.TabIndex = 9;
-            label16.Text = "Consumo de Bórax";
+            label16.Text = "Bórax";
             // 
             // label15
             // 
             label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 11.25F);
             label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(257, 164);
+            label15.Location = new Point(316, 190);
             label15.Name = "label15";
-            label15.Size = new Size(151, 15);
+            label15.Size = new Size(189, 20);
             label15.TabIndex = 8;
             label15.Text = "Consumo de potencia total";
             // 
             // label13
             // 
             label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 11.25F);
             label13.ForeColor = SystemColors.ButtonHighlight;
-            label13.Location = new Point(257, 99);
+            label13.Location = new Point(317, 81);
             label13.Name = "label13";
-            label13.Size = new Size(131, 15);
+            label13.Size = new Size(168, 20);
             label13.TabIndex = 8;
             label13.Text = "Desperdicio de celulosa";
             // 
             // label12
             // 
             label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11.25F);
             label12.ForeColor = SystemColors.ButtonHighlight;
-            label12.Location = new Point(257, 77);
+            label12.Location = new Point(317, 55);
             label12.Name = "label12";
-            label12.Size = new Size(112, 15);
+            label12.Size = new Size(145, 20);
             label12.TabIndex = 7;
             label12.Text = "Desperdicio de fibra";
             // 
             // label11
             // 
             label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 11.25F);
             label11.ForeColor = SystemColors.ButtonHighlight;
-            label11.Location = new Point(257, 56);
+            label11.Location = new Point(317, 30);
             label11.Name = "label11";
-            label11.Size = new Size(164, 15);
+            label11.Size = new Size(210, 20);
             label11.TabIndex = 6;
             label11.Text = "Desperdicio de masa triturada";
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11.25F);
             label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(6, 101);
+            label9.Location = new Point(7, 56);
             label9.Name = "label9";
-            label9.Size = new Size(95, 15);
+            label9.Size = new Size(121, 20);
             label9.TabIndex = 5;
             label9.Text = "Arboles salvados";
             // 
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11.25F);
             label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(257, 35);
+            label8.Location = new Point(7, 190);
             label8.Name = "label8";
-            label8.Size = new Size(69, 15);
+            label8.Size = new Size(88, 20);
             label8.TabIndex = 4;
             label8.Text = "Basura total";
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F);
             label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(5, 80);
+            label7.Location = new Point(6, 33);
             label7.Name = "label7";
-            label7.Size = new Size(84, 15);
+            label7.Size = new Size(109, 20);
             label7.TabIndex = 3;
             label7.Text = "Total de bolsas";
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F);
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(6, 33);
+            label6.Location = new Point(7, 93);
             label6.Name = "label6";
-            label6.Size = new Size(110, 15);
+            label6.Size = new Size(65, 20);
             label6.TabIndex = 2;
-            label6.Text = "Producto neto total";
+            label6.Text = "Celulosa";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11.25F);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(6, 56);
+            label5.Location = new Point(7, 118);
             label5.Name = "label5";
-            label5.Size = new Size(141, 15);
+            label5.Size = new Size(82, 20);
             label5.TabIndex = 1;
-            label5.Text = "Papel neto reciclado total";
+            label5.Text = "Papel Neto";
             // 
             // labelGenerales
             // 
@@ -1338,7 +1378,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(61, 57, 53);
-            ClientSize = new Size(1354, 641);
+            ClientSize = new Size(1617, 722);
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -1467,6 +1507,6 @@
         private Label label80;
         private Label label85;
         private BindingSource simulacionProduccionBS;
-        private Button button1;
+        private Button botonReiniciar;
     }
 }

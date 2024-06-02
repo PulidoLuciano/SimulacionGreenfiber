@@ -15,7 +15,6 @@ namespace Dominio
         public int _horasJornada = 8;
         private double _minPapel = 1500;
         private double _maxPapel = 2000;
-        public double variable = 0;
 
         public double TotalPapelNetoPlanta { get; set; }
         public double TotalBolsasPlanta { get; set; }
@@ -51,6 +50,10 @@ namespace Dominio
             set { _maxPapel = value; } 
         }
 
+        public SimulacionProduccion()
+        {
+            reiniciar();
+        }
 
         public void simular()
         {
@@ -103,5 +106,24 @@ namespace Dominio
             LineasProduccion.Add(l);
         }
 
+        public void reiniciar()
+        {
+            LineasProduccion = new List<Linea>();
+            agregarLinea();
+            TotalPapelNetoPlanta = 0;
+            TotalBolsasPlanta = 0;
+            ProductoNetoProducidoPlanta = 0;
+            PotenciaPlanta = 0;
+            ArbolesSalvadosPlanta = 0;
+            ConsumoBoraxPlanta = 0;
+            ConsumoAcidoBoricoPlanta = 0;
+            PapelEscasoPlanta = 0;
+            PapelIntermedio = 0;
+            PapelExcesivoPlanta = 0;
+            DesperdicioTrituracionPlanta = 0;
+            BasuraTotalPlanta = 0;
+            DesperdicioRefinacionPlanta = 0;
+            DesperdicioEmpaquetadoPlanta = 0;
+        }
     }
 }

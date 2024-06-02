@@ -43,8 +43,13 @@ namespace Vistas
         }
         public event EventHandler Simular
         {
-            add { button1.Click += value; }
-            remove { button1.Click -= value; }
+            add { botonSimular.Click += value; }
+            remove { botonSimular.Click -= value; }
+        }
+        public event EventHandler Reiniciar
+        {
+            add { botonReiniciar.Click += value; }
+            remove { botonReiniciar.Click -= value; }
         }
 
         public void ActualizarSimulacion(SimulacionProduccion simulacion)
