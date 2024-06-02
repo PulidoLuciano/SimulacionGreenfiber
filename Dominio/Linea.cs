@@ -1,6 +1,7 @@
 ﻿using Dominio.Maquinas;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,10 +33,14 @@ namespace Dominio
         double PapelExcesivo = 0;
 
         // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
-        double LotePapel = 0;
+        double AlmacenRecolectado = 0;
+        double AlmacenPapel = 0;
+        double AlmacenBasura = 0;
+        double AlmacenFibra = 0;
         double AlmacenCelulosa = 0;
 
         // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido"
+        double DesperdicioTrituradora = 0;
         double DesperdicioRefinadora = 0;
         double DesperdicioEmpaquetadora = 0;
 
@@ -51,13 +56,30 @@ namespace Dominio
 
             while (horas > 0)
             {
+                // ----- RECOLECCION -----
+                double MasaRecolectada = 0;
+                NumerosAleatorios.Distribuciones.Uniform(1500, 2000, ref MasaRecolectada);
+
+                AlmacenRecolectado += MasaRecolectada;
+
                 // ----- TRITURACION -----
                 double MasaTriturada = 0;
                 NumerosAleatorios.Distribuciones.Normal(MaquinaTrituradora.CapacidadPromedio, 60, ref MasaTriturada);
 
-                NumerosAleatorios.Generador.G(ref u);
+                if(MasaTriturada > AlmacenRecolectado)
+                {
+                    DesperdicioTrituradora += MasaTriturada - AlmacenRecolectado;
+                    MasaTriturada = AlmacenRecolectado;
+                    AlmacenRecolectado = 0;
+                }
+                else
+                {
+                    AlmacenRecolectado -= MasaTriturada;
+                }
 
                 // ----- LIMPIEZA -----
+                NumerosAleatorios.Generador.G(ref u);
+
                 double porcPapel = 0;
                 NivelBasura nivelBasura;
 
@@ -98,24 +120,26 @@ namespace Dominio
                     PapelExcesivo += Papel;
                 }
 
-                LotePapel += Papel;
-                BasuraProducida += Basura;
+                AlmacenPapel += Papel;
+                AlmacenBasura += Basura;
 
                 // ----- REFINACION -----
                 double MasaFibra = 0;
                 NumerosAleatorios.Distribuciones.Normal(MaquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
 
-                if(MasaFibra > LotePapel)
+                if(MasaFibra > AlmacenPapel)
                 {
-                    DesperdicioRefinadora += MasaFibra - LotePapel;
-                    PapelNetoReciclado += LotePapel;
-                    LotePapel = 0;
+                    DesperdicioRefinadora += MasaFibra - AlmacenPapel;
+                    MasaFibra = AlmacenPapel;
+                    AlmacenPapel = 0;
                 }
                 else
                 {
-                    LotePapel -= MasaFibra;
-                    PapelNetoReciclado += MasaFibra;
+                    AlmacenPapel -= MasaFibra;
                 }
+
+                AlmacenFibra += MasaFibra;
+                PapelNetoReciclado += MasaFibra;
 
                 double porcQuimico = 0;
                 NumerosAleatorios.Distribuciones.Uniform(0.2, 0.25, ref porcQuimico);
@@ -131,32 +155,30 @@ namespace Dominio
                 double MasaEmpaquetada = 0;
                 NumerosAleatorios.Distribuciones.Normal(MaquinaEmpaquetadora.CapacidadPromedio, 60, ref MasaEmpaquetada);
 
-                double MasaProducto = 0;
-
                 if (MasaEmpaquetada > AlmacenCelulosa)
                 {
                     DesperdicioEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
-                    MasaProducto = AlmacenCelulosa;
+                    MasaEmpaquetada = AlmacenCelulosa;
                     AlmacenCelulosa = 0;
                 }
                 else
                 {
                     AlmacenCelulosa -= MasaEmpaquetada;
-                    MasaProducto = MasaEmpaquetada;
                 }
 
                 double MasaBolsa = 0;
-                while (MasaProducto > 13)
+                while (MasaEmpaquetada > 13)
                 {
                     NumerosAleatorios.Distribuciones.Uniform(13, 15, ref  MasaBolsa);
-                    MasaProducto -= MasaBolsa;
+                    MasaEmpaquetada -= MasaBolsa;
                     ProductoNetoProducido += MasaBolsa;
                     TotalBolsas++;
                 }
 
-                AlmacenCelulosa += MasaProducto;
+                AlmacenCelulosa += MasaEmpaquetada;
                 horas--;
             }
+
 
             Console.WriteLine($"PapelNetoReciclado: {PapelNetoReciclado} Kg");
             Console.WriteLine($"ProductoNetoProducido: {ProductoNetoProducido} Kg");
