@@ -1,24 +1,77 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Dominio
 {
     public class SimulacionProduccion
     {
         public List<Linea> LineasProduccion = new List<Linea>();
-        public int HorasJornada = 8;
-        public double MinPapel = 1500;
-        public double MaxPapel = 2000;
+        public int _horasJornada = 8;
+        private double _minPapel = 1500;
+        private double _maxPapel = 2000;
+        public double variable = 0;
+
+        public double TotalPapelNetoPlanta { get; set; }
+        public double TotalBolsasPlanta { get; set; }
+        public double ProductoNetoProducidoPlanta { get; set; }
+        public double PotenciaPlanta { get; set; }
+        public double ArbolesSalvadosPlanta { get; set; }
+
+        public double ConsumoBoraxPlanta { get; set; }
+        public double ConsumoAcidoBoricoPlanta { get; set; }
+
+        public double PapelEscasoPlanta { get; set; }
+        public double PapelIntermedio { get; set; }
+        public double PapelExcesivoPlanta { get; set; }
+
+        public double DesperdicioTrituracionPlanta { get; set; }
+        public double BasuraTotalPlanta { get; set; }
+        public double DesperdicioRefinacionPlanta { get; set; }
+        public double DesperdicioEmpaquetadoPlanta { get; set; }
+
+        public int HorasJornada
+        {
+            get { return _horasJornada; }
+            set { _horasJornada = value; }
+        }
+
+        public double MinPapel {
+            get { return _minPapel; }
+            set { _minPapel = value; }
+        }
+
+        public double MaxPapel { 
+            get { return _maxPapel; } 
+            set { _maxPapel = value; } 
+        }
+
 
         public void simular()
         {
-            foreach(Linea l in LineasProduccion)
+            foreach (Linea l in LineasProduccion)
             {
                 l.iniciar(HorasJornada, MinPapel, MaxPapel);
+
+                ProductoNetoProducidoPlanta += l.ProductoNetoProducido;
+                TotalBolsasPlanta += l.TotalBolsas;
+                TotalPapelNetoPlanta += l.PapelNetoReciclado;
+                BasuraTotalPlanta += l.AlmacenBasura;
+                ConsumoAcidoBoricoPlanta += l.ConsumoAcidoBorico;
+                ConsumoBoraxPlanta += l.ConsumoBorax;
+                PotenciaPlanta += l.PotenciaTotal;
+                ArbolesSalvadosPlanta += l.ArbolesSalvados;
+                DesperdicioTrituracionPlanta += l.DesperdicioTrituradora;
+                DesperdicioRefinacionPlanta += l.DesperdicioRefinadora;
+                DesperdicioEmpaquetadoPlanta += l.DesperdicioEmpaquetadora;
+                PapelEscasoPlanta += l.PapelEscaso;
+                PapelIntermedio += l.PapelIntermedio;
+                PapelExcesivoPlanta += l.PapelExcesivo;
 
                 System.Diagnostics.Debug.WriteLine($"Producto neto producido: {l.ProductoNetoProducido} Kg");
                 System.Diagnostics.Debug.WriteLine($"Total de bolsas: {l.TotalBolsas} bolsas");

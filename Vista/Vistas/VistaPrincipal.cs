@@ -19,7 +19,7 @@ namespace Vistas
     {
         List<ControlLineaProduccion> _controlesLineas;
         List<ControlLineaProduccion> IVistaPrincipal.ControlesLineas { get { return _controlesLineas; } }
-        
+
         public VistaPrincipal()
         {
             InitializeComponent();
@@ -29,11 +29,11 @@ namespace Vistas
         public event EventHandler AbrirVistaProducto
         {
             add { botonProducto.Click += value; }
-            remove { botonProducto.Click -= value;}
+            remove { botonProducto.Click -= value; }
         }
         public event EventHandler AgregarLineaProduccion
         {
-            add { botonAgregarLinea.Click += value;}
+            add { botonAgregarLinea.Click += value; }
             remove { botonAgregarLinea.Click -= value; }
         }
         public event EventHandler QuitarLineaProduccion
@@ -41,7 +41,17 @@ namespace Vistas
             add { botonEliminarLinea.Click += value; }
             remove { botonEliminarLinea.Click -= value; }
         }
-        public event EventHandler Simular;
+        public event EventHandler Simular
+        {
+            add { button1.Click += value; }
+            remove { button1.Click -= value; }
+        }
+
+        public void ActualizarSimulacion(SimulacionProduccion simulacion)
+        {
+            simulacionProduccionBS.DataSource = simulacion;
+            simulacionProduccionBS.ResetBindings(false);
+        }
 
         private void botonSimular_Paint(object sender, PaintEventArgs e)
         {
@@ -70,6 +80,13 @@ namespace Vistas
 
             labelNroLineas.Text = lineas.Count.ToString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 
     public class VistaPrincipalConPresentador : VistaBase<PresentadorPrincipal> { }

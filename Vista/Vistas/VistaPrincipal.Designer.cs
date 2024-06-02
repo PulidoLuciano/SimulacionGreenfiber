@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
+            button1 = new Button();
             textBox2 = new TextBox();
+            simulacionProduccionBS = new BindingSource(components);
             textBox1 = new TextBox();
             label4 = new Label();
             label3 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            numericHorasJornada = new NumericUpDown();
             label2 = new Label();
             button2 = new Button();
             botonProducto = new Button();
@@ -53,9 +56,9 @@
             label46 = new Label();
             label47 = new Label();
             label48 = new Label();
-            label42 = new Label();
-            masaBasuraInterPlanta = new Label();
-            masaBasuraEscasaPlanta = new Label();
+            labelMasaBasuraEscesivaPlanta = new Label();
+            labelMasaBasuraInterPlanta = new Label();
+            labelMasaBasuraEscasaPlanta = new Label();
             labelArbolesSalvadosPlanta = new Label();
             labelTotalBolsasPlanta = new Label();
             labelProductoNetoPlanta = new Label();
@@ -131,7 +134,8 @@
             labelLineas = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)simulacionProduccionBS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericHorasJornada).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -156,11 +160,12 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel3.Controls.Add(button1);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
-            panel3.Controls.Add(numericUpDown1);
+            panel3.Controls.Add(numericHorasJornada);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(button2);
             panel3.Controls.Add(botonProducto);
@@ -174,15 +179,31 @@
             panel3.Size = new Size(290, 627);
             panel3.TabIndex = 0;
             // 
+            // button1
+            // 
+            button1.Location = new Point(122, 351);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 13;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // textBox2
             // 
+            textBox2.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "MaxPapel", true, DataSourceUpdateMode.OnValidation, null, "N0"));
             textBox2.Location = new Point(197, 197);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(53, 23);
             textBox2.TabIndex = 12;
             // 
+            // simulacionProduccionBS
+            // 
+            simulacionProduccionBS.DataSource = typeof(Dominio.SimulacionProduccion);
+            // 
             // textBox1
             // 
+            textBox1.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "MinPapel", true, DataSourceUpdateMode.OnValidation, null, "N0"));
             textBox1.Location = new Point(197, 165);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(53, 23);
@@ -212,12 +233,13 @@
             label3.TabIndex = 9;
             label3.Text = "Mínimo de papel";
             // 
-            // numericUpDown1
+            // numericHorasJornada
             // 
-            numericUpDown1.Location = new Point(197, 133);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(53, 23);
-            numericUpDown1.TabIndex = 8;
+            numericHorasJornada.DataBindings.Add(new Binding("Value", simulacionProduccionBS, "HorasJornada", true, DataSourceUpdateMode.OnValidation, null, "N0"));
+            numericHorasJornada.Location = new Point(197, 133);
+            numericHorasJornada.Name = "numericHorasJornada";
+            numericHorasJornada.Size = new Size(53, 23);
+            numericHorasJornada.TabIndex = 8;
             // 
             // label2
             // 
@@ -379,9 +401,9 @@
             splitContainer2.Panel1.Controls.Add(label46);
             splitContainer2.Panel1.Controls.Add(label47);
             splitContainer2.Panel1.Controls.Add(label48);
-            splitContainer2.Panel1.Controls.Add(label42);
-            splitContainer2.Panel1.Controls.Add(masaBasuraInterPlanta);
-            splitContainer2.Panel1.Controls.Add(masaBasuraEscasaPlanta);
+            splitContainer2.Panel1.Controls.Add(labelMasaBasuraEscesivaPlanta);
+            splitContainer2.Panel1.Controls.Add(labelMasaBasuraInterPlanta);
+            splitContainer2.Panel1.Controls.Add(labelMasaBasuraEscasaPlanta);
             splitContainer2.Panel1.Controls.Add(labelArbolesSalvadosPlanta);
             splitContainer2.Panel1.Controls.Add(labelTotalBolsasPlanta);
             splitContainer2.Panel1.Controls.Add(labelProductoNetoPlanta);
@@ -467,6 +489,7 @@
             // label40
             // 
             label40.AutoSize = true;
+            label40.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PotenciaPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label40.ForeColor = SystemColors.ButtonHighlight;
             label40.Location = new Point(424, 166);
             label40.Name = "label40";
@@ -477,6 +500,7 @@
             // label43
             // 
             label43.AutoSize = true;
+            label43.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ConsumoAcidoBoricoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label43.ForeColor = SystemColors.ButtonHighlight;
             label43.Location = new Point(424, 143);
             label43.Name = "label43";
@@ -487,6 +511,7 @@
             // label44
             // 
             label44.AutoSize = true;
+            label44.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ConsumoBoraxPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label44.ForeColor = SystemColors.ButtonHighlight;
             label44.Location = new Point(424, 122);
             label44.Name = "label44";
@@ -497,6 +522,7 @@
             // label45
             // 
             label45.AutoSize = true;
+            label45.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "DesperdicioEmpaquetadoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label45.ForeColor = SystemColors.ButtonHighlight;
             label45.Location = new Point(424, 101);
             label45.Name = "label45";
@@ -507,6 +533,7 @@
             // label46
             // 
             label46.AutoSize = true;
+            label46.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "DesperdicioRefinacionPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label46.ForeColor = SystemColors.ButtonHighlight;
             label46.Location = new Point(424, 80);
             label46.Name = "label46";
@@ -517,6 +544,7 @@
             // label47
             // 
             label47.AutoSize = true;
+            label47.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "DesperdicioTrituracionPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label47.ForeColor = SystemColors.ButtonHighlight;
             label47.Location = new Point(424, 58);
             label47.Name = "label47";
@@ -527,6 +555,7 @@
             // label48
             // 
             label48.AutoSize = true;
+            label48.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "BasuraTotalPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             label48.ForeColor = SystemColors.ButtonHighlight;
             label48.Location = new Point(424, 37);
             label48.Name = "label48";
@@ -534,39 +563,43 @@
             label48.TabIndex = 35;
             label48.Text = "-";
             // 
-            // label42
+            // labelMasaBasuraEscesivaPlanta
             // 
-            label42.AutoSize = true;
-            label42.ForeColor = SystemColors.ButtonHighlight;
-            label42.Location = new Point(169, 166);
-            label42.Name = "label42";
-            label42.Size = new Size(12, 15);
-            label42.TabIndex = 34;
-            label42.Text = "-";
+            labelMasaBasuraEscesivaPlanta.AutoSize = true;
+            labelMasaBasuraEscesivaPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PapelExcesivoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelMasaBasuraEscesivaPlanta.ForeColor = SystemColors.ButtonHighlight;
+            labelMasaBasuraEscesivaPlanta.Location = new Point(169, 166);
+            labelMasaBasuraEscesivaPlanta.Name = "labelMasaBasuraEscesivaPlanta";
+            labelMasaBasuraEscesivaPlanta.Size = new Size(12, 15);
+            labelMasaBasuraEscesivaPlanta.TabIndex = 34;
+            labelMasaBasuraEscesivaPlanta.Text = "-";
             // 
-            // masaBasuraInterPlanta
+            // labelMasaBasuraInterPlanta
             // 
-            masaBasuraInterPlanta.AutoSize = true;
-            masaBasuraInterPlanta.ForeColor = SystemColors.ButtonHighlight;
-            masaBasuraInterPlanta.Location = new Point(169, 143);
-            masaBasuraInterPlanta.Name = "masaBasuraInterPlanta";
-            masaBasuraInterPlanta.Size = new Size(12, 15);
-            masaBasuraInterPlanta.TabIndex = 33;
-            masaBasuraInterPlanta.Text = "-";
+            labelMasaBasuraInterPlanta.AutoSize = true;
+            labelMasaBasuraInterPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PapelIntermedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelMasaBasuraInterPlanta.ForeColor = SystemColors.ButtonHighlight;
+            labelMasaBasuraInterPlanta.Location = new Point(169, 143);
+            labelMasaBasuraInterPlanta.Name = "labelMasaBasuraInterPlanta";
+            labelMasaBasuraInterPlanta.Size = new Size(12, 15);
+            labelMasaBasuraInterPlanta.TabIndex = 33;
+            labelMasaBasuraInterPlanta.Text = "-";
             // 
-            // masaBasuraEscasaPlanta
+            // labelMasaBasuraEscasaPlanta
             // 
-            masaBasuraEscasaPlanta.AutoSize = true;
-            masaBasuraEscasaPlanta.ForeColor = SystemColors.ButtonHighlight;
-            masaBasuraEscasaPlanta.Location = new Point(169, 122);
-            masaBasuraEscasaPlanta.Name = "masaBasuraEscasaPlanta";
-            masaBasuraEscasaPlanta.Size = new Size(12, 15);
-            masaBasuraEscasaPlanta.TabIndex = 32;
-            masaBasuraEscasaPlanta.Text = "-";
+            labelMasaBasuraEscasaPlanta.AutoSize = true;
+            labelMasaBasuraEscasaPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "PapelEscasoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            labelMasaBasuraEscasaPlanta.ForeColor = SystemColors.ButtonHighlight;
+            labelMasaBasuraEscasaPlanta.Location = new Point(169, 122);
+            labelMasaBasuraEscasaPlanta.Name = "labelMasaBasuraEscasaPlanta";
+            labelMasaBasuraEscasaPlanta.Size = new Size(12, 15);
+            labelMasaBasuraEscasaPlanta.TabIndex = 32;
+            labelMasaBasuraEscasaPlanta.Text = "-";
             // 
             // labelArbolesSalvadosPlanta
             // 
             labelArbolesSalvadosPlanta.AutoSize = true;
+            labelArbolesSalvadosPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ArbolesSalvadosPlanta", true, DataSourceUpdateMode.OnValidation, null, "N0"));
             labelArbolesSalvadosPlanta.ForeColor = SystemColors.ButtonHighlight;
             labelArbolesSalvadosPlanta.Location = new Point(169, 101);
             labelArbolesSalvadosPlanta.Name = "labelArbolesSalvadosPlanta";
@@ -577,6 +610,7 @@
             // labelTotalBolsasPlanta
             // 
             labelTotalBolsasPlanta.AutoSize = true;
+            labelTotalBolsasPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "TotalBolsasPlanta", true));
             labelTotalBolsasPlanta.ForeColor = SystemColors.ButtonHighlight;
             labelTotalBolsasPlanta.Location = new Point(169, 80);
             labelTotalBolsasPlanta.Name = "labelTotalBolsasPlanta";
@@ -587,8 +621,9 @@
             // labelProductoNetoPlanta
             // 
             labelProductoNetoPlanta.AutoSize = true;
+            labelProductoNetoPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "ProductoNetoProducidoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             labelProductoNetoPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelProductoNetoPlanta.Location = new Point(169, 58);
+            labelProductoNetoPlanta.Location = new Point(169, 33);
             labelProductoNetoPlanta.Name = "labelProductoNetoPlanta";
             labelProductoNetoPlanta.Size = new Size(12, 15);
             labelProductoNetoPlanta.TabIndex = 29;
@@ -597,8 +632,9 @@
             // labelPapelNetoRecicladoPlanta
             // 
             labelPapelNetoRecicladoPlanta.AutoSize = true;
+            labelPapelNetoRecicladoPlanta.DataBindings.Add(new Binding("Text", simulacionProduccionBS, "TotalPapelNetoPlanta", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             labelPapelNetoRecicladoPlanta.ForeColor = SystemColors.ButtonHighlight;
-            labelPapelNetoRecicladoPlanta.Location = new Point(169, 37);
+            labelPapelNetoRecicladoPlanta.Location = new Point(169, 56);
             labelPapelNetoRecicladoPlanta.Name = "labelPapelNetoRecicladoPlanta";
             labelPapelNetoRecicladoPlanta.Size = new Size(12, 15);
             labelPapelNetoRecicladoPlanta.TabIndex = 28;
@@ -730,9 +766,9 @@
             label20.ForeColor = SystemColors.ButtonHighlight;
             label20.Location = new Point(6, 166);
             label20.Name = "label20";
-            label20.Size = new Size(133, 15);
+            label20.Size = new Size(143, 15);
             label20.TabIndex = 13;
-            label20.Text = "Masa con basura escasa";
+            label20.Text = "Masa con basura excesiva";
             // 
             // label19
             // 
@@ -848,7 +884,7 @@
             // 
             label6.AutoSize = true;
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(6, 58);
+            label6.Location = new Point(6, 33);
             label6.Name = "label6";
             label6.Size = new Size(110, 15);
             label6.TabIndex = 2;
@@ -858,7 +894,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(6, 37);
+            label5.Location = new Point(6, 56);
             label5.Name = "label5";
             label5.Size = new Size(141, 15);
             label5.TabIndex = 1;
@@ -1312,7 +1348,8 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)simulacionProduccionBS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericHorasJornada).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -1343,7 +1380,7 @@
         private Button botonProducto;
         private FlowLayoutPanel panelLineas;
         private Label label2;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericHorasJornada;
         private Label label3;
         private Label label4;
         private TextBox textBox2;
@@ -1369,9 +1406,9 @@
         private Label label46;
         private Label label47;
         private Label label48;
-        private Label label42;
-        private Label masaBasuraInterPlanta;
-        private Label masaBasuraEscasaPlanta;
+        private Label labelMasaBasuraEscesivaPlanta;
+        private Label labelMasaBasuraInterPlanta;
+        private Label labelMasaBasuraEscasaPlanta;
         private Label labelArbolesSalvadosPlanta;
         private Label labelTotalBolsasPlanta;
         private Label labelProductoNetoPlanta;
@@ -1429,5 +1466,7 @@
         private Label label84;
         private Label label80;
         private Label label85;
+        private BindingSource simulacionProduccionBS;
+        private Button button1;
     }
 }

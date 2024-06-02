@@ -19,5 +19,7 @@ namespace Presentacion.Interfaces
         event EventHandler Resize;
 
         public void ListarLineas(List<Linea> lineas);
+
+        public void ActualizarSimulacion(SimulacionProduccion simulacion);
     }
 }

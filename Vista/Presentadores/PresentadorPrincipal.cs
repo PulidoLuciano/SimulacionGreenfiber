@@ -14,7 +14,7 @@ namespace Presentacion.Presentadores
 {
     public class PresentadorPrincipal : PresentadorBase<TareaPrincipal, IVistaPrincipal>
     {
-        SimulacionProduccion simulacion = new SimulacionProduccion();
+        SimulacionProduccion _simulacion;
         
         public PresentadorPrincipal(IVistaPrincipal vista) : base(vista)
         {
@@ -22,12 +22,19 @@ namespace Presentacion.Presentadores
             Vista.AgregarLineaProduccion += AgregarLinea;
             Vista.Resize += MostrarLineas;
             Vista.QuitarLineaProduccion += EliminarLineas;
+            Vista.Simular += SimularProduccion;
+            _simulacion = new SimulacionProduccion();
+            ActualizarSimulacion();
             ActualizarLineasVista();
+        }
+        private void ActualizarSimulacion()
+        {
+            Vista.ActualizarSimulacion(_simulacion);
         }
 
         private void ActualizarLineasVista()
         {
-            Vista.ListarLineas(simulacion.LineasProduccion);
+            Vista.ListarLineas(_simulacion.LineasProduccion);
         }
 
         public void AbrirVistaProducto(object sender, EventArgs e)
@@ -37,7 +44,7 @@ namespace Presentacion.Presentadores
 
         public void AgregarLinea(object sender, EventArgs e)
         {
-            simulacion.agregarLinea();
+            _simulacion.agregarLinea();
             ActualizarLineasVista();
         }
 
@@ -55,9 +62,15 @@ namespace Presentacion.Presentadores
                 index = controles.FindIndex(c => c.Seleccionado);
                 if(index == -1) break;
                 controles.RemoveAt(index);
-                simulacion.LineasProduccion.RemoveAt(index);
+                _simulacion.LineasProduccion.RemoveAt(index);
             }
             ActualizarLineasVista();
+        }
+
+        public void SimularProduccion(object sender, EventArgs args)
+        {
+            _simulacion.simular();
+            ActualizarSimulacion();
         }
     }
 }

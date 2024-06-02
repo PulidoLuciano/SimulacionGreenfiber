@@ -26,7 +26,6 @@ namespace Dominio
         public double ProductoNetoProducido = 0;
         public double TotalBolsas = 0;
         public double PapelNetoReciclado = 0;
-        public double BasuraProducida = 0;
         public double PotenciaTotal = 0;
         public double ArbolesSalvados = 0;
         public double ConsumoBorax = 0;
@@ -57,7 +56,7 @@ namespace Dominio
                 {
                     throw new Exception("Rango de papel inválido.");
                 }
-                if(HorasJornada >= 1)
+                if(HorasJornada < 1)
                 {
                     throw new Exception("Horas de jornada inválida.");
                 }
