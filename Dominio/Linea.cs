@@ -25,23 +25,25 @@ namespace Dominio
         public double ProductoNetoProducido = 0;
         public double TotalBolsas = 0;
         public double BasuraProducida = 0;
+        public double PotenciaTotal = 0;
+        public double ArbolesSalvados = 0;
 
         // Cantidades segun nivel de basura
-        double PapelEscaso = 0;
-        double PapelIntermedio = 0;
-        double PapelExcesivo = 0;
+        public double PapelEscaso = 0;
+        public double PapelIntermedio = 0;
+        public double PapelExcesivo = 0;
 
         // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
-        double LotePapel = 0;
-        double AlmacenCelulosa = 0;
+        public double LotePapel = 0;
+        public double AlmacenCelulosa = 0;
 
         // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido"
-        double DesperdicioRefinadora = 0;
-        double DesperdicioEmpaquetadora = 0;
+        public double DesperdicioRefinadora = 0;
+        public double DesperdicioEmpaquetadora = 0;
 
         // Consumos de quimicos.
-        double ConsumoBorax = 0;
-        double ConsumoAcidoBorico = 0;
+        public double ConsumoBorax = 0;
+        public double ConsumoAcidoBorico = 0;
 
         public void iniciar()
         {
@@ -100,7 +102,7 @@ namespace Dominio
 
                 LotePapel += Papel;
                 BasuraProducida += Basura;
-
+                
                 // ----- REFINACION -----
                 double MasaFibra = 0;
                 NumerosAleatorios.Distribuciones.Normal(MaquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
@@ -158,16 +160,18 @@ namespace Dominio
                 horas--;
             }
 
-            Console.WriteLine($"PapelNetoReciclado: {PapelNetoReciclado} Kg");
-            Console.WriteLine($"ProductoNetoProducido: {ProductoNetoProducido} Kg");
-            Console.WriteLine($"TotalBolsas: {TotalBolsas} bolsas");
-            Console.WriteLine($"LotePapel: {LotePapel} Kg");
+            PotenciaTotal = 8 * (75 + 63 + 202 + 40);
+            ArbolesSalvados = 20 * (PapelNetoReciclado / 1000);
 
-            Console.WriteLine($"Desperdicio Refinadora: {DesperdicioRefinadora} Kg");
-            Console.WriteLine($"Desperdicio Empaquetadora: {DesperdicioEmpaquetadora} Kg");
+            
+            
+            
+            
 
-            Console.WriteLine($"AlmacenCelulosa: {AlmacenCelulosa} Kg");
-            Console.WriteLine($"Basura: {BasuraProducida} Kg");
+            
+
+            
+            
         }
     }
 }
