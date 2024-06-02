@@ -88,20 +88,20 @@
             label5 = new Label();
             labelGenerales = new Label();
             label85 = new Label();
-            label10 = new Label();
-            label14 = new Label();
-            label23 = new Label();
-            label24 = new Label();
-            label49 = new Label();
-            label50 = new Label();
-            label51 = new Label();
-            label52 = new Label();
-            label53 = new Label();
-            label54 = new Label();
-            label55 = new Label();
-            label56 = new Label();
-            label57 = new Label();
-            label58 = new Label();
+            consumoPotenciaLinea = new Label();
+            consumoAcidoBoricoLinea = new Label();
+            consumoBoraxLinea = new Label();
+            desperdicioCelulosaLinea = new Label();
+            desperdicioFibraLinea = new Label();
+            desperdicioMasaTrituradaLinea = new Label();
+            basuraLinea = new Label();
+            masaBasuraExcesivaLinea = new Label();
+            masaBasuraIntermediaLinea = new Label();
+            masaBasuraEscasaLinea = new Label();
+            arbolesSalvadosLinea = new Label();
+            bolsasLinea = new Label();
+            productoNetoLinea = new Label();
+            papelNetoLinea = new Label();
             label59 = new Label();
             label60 = new Label();
             label61 = new Label();
@@ -418,20 +418,20 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(label85);
-            splitContainer2.Panel2.Controls.Add(label10);
-            splitContainer2.Panel2.Controls.Add(label14);
-            splitContainer2.Panel2.Controls.Add(label23);
-            splitContainer2.Panel2.Controls.Add(label24);
-            splitContainer2.Panel2.Controls.Add(label49);
-            splitContainer2.Panel2.Controls.Add(label50);
-            splitContainer2.Panel2.Controls.Add(label51);
-            splitContainer2.Panel2.Controls.Add(label52);
-            splitContainer2.Panel2.Controls.Add(label53);
-            splitContainer2.Panel2.Controls.Add(label54);
-            splitContainer2.Panel2.Controls.Add(label55);
-            splitContainer2.Panel2.Controls.Add(label56);
-            splitContainer2.Panel2.Controls.Add(label57);
-            splitContainer2.Panel2.Controls.Add(label58);
+            splitContainer2.Panel2.Controls.Add(consumoPotenciaLinea);
+            splitContainer2.Panel2.Controls.Add(consumoAcidoBoricoLinea);
+            splitContainer2.Panel2.Controls.Add(consumoBoraxLinea);
+            splitContainer2.Panel2.Controls.Add(desperdicioCelulosaLinea);
+            splitContainer2.Panel2.Controls.Add(desperdicioFibraLinea);
+            splitContainer2.Panel2.Controls.Add(desperdicioMasaTrituradaLinea);
+            splitContainer2.Panel2.Controls.Add(basuraLinea);
+            splitContainer2.Panel2.Controls.Add(masaBasuraExcesivaLinea);
+            splitContainer2.Panel2.Controls.Add(masaBasuraIntermediaLinea);
+            splitContainer2.Panel2.Controls.Add(masaBasuraEscasaLinea);
+            splitContainer2.Panel2.Controls.Add(arbolesSalvadosLinea);
+            splitContainer2.Panel2.Controls.Add(bolsasLinea);
+            splitContainer2.Panel2.Controls.Add(productoNetoLinea);
+            splitContainer2.Panel2.Controls.Add(papelNetoLinea);
             splitContainer2.Panel2.Controls.Add(label59);
             splitContainer2.Panel2.Controls.Add(label60);
             splitContainer2.Panel2.Controls.Add(label61);
@@ -886,145 +886,145 @@
             label85.TabIndex = 82;
             label85.Text = "1";
             // 
-            // label10
+            // consumoPotenciaLinea
             // 
-            label10.AutoSize = true;
-            label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(424, 166);
-            label10.Name = "label10";
-            label10.Size = new Size(12, 15);
-            label10.TabIndex = 81;
-            label10.Text = "-";
+            consumoPotenciaLinea.AutoSize = true;
+            consumoPotenciaLinea.ForeColor = SystemColors.ButtonHighlight;
+            consumoPotenciaLinea.Location = new Point(424, 166);
+            consumoPotenciaLinea.Name = "consumoPotenciaLinea";
+            consumoPotenciaLinea.Size = new Size(12, 15);
+            consumoPotenciaLinea.TabIndex = 81;
+            consumoPotenciaLinea.Text = "-";
             // 
-            // label14
+            // consumoAcidoBoricoLinea
             // 
-            label14.AutoSize = true;
-            label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(424, 143);
-            label14.Name = "label14";
-            label14.Size = new Size(12, 15);
-            label14.TabIndex = 80;
-            label14.Text = "-";
+            consumoAcidoBoricoLinea.AutoSize = true;
+            consumoAcidoBoricoLinea.ForeColor = SystemColors.ButtonHighlight;
+            consumoAcidoBoricoLinea.Location = new Point(424, 143);
+            consumoAcidoBoricoLinea.Name = "consumoAcidoBoricoLinea";
+            consumoAcidoBoricoLinea.Size = new Size(12, 15);
+            consumoAcidoBoricoLinea.TabIndex = 80;
+            consumoAcidoBoricoLinea.Text = "-";
             // 
-            // label23
+            // consumoBoraxLinea
             // 
-            label23.AutoSize = true;
-            label23.ForeColor = SystemColors.ButtonHighlight;
-            label23.Location = new Point(424, 122);
-            label23.Name = "label23";
-            label23.Size = new Size(12, 15);
-            label23.TabIndex = 79;
-            label23.Text = "-";
+            consumoBoraxLinea.AutoSize = true;
+            consumoBoraxLinea.ForeColor = SystemColors.ButtonHighlight;
+            consumoBoraxLinea.Location = new Point(424, 122);
+            consumoBoraxLinea.Name = "consumoBoraxLinea";
+            consumoBoraxLinea.Size = new Size(12, 15);
+            consumoBoraxLinea.TabIndex = 79;
+            consumoBoraxLinea.Text = "-";
             // 
-            // label24
+            // desperdicioCelulosaLinea
             // 
-            label24.AutoSize = true;
-            label24.ForeColor = SystemColors.ButtonHighlight;
-            label24.Location = new Point(424, 101);
-            label24.Name = "label24";
-            label24.Size = new Size(12, 15);
-            label24.TabIndex = 78;
-            label24.Text = "-";
+            desperdicioCelulosaLinea.AutoSize = true;
+            desperdicioCelulosaLinea.ForeColor = SystemColors.ButtonHighlight;
+            desperdicioCelulosaLinea.Location = new Point(424, 101);
+            desperdicioCelulosaLinea.Name = "desperdicioCelulosaLinea";
+            desperdicioCelulosaLinea.Size = new Size(12, 15);
+            desperdicioCelulosaLinea.TabIndex = 78;
+            desperdicioCelulosaLinea.Text = "-";
             // 
-            // label49
+            // desperdicioFibraLinea
             // 
-            label49.AutoSize = true;
-            label49.ForeColor = SystemColors.ButtonHighlight;
-            label49.Location = new Point(424, 80);
-            label49.Name = "label49";
-            label49.Size = new Size(12, 15);
-            label49.TabIndex = 77;
-            label49.Text = "-";
+            desperdicioFibraLinea.AutoSize = true;
+            desperdicioFibraLinea.ForeColor = SystemColors.ButtonHighlight;
+            desperdicioFibraLinea.Location = new Point(424, 80);
+            desperdicioFibraLinea.Name = "desperdicioFibraLinea";
+            desperdicioFibraLinea.Size = new Size(12, 15);
+            desperdicioFibraLinea.TabIndex = 77;
+            desperdicioFibraLinea.Text = "-";
             // 
-            // label50
+            // desperdicioMasaTrituradaLinea
             // 
-            label50.AutoSize = true;
-            label50.ForeColor = SystemColors.ButtonHighlight;
-            label50.Location = new Point(424, 58);
-            label50.Name = "label50";
-            label50.Size = new Size(12, 15);
-            label50.TabIndex = 76;
-            label50.Text = "-";
+            desperdicioMasaTrituradaLinea.AutoSize = true;
+            desperdicioMasaTrituradaLinea.ForeColor = SystemColors.ButtonHighlight;
+            desperdicioMasaTrituradaLinea.Location = new Point(424, 58);
+            desperdicioMasaTrituradaLinea.Name = "desperdicioMasaTrituradaLinea";
+            desperdicioMasaTrituradaLinea.Size = new Size(12, 15);
+            desperdicioMasaTrituradaLinea.TabIndex = 76;
+            desperdicioMasaTrituradaLinea.Text = "-";
             // 
-            // label51
+            // basuraLinea
             // 
-            label51.AutoSize = true;
-            label51.ForeColor = SystemColors.ButtonHighlight;
-            label51.Location = new Point(424, 37);
-            label51.Name = "label51";
-            label51.Size = new Size(12, 15);
-            label51.TabIndex = 75;
-            label51.Text = "-";
+            basuraLinea.AutoSize = true;
+            basuraLinea.ForeColor = SystemColors.ButtonHighlight;
+            basuraLinea.Location = new Point(424, 37);
+            basuraLinea.Name = "basuraLinea";
+            basuraLinea.Size = new Size(12, 15);
+            basuraLinea.TabIndex = 75;
+            basuraLinea.Text = "-";
             // 
-            // label52
+            // masaBasuraExcesivaLinea
             // 
-            label52.AutoSize = true;
-            label52.ForeColor = SystemColors.ButtonHighlight;
-            label52.Location = new Point(169, 166);
-            label52.Name = "label52";
-            label52.Size = new Size(12, 15);
-            label52.TabIndex = 74;
-            label52.Text = "-";
+            masaBasuraExcesivaLinea.AutoSize = true;
+            masaBasuraExcesivaLinea.ForeColor = SystemColors.ButtonHighlight;
+            masaBasuraExcesivaLinea.Location = new Point(169, 166);
+            masaBasuraExcesivaLinea.Name = "masaBasuraExcesivaLinea";
+            masaBasuraExcesivaLinea.Size = new Size(12, 15);
+            masaBasuraExcesivaLinea.TabIndex = 74;
+            masaBasuraExcesivaLinea.Text = "-";
             // 
-            // label53
+            // masaBasuraIntermediaLinea
             // 
-            label53.AutoSize = true;
-            label53.ForeColor = SystemColors.ButtonHighlight;
-            label53.Location = new Point(169, 143);
-            label53.Name = "label53";
-            label53.Size = new Size(12, 15);
-            label53.TabIndex = 73;
-            label53.Text = "-";
+            masaBasuraIntermediaLinea.AutoSize = true;
+            masaBasuraIntermediaLinea.ForeColor = SystemColors.ButtonHighlight;
+            masaBasuraIntermediaLinea.Location = new Point(169, 143);
+            masaBasuraIntermediaLinea.Name = "masaBasuraIntermediaLinea";
+            masaBasuraIntermediaLinea.Size = new Size(12, 15);
+            masaBasuraIntermediaLinea.TabIndex = 73;
+            masaBasuraIntermediaLinea.Text = "-";
             // 
-            // label54
+            // masaBasuraEscasaLinea
             // 
-            label54.AutoSize = true;
-            label54.ForeColor = SystemColors.ButtonHighlight;
-            label54.Location = new Point(169, 122);
-            label54.Name = "label54";
-            label54.Size = new Size(12, 15);
-            label54.TabIndex = 72;
-            label54.Text = "-";
+            masaBasuraEscasaLinea.AutoSize = true;
+            masaBasuraEscasaLinea.ForeColor = SystemColors.ButtonHighlight;
+            masaBasuraEscasaLinea.Location = new Point(169, 122);
+            masaBasuraEscasaLinea.Name = "masaBasuraEscasaLinea";
+            masaBasuraEscasaLinea.Size = new Size(12, 15);
+            masaBasuraEscasaLinea.TabIndex = 72;
+            masaBasuraEscasaLinea.Text = "-";
             // 
-            // label55
+            // arbolesSalvadosLinea
             // 
-            label55.AutoSize = true;
-            label55.ForeColor = SystemColors.ButtonHighlight;
-            label55.Location = new Point(169, 101);
-            label55.Name = "label55";
-            label55.Size = new Size(12, 15);
-            label55.TabIndex = 71;
-            label55.Text = "-";
+            arbolesSalvadosLinea.AutoSize = true;
+            arbolesSalvadosLinea.ForeColor = SystemColors.ButtonHighlight;
+            arbolesSalvadosLinea.Location = new Point(169, 101);
+            arbolesSalvadosLinea.Name = "arbolesSalvadosLinea";
+            arbolesSalvadosLinea.Size = new Size(12, 15);
+            arbolesSalvadosLinea.TabIndex = 71;
+            arbolesSalvadosLinea.Text = "-";
             // 
-            // label56
+            // bolsasLinea
             // 
-            label56.AutoSize = true;
-            label56.ForeColor = SystemColors.ButtonHighlight;
-            label56.Location = new Point(169, 80);
-            label56.Name = "label56";
-            label56.Size = new Size(12, 15);
-            label56.TabIndex = 70;
-            label56.Text = "-";
+            bolsasLinea.AutoSize = true;
+            bolsasLinea.ForeColor = SystemColors.ButtonHighlight;
+            bolsasLinea.Location = new Point(169, 80);
+            bolsasLinea.Name = "bolsasLinea";
+            bolsasLinea.Size = new Size(12, 15);
+            bolsasLinea.TabIndex = 70;
+            bolsasLinea.Text = "-";
             // 
-            // label57
+            // productoNetoLinea
             // 
-            label57.AutoSize = true;
-            label57.ForeColor = SystemColors.ButtonHighlight;
-            label57.Location = new Point(169, 58);
-            label57.Name = "label57";
-            label57.Size = new Size(12, 15);
-            label57.TabIndex = 69;
-            label57.Text = "-";
+            productoNetoLinea.AutoSize = true;
+            productoNetoLinea.ForeColor = SystemColors.ButtonHighlight;
+            productoNetoLinea.Location = new Point(169, 58);
+            productoNetoLinea.Name = "productoNetoLinea";
+            productoNetoLinea.Size = new Size(12, 15);
+            productoNetoLinea.TabIndex = 69;
+            productoNetoLinea.Text = "-";
             // 
-            // label58
+            // papelNetoLinea
             // 
-            label58.AutoSize = true;
-            label58.ForeColor = SystemColors.ButtonHighlight;
-            label58.Location = new Point(169, 37);
-            label58.Name = "label58";
-            label58.Size = new Size(12, 15);
-            label58.TabIndex = 68;
-            label58.Text = "-";
+            papelNetoLinea.AutoSize = true;
+            papelNetoLinea.ForeColor = SystemColors.ButtonHighlight;
+            papelNetoLinea.Location = new Point(169, 37);
+            papelNetoLinea.Name = "papelNetoLinea";
+            papelNetoLinea.Size = new Size(12, 15);
+            papelNetoLinea.TabIndex = 68;
+            papelNetoLinea.Text = "-";
             // 
             // label59
             // 
@@ -1152,9 +1152,9 @@
             label71.ForeColor = SystemColors.ButtonHighlight;
             label71.Location = new Point(6, 166);
             label71.Name = "label71";
-            label71.Size = new Size(133, 15);
+            label71.Size = new Size(143, 15);
             label71.TabIndex = 55;
-            label71.Text = "Masa con basura escasa";
+            label71.Text = "Masa con basura excesiva";
             // 
             // label72
             // 
@@ -1388,20 +1388,20 @@
         private Label label25;
         private Label label22;
         private Label label21;
-        private Label label10;
-        private Label label14;
-        private Label label23;
-        private Label label24;
-        private Label label49;
-        private Label label50;
-        private Label label51;
-        private Label label52;
-        private Label label53;
-        private Label label54;
-        private Label label55;
-        private Label label56;
-        private Label label57;
-        private Label label58;
+        private Label consumoPotenciaLinea;
+        private Label consumoAcidoBoricoLinea;
+        private Label consumoBoraxLinea;
+        private Label desperdicioCelulosaLinea;
+        private Label desperdicioFibraLinea;
+        private Label desperdicioMasaTrituradaLinea;
+        private Label basuraLinea;
+        private Label masaBasuraExcesivaLinea;
+        private Label masaBasuraIntermediaLinea;
+        private Label masaBasuraEscasaLinea;
+        private Label arbolesSalvadosLinea;
+        private Label bolsasLinea;
+        private Label productoNetoLinea;
+        private Label papelNetoLinea;
         private Label label59;
         private Label label60;
         private Label label61;
