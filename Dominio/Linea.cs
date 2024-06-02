@@ -26,11 +26,13 @@ namespace Dominio
         public double ProductoNetoProducido = 0;
         public double TotalBolsas = 0;
         public double BasuraProducida = 0;
+        public double PotenciaTotal = 0;
+        public double ArbolesSalvados = 0;
 
         // Cantidades segun nivel de basura
-        double PapelEscaso = 0;
-        double PapelIntermedio = 0;
-        double PapelExcesivo = 0;
+        public double PapelEscaso = 0;
+        public double PapelIntermedio = 0;
+        public double PapelExcesivo = 0;
 
         // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
         double AlmacenRecolectado = 0;
@@ -45,8 +47,8 @@ namespace Dominio
         double DesperdicioEmpaquetadora = 0;
 
         // Consumos de quimicos.
-        double ConsumoBorax = 0;
-        double ConsumoAcidoBorico = 0;
+        public double ConsumoBorax = 0;
+        public double ConsumoAcidoBorico = 0;
 
         public void iniciar()
         {
@@ -179,17 +181,11 @@ namespace Dominio
                 horas--;
             }
 
+            PotenciaTotal = 8 * (75 + 63 + 202 + 40);
+            ArbolesSalvados = 20 * (PapelNetoReciclado / 1000);
 
-            Console.WriteLine($"PapelNetoReciclado: {PapelNetoReciclado} Kg");
-            Console.WriteLine($"ProductoNetoProducido: {ProductoNetoProducido} Kg");
-            Console.WriteLine($"TotalBolsas: {TotalBolsas} bolsas");
-            Console.WriteLine($"LotePapel: {LotePapel} Kg");
-
-            Console.WriteLine($"Desperdicio Refinadora: {DesperdicioRefinadora} Kg");
-            Console.WriteLine($"Desperdicio Empaquetadora: {DesperdicioEmpaquetadora} Kg");
-
-            Console.WriteLine($"AlmacenCelulosa: {AlmacenCelulosa} Kg");
-            Console.WriteLine($"Basura: {BasuraProducida} Kg");
+            
+            
         }
     }
 }
