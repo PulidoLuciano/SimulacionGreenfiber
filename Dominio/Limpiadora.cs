@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class Limpiadora
+    public class Limpiadora
     {
-        public double CapacidadPromedio { get; set; }
-        public double Potencia { get; set; }
-
-        public double Consumo
-        {
-            get { return 8 * Potencia; }
-        }
+        private double _potencia = 63;
+        public double Potencia { get { return _potencia; } set { _potencia = value; } }
     }
 }

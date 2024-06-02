@@ -37,37 +37,43 @@
             label2 = new Label();
             panel4 = new Panel();
             label3 = new Label();
-            bindingSource = new BindingSource(components);
             panelLinea = new Panel();
             panelDatos = new Panel();
             label16 = new Label();
-            textBox7 = new TextBox();
+            textBoxPotenciaEmpaquetadora = new TextBox();
+            EmpaquetadoraBS = new BindingSource(components);
             label17 = new Label();
             label14 = new Label();
-            textBox6 = new TextBox();
+            textBoxPotenciaRefinadora = new TextBox();
+            RefinadoraBS = new BindingSource(components);
             label15 = new Label();
             label12 = new Label();
-            textBox5 = new TextBox();
+            textBoxPotenciaLimpiadora = new TextBox();
+            LimpiadoraBS = new BindingSource(components);
             label13 = new Label();
             label11 = new Label();
-            textBox4 = new TextBox();
+            textBoxPotenciaTrituradora = new TextBox();
+            TrituradoraBS = new BindingSource(components);
             label10 = new Label();
             label8 = new Label();
-            textBox3 = new TextBox();
+            textBoxCapacidadEmpaquetadora = new TextBox();
             label9 = new Label();
             label6 = new Label();
-            textBox2 = new TextBox();
+            textBoxCapacidadRefinadora = new TextBox();
             label7 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
+            textBoxCapacidadTrituradora = new TextBox();
             label4 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)bindingSource).BeginInit();
             panelLinea.SuspendLayout();
             panelDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RefinadoraBS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TrituradoraBS).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -154,10 +160,6 @@
             label3.TabIndex = 2;
             label3.Text = "Empaquetado";
             // 
-            // bindingSource
-            // 
-            bindingSource.DataSource = typeof(Dominio.Linea);
-            // 
             // panelLinea
             // 
             panelLinea.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -175,25 +177,25 @@
             // 
             panelDatos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelDatos.Controls.Add(label16);
-            panelDatos.Controls.Add(textBox7);
+            panelDatos.Controls.Add(textBoxPotenciaEmpaquetadora);
             panelDatos.Controls.Add(label17);
             panelDatos.Controls.Add(label14);
-            panelDatos.Controls.Add(textBox6);
+            panelDatos.Controls.Add(textBoxPotenciaRefinadora);
             panelDatos.Controls.Add(label15);
             panelDatos.Controls.Add(label12);
-            panelDatos.Controls.Add(textBox5);
+            panelDatos.Controls.Add(textBoxPotenciaLimpiadora);
             panelDatos.Controls.Add(label13);
             panelDatos.Controls.Add(label11);
-            panelDatos.Controls.Add(textBox4);
+            panelDatos.Controls.Add(textBoxPotenciaTrituradora);
             panelDatos.Controls.Add(label10);
             panelDatos.Controls.Add(label8);
-            panelDatos.Controls.Add(textBox3);
+            panelDatos.Controls.Add(textBoxCapacidadEmpaquetadora);
             panelDatos.Controls.Add(label9);
             panelDatos.Controls.Add(label6);
-            panelDatos.Controls.Add(textBox2);
+            panelDatos.Controls.Add(textBoxCapacidadRefinadora);
             panelDatos.Controls.Add(label7);
             panelDatos.Controls.Add(label5);
-            panelDatos.Controls.Add(textBox1);
+            panelDatos.Controls.Add(textBoxCapacidadTrituradora);
             panelDatos.Controls.Add(label4);
             panelDatos.Location = new Point(11, 165);
             panelDatos.Name = "panelDatos";
@@ -213,15 +215,20 @@
             label16.TabIndex = 20;
             label16.Text = "Watts";
             // 
-            // textBox7
+            // textBoxPotenciaEmpaquetadora
             // 
-            textBox7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox7.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox7.Location = new Point(789, 98);
-            textBox7.Name = "textBox7";
-            textBox7.RightToLeft = RightToLeft.Yes;
-            textBox7.Size = new Size(86, 27);
-            textBox7.TabIndex = 19;
+            textBoxPotenciaEmpaquetadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxPotenciaEmpaquetadora.DataBindings.Add(new Binding("Text", EmpaquetadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxPotenciaEmpaquetadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxPotenciaEmpaquetadora.Location = new Point(789, 98);
+            textBoxPotenciaEmpaquetadora.Name = "textBoxPotenciaEmpaquetadora";
+            textBoxPotenciaEmpaquetadora.RightToLeft = RightToLeft.Yes;
+            textBoxPotenciaEmpaquetadora.Size = new Size(86, 27);
+            textBoxPotenciaEmpaquetadora.TabIndex = 19;
+            // 
+            // EmpaquetadoraBS
+            // 
+            EmpaquetadoraBS.DataSource = typeof(Dominio.Empaquetadora);
             // 
             // label17
             // 
@@ -247,15 +254,20 @@
             label14.TabIndex = 17;
             label14.Text = "Watts";
             // 
-            // textBox6
+            // textBoxPotenciaRefinadora
             // 
-            textBox6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox6.Location = new Point(591, 94);
-            textBox6.Name = "textBox6";
-            textBox6.RightToLeft = RightToLeft.Yes;
-            textBox6.Size = new Size(86, 27);
-            textBox6.TabIndex = 16;
+            textBoxPotenciaRefinadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxPotenciaRefinadora.DataBindings.Add(new Binding("Text", RefinadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxPotenciaRefinadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxPotenciaRefinadora.Location = new Point(591, 94);
+            textBoxPotenciaRefinadora.Name = "textBoxPotenciaRefinadora";
+            textBoxPotenciaRefinadora.RightToLeft = RightToLeft.Yes;
+            textBoxPotenciaRefinadora.Size = new Size(86, 27);
+            textBoxPotenciaRefinadora.TabIndex = 16;
+            // 
+            // RefinadoraBS
+            // 
+            RefinadoraBS.DataSource = typeof(Dominio.Refinadora);
             // 
             // label15
             // 
@@ -281,15 +293,20 @@
             label12.TabIndex = 14;
             label12.Text = "Watts";
             // 
-            // textBox5
+            // textBoxPotenciaLimpiadora
             // 
-            textBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox5.Location = new Point(404, 94);
-            textBox5.Name = "textBox5";
-            textBox5.RightToLeft = RightToLeft.Yes;
-            textBox5.Size = new Size(86, 27);
-            textBox5.TabIndex = 13;
+            textBoxPotenciaLimpiadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxPotenciaLimpiadora.DataBindings.Add(new Binding("Text", LimpiadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxPotenciaLimpiadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxPotenciaLimpiadora.Location = new Point(404, 94);
+            textBoxPotenciaLimpiadora.Name = "textBoxPotenciaLimpiadora";
+            textBoxPotenciaLimpiadora.RightToLeft = RightToLeft.Yes;
+            textBoxPotenciaLimpiadora.Size = new Size(86, 27);
+            textBoxPotenciaLimpiadora.TabIndex = 13;
+            // 
+            // LimpiadoraBS
+            // 
+            LimpiadoraBS.DataSource = typeof(Dominio.Limpiadora);
             // 
             // label13
             // 
@@ -315,15 +332,20 @@
             label11.TabIndex = 11;
             label11.Text = "Watts";
             // 
-            // textBox4
+            // textBoxPotenciaTrituradora
             // 
-            textBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox4.Location = new Point(199, 94);
-            textBox4.Name = "textBox4";
-            textBox4.RightToLeft = RightToLeft.Yes;
-            textBox4.Size = new Size(86, 27);
-            textBox4.TabIndex = 10;
+            textBoxPotenciaTrituradora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxPotenciaTrituradora.DataBindings.Add(new Binding("Text", TrituradoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxPotenciaTrituradora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxPotenciaTrituradora.Location = new Point(199, 94);
+            textBoxPotenciaTrituradora.Name = "textBoxPotenciaTrituradora";
+            textBoxPotenciaTrituradora.RightToLeft = RightToLeft.Yes;
+            textBoxPotenciaTrituradora.Size = new Size(86, 27);
+            textBoxPotenciaTrituradora.TabIndex = 10;
+            // 
+            // TrituradoraBS
+            // 
+            TrituradoraBS.DataSource = typeof(Dominio.Trituradora);
             // 
             // label10
             // 
@@ -349,15 +371,16 @@
             label8.TabIndex = 8;
             label8.Text = "Kg";
             // 
-            // textBox3
+            // textBoxCapacidadEmpaquetadora
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox3.Location = new Point(789, 31);
-            textBox3.Name = "textBox3";
-            textBox3.RightToLeft = RightToLeft.Yes;
-            textBox3.Size = new Size(86, 27);
-            textBox3.TabIndex = 7;
+            textBoxCapacidadEmpaquetadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxCapacidadEmpaquetadora.DataBindings.Add(new Binding("Text", EmpaquetadoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxCapacidadEmpaquetadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxCapacidadEmpaquetadora.Location = new Point(789, 31);
+            textBoxCapacidadEmpaquetadora.Name = "textBoxCapacidadEmpaquetadora";
+            textBoxCapacidadEmpaquetadora.RightToLeft = RightToLeft.Yes;
+            textBoxCapacidadEmpaquetadora.Size = new Size(86, 27);
+            textBoxCapacidadEmpaquetadora.TabIndex = 7;
             // 
             // label9
             // 
@@ -383,15 +406,16 @@
             label6.TabIndex = 5;
             label6.Text = "Kg";
             // 
-            // textBox2
+            // textBoxCapacidadRefinadora
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox2.Location = new Point(591, 31);
-            textBox2.Name = "textBox2";
-            textBox2.RightToLeft = RightToLeft.Yes;
-            textBox2.Size = new Size(86, 27);
-            textBox2.TabIndex = 4;
+            textBoxCapacidadRefinadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxCapacidadRefinadora.DataBindings.Add(new Binding("Text", RefinadoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxCapacidadRefinadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxCapacidadRefinadora.Location = new Point(591, 31);
+            textBoxCapacidadRefinadora.Name = "textBoxCapacidadRefinadora";
+            textBoxCapacidadRefinadora.RightToLeft = RightToLeft.Yes;
+            textBoxCapacidadRefinadora.Size = new Size(86, 27);
+            textBoxCapacidadRefinadora.TabIndex = 4;
             // 
             // label7
             // 
@@ -417,15 +441,16 @@
             label5.TabIndex = 2;
             label5.Text = "Kg";
             // 
-            // textBox1
+            // textBoxCapacidadTrituradora
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBox1.Location = new Point(199, 31);
-            textBox1.Name = "textBox1";
-            textBox1.RightToLeft = RightToLeft.Yes;
-            textBox1.Size = new Size(86, 27);
-            textBox1.TabIndex = 1;
+            textBoxCapacidadTrituradora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBoxCapacidadTrituradora.DataBindings.Add(new Binding("Text", TrituradoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
+            textBoxCapacidadTrituradora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            textBoxCapacidadTrituradora.Location = new Point(199, 31);
+            textBoxCapacidadTrituradora.Name = "textBoxCapacidadTrituradora";
+            textBoxCapacidadTrituradora.RightToLeft = RightToLeft.Yes;
+            textBoxCapacidadTrituradora.Size = new Size(86, 27);
+            textBoxCapacidadTrituradora.TabIndex = 1;
             // 
             // label4
             // 
@@ -460,10 +485,13 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)bindingSource).EndInit();
             panelLinea.ResumeLayout(false);
             panelDatos.ResumeLayout(false);
             panelDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RefinadoraBS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TrituradoraBS).EndInit();
             ResumeLayout(false);
         }
 
@@ -477,29 +505,32 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private BindingSource bindingSource;
         private Panel panelLinea;
         private Panel panelDatos;
         private Label label8;
-        private TextBox textBox3;
+        private TextBox textBoxCapacidadEmpaquetadora;
         private Label label9;
         private Label label6;
-        private TextBox textBox2;
+        private TextBox textBoxCapacidadRefinadora;
         private Label label7;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox textBoxCapacidadTrituradora;
         private Label label4;
         private Label label16;
-        private TextBox textBox7;
+        private TextBox textBoxPotenciaEmpaquetadora;
         private Label label17;
         private Label label14;
-        private TextBox textBox6;
+        private TextBox textBoxPotenciaRefinadora;
         private Label label15;
         private Label label12;
-        private TextBox textBox5;
+        private TextBox textBoxPotenciaLimpiadora;
         private Label label13;
         private Label label11;
-        private TextBox textBox4;
+        private TextBox textBoxPotenciaTrituradora;
         private Label label10;
+        private BindingSource TrituradoraBS;
+        private BindingSource LimpiadoraBS;
+        private BindingSource RefinadoraBS;
+        private BindingSource EmpaquetadoraBS;
     }
 }

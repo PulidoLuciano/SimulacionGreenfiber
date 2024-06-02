@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class Refinadora
+    public class Refinadora
     {
-        public double CapacidadPromedio { get { return 1280; } }
-        public double Potencia { get; set; }
-
-        public double Consumo
-        {
-            get { return 8 * Potencia; }
-        }
+        private double _capacidadPromedio = 1500;
+        private double _potencia = 202;
+        public double CapacidadPromedio { get { return _capacidadPromedio; } set { _capacidadPromedio = value; } }
+        public double Potencia { get { return _potencia; } set { _potencia = value; } }
     }
 }

@@ -17,10 +17,34 @@ namespace Dominio
 
     public class Linea
     {
-        Trituradora MaquinaTrituradora = new Trituradora();
-        Limpiadora MaquinaLimpiadora = new Limpiadora();
-        Refinadora MaquinaRefinadora = new Refinadora();
-        Empaquetadora MaquinaEmpaquetadora = new Empaquetadora();
+        Trituradora _maquinaTrituradora = new Trituradora();
+        Limpiadora _maquinaLimpiadora = new Limpiadora();
+        Refinadora _maquinaRefinadora = new Refinadora();
+        Empaquetadora _maquinaEmpaquetadora = new Empaquetadora();
+
+        public Trituradora MaquinaTrituradora
+        {
+            get { return _maquinaTrituradora; }
+            set{ _maquinaTrituradora = value; }
+        }
+
+        public Limpiadora MaquinaLimpiadora
+        {
+            get { return _maquinaLimpiadora; }
+            set { _maquinaLimpiadora = value; }
+        }
+
+        public Refinadora MaquinaRefinadora
+        {
+            get { return _maquinaRefinadora; }
+            set { _maquinaRefinadora = value; }
+        }
+
+        public Empaquetadora MaquinaEmpaquetadora
+        {
+            get { return _maquinaEmpaquetadora; }
+            set { _maquinaEmpaquetadora = value; }
+        }
 
         // Resultados totales.
         public double ProductoNetoProducido = 0;
@@ -74,7 +98,7 @@ namespace Dominio
 
                     // ----- TRITURACION -----
                     double MasaTriturada = 0;
-                    NumerosAleatorios.Distribuciones.Normal(MaquinaTrituradora.CapacidadPromedio, 60, ref MasaTriturada);
+                    NumerosAleatorios.Distribuciones.Normal(_maquinaTrituradora.CapacidadPromedio, 60, ref MasaTriturada);
 
                     if(MasaTriturada > AlmacenRecolectado)
                     {
@@ -135,7 +159,7 @@ namespace Dominio
 
                     // ----- REFINACION -----
                     double MasaFibra = 0;
-                    NumerosAleatorios.Distribuciones.Normal(MaquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
+                    NumerosAleatorios.Distribuciones.Normal(_maquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
 
                     if(MasaFibra > AlmacenPapel)
                     {
@@ -163,7 +187,7 @@ namespace Dominio
 
                     // ----- EMPAQUETADO -----
                     double MasaEmpaquetada = 0;
-                    NumerosAleatorios.Distribuciones.Normal(MaquinaEmpaquetadora.CapacidadPromedio, 60, ref MasaEmpaquetada);
+                    NumerosAleatorios.Distribuciones.Normal(_maquinaEmpaquetadora.CapacidadPromedio, 60, ref MasaEmpaquetada);
 
                     if (MasaEmpaquetada > AlmacenCelulosa)
                     {
@@ -189,8 +213,8 @@ namespace Dominio
                     horas--;
                 }
 
-                PotenciaTotal = HorasJornada * (MaquinaTrituradora.Potencia + MaquinaLimpiadora.Potencia + 
-                    MaquinaRefinadora.Potencia + MaquinaEmpaquetadora.Potencia);
+                PotenciaTotal = HorasJornada * (_maquinaTrituradora.Potencia + _maquinaLimpiadora.Potencia + 
+                    _maquinaRefinadora.Potencia + _maquinaEmpaquetadora.Potencia);
                 ArbolesSalvados = 20 * (PapelNetoReciclado / 1000);
             }
             catch (Exception e)

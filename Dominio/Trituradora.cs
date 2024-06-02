@@ -7,10 +7,12 @@ using NumerosAleatorios;
 
 namespace Dominio
 {
-    internal class Trituradora
+    public class Trituradora
     {
-        public double CapacidadPromedio { get { return 1800; } } 
-        public double Potencia { get { return 75; } }
+        private double _capacidadPromedio = 1800;
+        private double _potencia = 75;
+        public double CapacidadPromedio { get { return _capacidadPromedio; } set { _capacidadPromedio = value; } } 
+        public double Potencia { get { return _potencia; } set { _potencia = value; } }
 
     }
 }

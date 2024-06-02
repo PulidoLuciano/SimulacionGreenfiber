@@ -72,7 +72,7 @@ namespace Vistas
 
             lineas.ToList().ForEach(l =>
             {
-                ControlLineaProduccion control = new ControlLineaProduccion();
+                ControlLineaProduccion control = new ControlLineaProduccion(l);
                 _controlesLineas.Add(control);
                 panelLineas.Controls.Add(control);
                 control.Width = panelLineas.Width - 20;
