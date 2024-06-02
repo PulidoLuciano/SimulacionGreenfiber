@@ -46,16 +46,19 @@ namespace Vistas
             add { botonSimular.Click += value; }
             remove { botonSimular.Click -= value; }
         }
-        public event EventHandler Reiniciar
+        public event EventHandler Reiniciar;
+
+        public event EventHandler SeleccionarLinea
         {
-            add { botonReiniciar.Click += value; }
-            remove { botonReiniciar.Click -= value; }
+            add { comboLineas.SelectedIndexChanged += value; }
+            remove { comboLineas.SelectedIndexChanged -= value; }
         }
 
         public void ActualizarSimulacion(SimulacionProduccion simulacion)
         {
             simulacionProduccionBS.DataSource = simulacion;
             simulacionProduccionBS.ResetBindings(false);
+            lineasBS.ResetBindings(false);
         }
 
         private void botonSimular_Paint(object sender, PaintEventArgs e)
@@ -83,15 +86,21 @@ namespace Vistas
                 control.Width = panelLineas.Width - 20;
             });
 
+            List<int> indexs = new List<int>();
+            for(int i = 1; i <= lineas.Count; i++)
+            {
+                indexs.Add(i);
+            }
+            comboLineas.DataSource = indexs;
             labelNroLineas.Text = lineas.Count.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void MostrarDatosLinea(List<Linea> lineas)
         {
-            
+            lineasBS.Clear();
+            lineasBS.Add(lineas[comboLineas.SelectedIndex]);
+            lineasBS.ResetBindings(false);
         }
-
-
     }
 
     public class VistaPrincipalConPresentador : VistaBase<PresentadorPrincipal> { }

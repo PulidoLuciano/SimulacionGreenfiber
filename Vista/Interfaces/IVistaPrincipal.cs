@@ -18,9 +18,11 @@ namespace Presentacion.Interfaces
         event EventHandler Simular;
         event EventHandler Reiniciar;
         event EventHandler Resize;
+        event EventHandler SeleccionarLinea;
 
         public void ListarLineas(List<Linea> lineas);
 
         public void ActualizarSimulacion(SimulacionProduccion simulacion);
+        public void MostrarDatosLinea(List<Linea> lineas);
     }
 }

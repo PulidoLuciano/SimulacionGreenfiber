@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
-            botonReiniciar = new Button();
             textBox2 = new TextBox();
             simulacionProduccionBS = new BindingSource(components);
             textBox1 = new TextBox();
@@ -90,7 +89,7 @@
             label6 = new Label();
             label5 = new Label();
             labelGenerales = new Label();
-            label85 = new Label();
+            comboLineas = new ComboBox();
             consumoPotenciaLinea = new Label();
             consumoAcidoBoricoLinea = new Label();
             consumoBoraxLinea = new Label();
@@ -105,6 +104,7 @@
             bolsasLinea = new Label();
             productoNetoLinea = new Label();
             papelNetoLinea = new Label();
+            lineasBS = new BindingSource(components);
             label59 = new Label();
             label60 = new Label();
             label61 = new Label();
@@ -144,6 +144,7 @@
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lineasBS).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -160,7 +161,6 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panel3.Controls.Add(botonReiniciar);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label4);
@@ -178,16 +178,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(290, 708);
             panel3.TabIndex = 0;
-            // 
-            // botonReiniciar
-            // 
-            botonReiniciar.Location = new Point(6, 587);
-            botonReiniciar.Name = "botonReiniciar";
-            botonReiniciar.Size = new Size(281, 40);
-            botonReiniciar.TabIndex = 13;
-            botonReiniciar.Text = "Reiniciar";
-            botonReiniciar.UseVisualStyleBackColor = true;
-            botonReiniciar.Click += button1_Click;
             // 
             // textBox2
             // 
@@ -303,7 +293,7 @@
             botonSimular.FlatStyle = FlatStyle.Flat;
             botonSimular.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             botonSimular.ForeColor = Color.FromArgb(255, 255, 248);
-            botonSimular.Location = new Point(3, 534);
+            botonSimular.Location = new Point(3, 287);
             botonSimular.Name = "botonSimular";
             botonSimular.Size = new Size(284, 51);
             botonSimular.TabIndex = 4;
@@ -394,6 +384,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            splitContainer2.Panel1.AutoScroll = true;
             splitContainer2.Panel1.Controls.Add(label40);
             splitContainer2.Panel1.Controls.Add(label43);
             splitContainer2.Panel1.Controls.Add(label44);
@@ -439,7 +430,8 @@
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.Controls.Add(label85);
+            splitContainer2.Panel2.AutoScroll = true;
+            splitContainer2.Panel2.Controls.Add(comboLineas);
             splitContainer2.Panel2.Controls.Add(consumoPotenciaLinea);
             splitContainer2.Panel2.Controls.Add(consumoAcidoBoricoLinea);
             splitContainer2.Panel2.Controls.Add(consumoBoraxLinea);
@@ -951,16 +943,13 @@
             labelGenerales.TabIndex = 0;
             labelGenerales.Text = "Estadísticas Generales";
             // 
-            // label85
+            // comboLineas
             // 
-            label85.AutoSize = true;
-            label85.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label85.ForeColor = Color.FromArgb(234, 234, 234);
-            label85.Location = new Point(198, 3);
-            label85.Name = "label85";
-            label85.Size = new Size(23, 25);
-            label85.TabIndex = 82;
-            label85.Text = "1";
+            comboLineas.FormattingEnabled = true;
+            comboLineas.Location = new Point(202, 6);
+            comboLineas.Name = "comboLineas";
+            comboLineas.Size = new Size(121, 23);
+            comboLineas.TabIndex = 83;
             // 
             // consumoPotenciaLinea
             // 
@@ -1095,12 +1084,17 @@
             // papelNetoLinea
             // 
             papelNetoLinea.AutoSize = true;
+            papelNetoLinea.DataBindings.Add(new Binding("Text", lineasBS, "PapelNetoReciclado", true, DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             papelNetoLinea.ForeColor = SystemColors.ButtonHighlight;
             papelNetoLinea.Location = new Point(169, 37);
             papelNetoLinea.Name = "papelNetoLinea";
             papelNetoLinea.Size = new Size(12, 15);
             papelNetoLinea.TabIndex = 68;
             papelNetoLinea.Text = "-";
+            // 
+            // lineasBS
+            // 
+            lineasBS.DataSource = typeof(Dominio.Linea);
             // 
             // label59
             // 
@@ -1400,6 +1394,7 @@
             splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)lineasBS).EndInit();
             ResumeLayout(false);
         }
 
@@ -1505,8 +1500,8 @@
         private Label label83;
         private Label label84;
         private Label label80;
-        private Label label85;
         private BindingSource simulacionProduccionBS;
-        private Button botonReiniciar;
+        private ComboBox comboLineas;
+        private BindingSource lineasBS;
     }
 }

@@ -47,43 +47,43 @@ namespace Dominio
         }
 
         //
-        public double MasaNominalRecolectada = 0; // MOSTRAR
+        public double MasaNominalRecolectada { get; set; } // MOSTRAR
 
         // Resultados totales.
-        public double ProductoNetoProducido = 0;  // MOSTRAR
-        public double TotalBolsas = 0;  // MOSTRAR
-        public double PapelNetoReciclado = 0;  // MOSTRAR
-        public double PotenciaTotal = 0;  // MOSTRAR
-        public double ArbolesSalvados = 0;  // MOSTRAR
-        public double ConsumoBorax = 0;  // MOSTRAR 
-        public double ConsumoAcidoBorico = 0; // MOSTRAR
+        public double ProductoNetoProducido { get; set; }  // MOSTRAR
+        public double TotalBolsas { get; set; }  // MOSTRAR
+        public double PapelNetoReciclado { get; set; }  // MOSTRAR
+        public double PotenciaTotal { get; set; }  // MOSTRAR
+        public double ArbolesSalvados { get; set; }  // MOSTRAR
+        public double ConsumoBorax { get; set; }  // MOSTRAR 
+        public double ConsumoAcidoBorico { get; set; } // MOSTRAR
 
         // Cantidades segun nivel de basura /// ESTO LO BORRARIA PORQUE SIEMPRE SERAN ENTRE LOS MISMOS VALORES. Siempre sera mayor el intermedio que el resto.
-        public double PapelEscaso = 0;
-        public double PapelIntermedio = 0;
-        public double PapelExcesivo = 0;
+        public double PapelEscaso { get; set; }
+        public double PapelIntermedio { get; set; }
+        public double PapelExcesivo { get; set; }
 
         // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
-        public double AlmacenRecolectado = 0;
-        public double AlmacenPapel = 0;
-        public double AlmacenBasura = 0;
-        public double AlmacenFibra = 0;
-        public double AlmacenCelulosa = 0;
+        public double AlmacenRecolectado { get; set; }
+        public double AlmacenPapel { get; set; }
+        public double AlmacenBasura { get; set; }
+        public double AlmacenFibra { get; set; }
+        public double AlmacenCelulosa { get; set; }
 
         // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido" YO SACARIA ESTOS ACUMULADORES
-        public double DesperdicioTrituradora = 0;
-        public double DesperdicioRefinadora = 0;
-        public double DesperdicioEmpaquetadora = 0;
+        public double DesperdicioTrituradora { get; set; }
+        public double DesperdicioRefinadora { get; set; }
+        public double DesperdicioEmpaquetadora { get; set; }
 
         // Lo que hubiera producido cada maquina;
-        public double ProduccionNominalTrituradora = 0; // MOSTRAR
-        public double ProduccionNominalRefinadora= 0; // MOSTRAR
-        public double ProduccionNominalEmpaquetadora = 0; // MOSTRAR
+        public double ProduccionNominalTrituradora { get; set; } // MOSTRAR
+        public double ProduccionNominalRefinadora{ get; set; } // MOSTRAR
+        public double ProduccionNominalEmpaquetadora { get; set; } // MOSTRAR
 
         // Lo que hubiera producido cada maquina;
-        public double ProduccionRealTrituradora = 0; // MOSTRAR
-        public double ProduccionRealRefinadora = 0; // MOSTRAR
-        public double ProduccionRealEmpaquetadora = 0; // MOSTRAR
+        public double ProduccionRealTrituradora { get; set; } // MOSTRAR
+        public double ProduccionRealRefinadora { get; set; } // MOSTRAR
+        public double ProduccionRealEmpaquetadora { get; set; } // MOSTRAR
 
         public double DesperdicioTrituradoraV2
         {
@@ -102,6 +102,7 @@ namespace Dominio
 
         public void iniciar(int HorasJornada, double MinPapel, double MaxPapel)
         {
+            reiniciar();
             try
             {
                 if (MinPapel > MaxPapel || MinPapel <= 0 || MaxPapel <= 0)
@@ -259,6 +260,43 @@ namespace Dominio
             {
                 Console.WriteLine(e.Message);
             }
+        }
+        void reiniciar()
+        {
+            ProductoNetoProducido = 0;// MOSTRAR
+            TotalBolsas = 0;// MOSTRAR
+            PapelNetoReciclado = 0;// MOSTRAR
+            PotenciaTotal = 0;// MOSTRAR
+            ArbolesSalvados = 0;// MOSTRAR
+            ConsumoBorax = 0;// MOSTRAR 
+            ConsumoAcidoBorico = 0;// MOSTRAR
+
+            // Cantidades segun nivel de basura /// ESTO LO BORRARIA PORQUE SIEMPRE SERAN ENTRE LOS MISMOS VALORES. Siempre sera mayor el intermedio que el resto.
+            PapelEscaso = 0;
+            PapelIntermedio = 0;
+            PapelExcesivo = 0;
+
+            // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
+            AlmacenRecolectado = 0;
+            AlmacenPapel = 0;
+            AlmacenBasura = 0;
+            AlmacenFibra = 0;
+            AlmacenCelulosa = 0;
+
+            // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido" YO SACARIA ESTOS ACUMULADORES
+            DesperdicioTrituradora = 0;
+            DesperdicioRefinadora = 0;
+            DesperdicioEmpaquetadora = 0;
+
+            // Lo que hubiera producido cada maquina;
+            ProduccionNominalTrituradora = 0;// MOSTRAR
+            ProduccionNominalRefinadora = 0;// MOSTRAR
+            ProduccionNominalEmpaquetadora = 0;// MOSTRAR
+
+            // Lo que hubiera producido cada maquina;
+            ProduccionRealTrituradora = 0;// MOSTRAR
+            ProduccionRealRefinadora = 0;// MOSTRAR
+            ProduccionRealEmpaquetadora = 0;// MOSTRAR
         }
     }
 }

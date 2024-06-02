@@ -57,6 +57,7 @@ namespace Dominio
 
         public void simular()
         {
+            reiniciar();
             foreach (Linea l in LineasProduccion)
             {
                 l.iniciar(HorasJornada, MinPapel, MaxPapel);
@@ -120,8 +121,6 @@ namespace Dominio
 
         public void reiniciar()
         {
-            LineasProduccion = new List<Linea>();
-            agregarLinea();
             TotalPapelNetoPlanta = 0;
             TotalBolsasPlanta = 0;
             ProductoNetoProducidoPlanta = 0;

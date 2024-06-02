@@ -24,10 +24,18 @@ namespace Presentacion.Presentadores
             Vista.QuitarLineaProduccion += EliminarLineas;
             Vista.Simular += SimularProduccion;
             Vista.Reiniciar += ReiniciarProduccion;
+            Vista.SeleccionarLinea += SeleccionarLinea;
             _simulacion = new SimulacionProduccion();
+            _simulacion.agregarLinea();
             ActualizarSimulacion();
             ActualizarLineasVista();
         }
+
+        private void SeleccionarLinea(object sender, EventArgs e)
+        {
+            Vista.MostrarDatosLinea(_simulacion.LineasProduccion);
+        }
+
         private void ActualizarSimulacion()
         {
             Vista.ActualizarSimulacion(_simulacion);
