@@ -18,5 +18,13 @@ namespace Dominio
             TempExterior = 30;
             EspesorCm = 14;
         }
+
+        public void simular()
+        {
+            double Temp1 = (TempExterior > TempInterior) ? TempExterior : TempInterior;
+            double Temp2 = (TempExterior > TempInterior) ? TempInterior : TempExterior;
+            /*deltaTemp = 
+            (1 / EspesorCm * 0,039) * (Temp1 - Temp2);*/ 
+        }
     }
 }

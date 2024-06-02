@@ -158,34 +158,28 @@ namespace Dominio
 
                         NumerosAleatorios.Distribuciones.Uniform(0.90, 0.98, ref porcPapel);
 
+                        PapelEscaso += MasaTriturada;
+
                     }
                     else if (u <= 0.95)
                     {
                         nivelBasura = NivelBasura.INTERMEDIO;
 
                         NumerosAleatorios.Distribuciones.Normal(0.7,0.08, ref porcPapel);
+
+                        PapelIntermedio += MasaTriturada;
                     }
                     else
                     {
                         nivelBasura = NivelBasura.EXCESIVO;
 
                         NumerosAleatorios.Distribuciones.Normal(0.5, 0.05, ref porcPapel);
+
+                        PapelExcesivo += MasaTriturada;
                     }
 
                     double Papel = MasaTriturada * porcPapel;
                     double Basura = MasaTriturada * (1 - porcPapel);
-
-                    if (nivelBasura == NivelBasura.ESCASO) {
-                        PapelEscaso += Papel;
-                    }
-                    else if (nivelBasura == NivelBasura.INTERMEDIO)
-                    {
-                        PapelIntermedio += Papel;
-                    }
-                    else
-                    {
-                        PapelExcesivo += Papel;
-                    }
 
                     AlmacenPapel += Papel;
                     AlmacenBasura += Basura;
