@@ -162,7 +162,7 @@
             botonEliminarLinea.Name = "botonEliminarLinea";
             botonEliminarLinea.Size = new Size(220, 40);
             botonEliminarLinea.TabIndex = 1;
-            botonEliminarLinea.Text = "Eliminar línea";
+            botonEliminarLinea.Text = "Eliminar líneas";
             botonEliminarLinea.UseVisualStyleBackColor = false;
             // 
             // botonAgregarLinea
@@ -203,6 +203,7 @@
             // panelLineas
             // 
             panelLineas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelLineas.AutoScroll = true;
             panelLineas.BackColor = Color.FromArgb(234, 234, 234);
             panelLineas.BackgroundImageLayout = ImageLayout.Center;
             panelLineas.Location = new Point(6, 6);
