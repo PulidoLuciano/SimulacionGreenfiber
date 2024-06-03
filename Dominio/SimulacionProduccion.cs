@@ -16,23 +16,41 @@ namespace Dominio
         private double _minPapel = 1500;
         private double _maxPapel = 2000;
 
-        public double TotalPapelNetoPlanta { get; set; }
+
         public double TotalBolsasPlanta { get; set; }
-        public double ProductoNetoProducidoPlanta { get; set; }
-        public double PotenciaPlanta { get; set; }
         public double ArbolesSalvadosPlanta { get; set; }
-
-        public double ConsumoBoraxPlanta { get; set; }
-        public double ConsumoAcidoBoricoPlanta { get; set; }
-
+        public double MateriaPrimaIngresadaPlanta { get; set; }
         public double PapelEscasoPlanta { get; set; }
         public double PapelIntermedio { get; set; }
         public double PapelExcesivoPlanta { get; set; }
-
-        public double DesperdicioTrituracionPlanta { get; set; }
         public double BasuraTotalPlanta { get; set; }
+        public double ConsumoAcidoBoricoPlanta { get; set; }
+        public double ConsumoBoraxPlanta { get; set; }
+        public double ProductoNetoProducidoPlanta { get; set; }
+
+        //TRITURACIÓN
+        public double ProduccionNominalTrituradoraPlanta { get; set; }
+        public double ProduccionRealTrituradoraPlanta { get; set; }
+        public double DesperdicioTrituracionPlanta { get; set; }
+        public double SinProcesarTrituracionPlanta { get; set; }
+
+        //REFINACIÓN
+        public double ProduccionNominalRefinadoraPlanta { get; set; }
+        public double ProduccionRealRefinadoraPlanta { get; set; }
         public double DesperdicioRefinacionPlanta { get; set; }
+        public double SinProcesarRefinadoraPlanta { get; set; }
+        //EMPAQUETADO
+        public double ProduccionNominalEmpaquetadoraPlanta { get; set; }
+        public double ProduccionRealEmpaquetadoraPlanta { get; set; }
         public double DesperdicioEmpaquetadoPlanta { get; set; }
+        public double SinProcesarEmpaquetadoraPlanta { get; set; }
+        public double TotalPapelNetoPlanta { get; set; }
+        
+        
+        public double PotenciaPlanta { get; set; }
+        
+
+       
 
         public int HorasJornada
         {
@@ -70,12 +88,23 @@ namespace Dominio
                 ConsumoBoraxPlanta += l.ConsumoBorax;
                 PotenciaPlanta += l.PotenciaTotal;
                 ArbolesSalvadosPlanta += l.ArbolesSalvados;
-                DesperdicioTrituracionPlanta += l.DesperdicioTrituradora;
-                DesperdicioRefinacionPlanta += l.DesperdicioRefinadora;
-                DesperdicioEmpaquetadoPlanta += l.DesperdicioEmpaquetadora;
+                DesperdicioTrituracionPlanta += l.DesperdicioTrituradoraV2;
+                DesperdicioRefinacionPlanta += l.DesperdicioRefinadoraV2;
+                DesperdicioEmpaquetadoPlanta += l.DesperdicioEmpaquetadoraV2;
                 PapelEscasoPlanta += l.PapelEscaso;
                 PapelIntermedio += l.PapelIntermedio;
                 PapelExcesivoPlanta += l.PapelExcesivo;
+                MateriaPrimaIngresadaPlanta += l.MasaNominalRecolectada;
+                ProduccionNominalTrituradoraPlanta += l.ProduccionNominalTrituradora;
+                ProduccionRealTrituradoraPlanta += l.ProduccionRealTrituradora;
+                SinProcesarTrituracionPlanta += l.AlmacenRecolectado;
+                ProduccionNominalRefinadoraPlanta += l.ProduccionNominalRefinadora;
+                ProduccionRealRefinadoraPlanta += l.ProduccionRealRefinadora;
+                SinProcesarRefinadoraPlanta += l.AlmacenPapel;
+                ProduccionNominalEmpaquetadoraPlanta += l.ProduccionNominalEmpaquetadora;
+                ProduccionRealEmpaquetadoraPlanta += l.ProduccionRealEmpaquetadora;
+                SinProcesarEmpaquetadoraPlanta += l.AlmacenCelulosa;
+
 
                 System.Diagnostics.Debug.WriteLine($"INFORMACION GENERAL.");
                 System.Diagnostics.Debug.WriteLine($"Producto neto producido: {l.ProductoNetoProducido} Kg");
@@ -109,7 +138,7 @@ namespace Dominio
                 System.Diagnostics.Debug.WriteLine($"\t Almacen de recolección: {l.AlmacenRecolectado} Kg");
                 System.Diagnostics.Debug.WriteLine($"\t Almacen de papel: {l.AlmacenPapel} Kg");
                 System.Diagnostics.Debug.WriteLine($"\t Almacen de basura: {l.AlmacenBasura} Kg");
-                System.Diagnostics.Debug.WriteLine($"\t Almacen de celulosa: {l.AlmacenFibra} Kg");
+                
             }
         }
 
@@ -135,6 +164,16 @@ namespace Dominio
             BasuraTotalPlanta = 0;
             DesperdicioRefinacionPlanta = 0;
             DesperdicioEmpaquetadoPlanta = 0;
+            MateriaPrimaIngresadaPlanta = 0;
+            ProduccionNominalTrituradoraPlanta = 0;
+            ProduccionRealTrituradoraPlanta = 0;
+            SinProcesarTrituracionPlanta = 0;
+            ProduccionNominalRefinadoraPlanta = 0;
+            ProduccionRealRefinadoraPlanta = 0;
+            SinProcesarRefinadoraPlanta = 0;
+            ProduccionNominalEmpaquetadoraPlanta= 0;          
+            ProduccionRealEmpaquetadoraPlanta = 0;
+            SinProcesarEmpaquetadoraPlanta = 0; SinProcesarEmpaquetadoraPlanta = 0;
         }
     }
 }

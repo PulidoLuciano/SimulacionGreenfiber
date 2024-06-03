@@ -9,11 +9,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    enum NivelBasura {
-        EXCESIVO = 0,
-        INTERMEDIO,
-        ESCASO,
-    }
+   
 
     public class Linea
     {
@@ -67,13 +63,9 @@ namespace Dominio
         public double AlmacenRecolectado { get; set; }
         public double AlmacenPapel { get; set; }
         public double AlmacenBasura { get; set; }
-        public double AlmacenFibra { get; set; }
         public double AlmacenCelulosa { get; set; }
 
-        // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido" YO SACARIA ESTOS ACUMULADORES
-        public double DesperdicioTrituradora { get; set; }
-        public double DesperdicioRefinadora { get; set; }
-        public double DesperdicioEmpaquetadora { get; set; }
+        
 
         // Lo que hubiera producido cada maquina;
         public double ProduccionNominalTrituradora { get; set; } // MOSTRAR
@@ -97,7 +89,7 @@ namespace Dominio
 
         public double DesperdicioEmpaquetadoraV2
         {
-            get { return ProduccionRealRefinadora - ProduccionRealEmpaquetadora; }
+            get { return ProduccionNominalEmpaquetadora - ProduccionRealEmpaquetadora; }
         }
 
         public void iniciar(int HorasJornada, double MinPapel, double MaxPapel)
@@ -148,11 +140,11 @@ namespace Dominio
                     NumerosAleatorios.Generador.G(ref u);
 
                     double porcPapel = 0;
-                    NivelBasura nivelBasura;
+                    
 
                     if (u <= 0.2)
                     {
-                        nivelBasura = NivelBasura.ESCASO;
+                        
 
                         NumerosAleatorios.Generador.G(ref u);
 
@@ -163,7 +155,7 @@ namespace Dominio
                     }
                     else if (u <= 0.95)
                     {
-                        nivelBasura = NivelBasura.INTERMEDIO;
+                        
 
                         NumerosAleatorios.Distribuciones.Normal(0.7,0.08, ref porcPapel);
 
@@ -171,7 +163,7 @@ namespace Dominio
                     }
                     else
                     {
-                        nivelBasura = NivelBasura.EXCESIVO;
+                        
 
                         NumerosAleatorios.Distribuciones.Normal(0.5, 0.05, ref porcPapel);
 
@@ -202,7 +194,7 @@ namespace Dominio
 
                     ProduccionRealRefinadora += MasaFibra;
 
-                    AlmacenFibra += MasaFibra;
+                    
                     PapelNetoReciclado += MasaFibra;
 
                     double porcQuimico = 0;
@@ -230,16 +222,23 @@ namespace Dominio
                     {
                         AlmacenCelulosa -= MasaEmpaquetada;
                     }
-
+                   
                     ProduccionRealEmpaquetadora += MasaEmpaquetada;
 
                     double MasaBolsa = 0;
-                    while (MasaEmpaquetada > 13)
+
+                    while (MasaEmpaquetada > 15)
                     {
                         NumerosAleatorios.Distribuciones.Uniform(13, 15, ref  MasaBolsa);
-                        MasaEmpaquetada -= MasaBolsa;
+                        MasaEmpaquetada -= MasaBolsa;                       
                         ProductoNetoProducido += MasaBolsa;
                         TotalBolsas++;
+                    }
+                    if (MasaEmpaquetada > 13)
+                    {
+                        ProductoNetoProducido += MasaEmpaquetada;
+                        TotalBolsas++;
+                        MasaEmpaquetada = 0;
                     }
 
                     AlmacenCelulosa += MasaEmpaquetada;
@@ -264,6 +263,7 @@ namespace Dominio
             ArbolesSalvados = 0;// MOSTRAR
             ConsumoBorax = 0;// MOSTRAR 
             ConsumoAcidoBorico = 0;// MOSTRAR
+            MasaNominalRecolectada = 0;
 
             // Cantidades segun nivel de basura /// ESTO LO BORRARIA PORQUE SIEMPRE SERAN ENTRE LOS MISMOS VALORES. Siempre sera mayor el intermedio que el resto.
             PapelEscaso = 0;
@@ -273,15 +273,9 @@ namespace Dominio
             // Cantidad en almacenes. Dinamicos e interdependientes a lo largo de la simulacion.
             AlmacenRecolectado = 0;
             AlmacenPapel = 0;
-            AlmacenBasura = 0;
-            AlmacenFibra = 0;
+            AlmacenBasura = 0;         
             AlmacenCelulosa = 0;
-
-            // Pedidas de capacidades de maquinas en Kg. "Lo que podria haber producido" YO SACARIA ESTOS ACUMULADORES
-            DesperdicioTrituradora = 0;
-            DesperdicioRefinadora = 0;
-            DesperdicioEmpaquetadora = 0;
-
+                      
             // Lo que hubiera producido cada maquina;
             ProduccionNominalTrituradora = 0;// MOSTRAR
             ProduccionNominalRefinadora = 0;// MOSTRAR
