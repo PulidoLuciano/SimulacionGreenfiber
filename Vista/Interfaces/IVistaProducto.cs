@@ -14,9 +14,16 @@ namespace Presentacion.Interfaces
         event EventHandler ScrollTempExterior;
         event EventHandler ScrollEspesor;
         event EventHandler ClickSimular;
+        event EventHandler TickTimer;
+        event EventHandler CambiarMaterial;
+
+        public int MaterialSeleccionado { get; }
+        System.Windows.Forms.Timer TimerSimulacion { get; }
 
         public void CerrarVentana();
         public void EstablecerSimulacion(SimulacionProducto simulacion);
-        public void CambiarVisualizacion(double tempInterior, double tempExterior, double espesor);
+        public void CambiarVisualizacionTemp(double tempInterior, double tempExterior);
+        public void CambiarVisualizacionEspesor(double espesor);
+        public void BloquearControles(bool bloquear);
     }
 }

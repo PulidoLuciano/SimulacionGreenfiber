@@ -16,28 +16,54 @@ namespace Presentacion.Vistas
 {
     public partial class VistaProducto : VistaProductoConPresentador, IVistaProducto
     {
+        public int MaterialSeleccionado 
+        {
+            get
+            {
+                return (radioCelulosa.Checked) ? 0 : (radioLadrillo.Checked) ? 1 : 2;
+            }
+        }
+        System.Windows.Forms.Timer IVistaProducto.TimerSimulacion { get => timerSimulacion; }
+
         public VistaProducto()
         {
             InitializeComponent();
             DoubleBuffered = true;
         }
 
-        public event EventHandler ScrollTempInterior
+        public event EventHandler ScrollTempInterior;
+        public event EventHandler ScrollTempExterior;
+        public event EventHandler CambiarMaterial
         {
-            add { sliderInterior.Scroll += value; }
-            remove { sliderInterior.Scroll -= value; }
+            add
+            {
+                radioCelulosa.CheckedChanged += value;
+                radioLadrillo.CheckedChanged += value;
+                radioMadera.CheckedChanged += value;
+            }
+            remove
+            {
+                radioCelulosa.CheckedChanged -= value;
+                radioLadrillo.CheckedChanged -= value;
+                radioMadera.CheckedChanged -= value;
+            }
         }
-        public event EventHandler ScrollTempExterior
+
+        public event EventHandler TickTimer
         {
-            add { sliderExterior.Scroll += value; }
-            remove { sliderExterior.Scroll -= value; }
+            add { timerSimulacion.Tick += value; }
+            remove => timerSimulacion = null;
         }
         public event EventHandler ScrollEspesor
         {
             add { sliderEspesor.Scroll += value; }
             remove { sliderEspesor.Scroll -= value; }
         }
-        public event EventHandler ClickSimular;
+        public event EventHandler ClickSimular
+        {
+            add { botonSimular.Click += value; }
+            remove { botonSimular.Click -= value; }
+        }
 
         public event EventHandler ClickProduccion
         {
@@ -48,6 +74,10 @@ namespace Presentacion.Vistas
         public void CerrarVentana()
         {
             this.Close();
+        }
+
+        void SimularTimer()
+        {
         }
 
         private void botonSimular_Paint(object sender, PaintEventArgs e)
@@ -67,7 +97,7 @@ namespace Presentacion.Vistas
             bindingSourceProducto.DataSource = simulacion;
         }
 
-        public void CambiarVisualizacion(double tempInterior, double tempExterior, double espesor)
+        public void CambiarVisualizacionTemp(double tempInterior, double tempExterior)
         {
             panelExterior.BackColor = (tempExterior >= 15) ?
                 Color.FromArgb((int)Math.Truncate(3.33 * tempExterior - 50), 255, 0, 0) :
@@ -75,12 +105,18 @@ namespace Presentacion.Vistas
             panelInterior.BackColor = (tempInterior >= 15) ?
                 Color.FromArgb((int)Math.Truncate(3.33 * tempInterior - 50), 255, 0, 0) :
                 Color.FromArgb((int)Math.Truncate(-6 * tempInterior + 90), 0, 0, 255);
+            bindingSourceProducto.ResetBindings(false);
+        }
+
+        public void CambiarVisualizacionEspesor(double espesor)
+        {
             splitCasa.SplitterDistance = splitCasa.Width - (int)Math.Truncate(espesor + 22);
         }
 
-        private void panelInterior_BackColorChanged(object sender, EventArgs e)
+        public void BloquearControles(bool bloquear)
         {
-
+            botonSimular.Text = (bloquear) ? "Detener" : "Simular";
+            sliderEspesor.Enabled = !bloquear;
         }
     }
 

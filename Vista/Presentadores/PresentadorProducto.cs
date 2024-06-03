@@ -16,17 +16,41 @@ namespace Presentacion.Presentadores
         public PresentadorProducto(IVistaProducto vista) : base(vista)
         {
             Vista.ClickProduccion += VolverAProduccion;
-            Vista.ScrollTempExterior += CambiarTemperaturas;
-            Vista.ScrollTempInterior += CambiarTemperaturas;
-            Vista.ScrollEspesor += CambiarTemperaturas;
+            Vista.ScrollEspesor += CambiarEspesor;
+            Vista.ClickSimular += GestionarSimulacion;
+            Vista.TickTimer += Simular;
+            Vista.CambiarMaterial += CambiarMaterialSimulacion;
             _simulacionProducto = new SimulacionProducto();
             Vista.EstablecerSimulacion(_simulacionProducto);
-            Vista.CambiarVisualizacion(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior, _simulacionProducto.EspesorCm);
+            Vista.CambiarVisualizacionEspesor(_simulacionProducto.EspesorCm);
+            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior);
         }
 
-        public void CambiarTemperaturas(object sender, EventArgs e)
+        void Simular(object sender, EventArgs e)
         {
-            Vista.CambiarVisualizacion(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior, _simulacionProducto.EspesorCm);
+            _simulacionProducto.simularHora();
+            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior);
+        }
+
+        void GestionarSimulacion(object sender, EventArgs e)
+        {
+            if (!Vista.TimerSimulacion.Enabled) {
+                _simulacionProducto.reiniciar();
+                Vista.TimerSimulacion.Start();
+            } 
+            else Vista.TimerSimulacion.Stop();
+            Vista.BloquearControles(Vista.TimerSimulacion.Enabled);
+        }
+
+        void CambiarMaterialSimulacion(object sender, EventArgs e)
+        {
+            _simulacionProducto.MaterialElegido = Vista.MaterialSeleccionado;
+            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior);
+        }
+
+        public void CambiarEspesor(object sender, EventArgs e)
+        {
+            Vista.CambiarVisualizacionEspesor(_simulacionProducto.EspesorCm);
         }
 
         public void VolverAProduccion(object sender, EventArgs e)
