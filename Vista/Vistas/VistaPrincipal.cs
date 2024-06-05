@@ -53,6 +53,17 @@ namespace Vistas
             add { comboLineas.SelectedIndexChanged += value; }
             remove { comboLineas.SelectedIndexChanged -= value; }
         }
+        public event EventHandler TemporizadorClick
+        {
+            add { timerSimulacionProducto.Tick += value; }
+            remove { timerSimulacionProducto.Tick -= value; }
+        }
+
+        public void DetenerTemporizador()
+        {
+            timerSimulacionProducto.Dispose();
+            MessageBox.Show("Simulación finalizada.");
+        }
 
         public void ActualizarSimulacion(SimulacionProduccion simulacion)
         {
@@ -87,7 +98,7 @@ namespace Vistas
             });
 
             List<int> indexs = new List<int>();
-            for(int i = 1; i <= lineas.Count; i++)
+            for (int i = 1; i <= lineas.Count; i++)
             {
                 indexs.Add(i);
             }
@@ -100,6 +111,11 @@ namespace Vistas
             lineasBS.Clear();
             lineasBS.Add(lineas[comboLineas.SelectedIndex]);
             lineasBS.ResetBindings(false);
+        }
+
+        private void buttonSimularHoras_Click(object sender, EventArgs e)
+        {
+            timerSimulacionProducto.Start();
         }
     }
 

@@ -16,6 +16,7 @@ namespace Dominio
         private double _minPapel = 1500;
         private double _maxPapel = 2000;
 
+        public double HorasTranscurridas { get; set; }
 
         public double TotalBolsasPlanta { get; set; }
         public double ArbolesSalvadosPlanta { get; set; }
@@ -48,8 +49,6 @@ namespace Dominio
         
         
         public double PotenciaPlanta { get; set; }
-        
-
        
 
         public int HorasJornada
@@ -141,6 +140,50 @@ namespace Dominio
                 
             }
         }
+
+        public void simular_hora()
+        {
+            reiniciar();
+            foreach (Linea l in LineasProduccion)
+            {
+                l.iniciar_hora(MinPapel, MaxPapel);
+
+                ProductoNetoProducidoPlanta += l.ProductoNetoProducido;
+                TotalBolsasPlanta += l.TotalBolsas;
+                TotalPapelNetoPlanta += l.PapelNetoReciclado;
+                BasuraTotalPlanta += l.AlmacenBasura;
+                ConsumoAcidoBoricoPlanta += l.ConsumoAcidoBorico;
+                ConsumoBoraxPlanta += l.ConsumoBorax;
+                PotenciaPlanta += l.PotenciaTotal;
+                ArbolesSalvadosPlanta += l.ArbolesSalvados;
+                DesperdicioTrituracionPlanta += l.DesperdicioTrituradoraV2;
+                DesperdicioRefinacionPlanta += l.DesperdicioRefinadoraV2;
+                DesperdicioEmpaquetadoPlanta += l.DesperdicioEmpaquetadoraV2;
+                PapelEscasoPlanta += l.PapelEscaso;
+                PapelIntermedio += l.PapelIntermedio;
+                PapelExcesivoPlanta += l.PapelExcesivo;
+                MateriaPrimaIngresadaPlanta += l.MasaNominalRecolectada;
+                ProduccionNominalTrituradoraPlanta += l.ProduccionNominalTrituradora;
+                ProduccionRealTrituradoraPlanta += l.ProduccionRealTrituradora;
+                SinProcesarTrituracionPlanta += l.AlmacenRecolectado;
+                ProduccionNominalRefinadoraPlanta += l.ProduccionNominalRefinadora;
+                ProduccionRealRefinadoraPlanta += l.ProduccionRealRefinadora;
+                SinProcesarRefinadoraPlanta += l.AlmacenPapel;
+                ProduccionNominalEmpaquetadoraPlanta += l.ProduccionNominalEmpaquetadora;
+                ProduccionRealEmpaquetadoraPlanta += l.ProduccionRealEmpaquetadora;
+                SinProcesarEmpaquetadoraPlanta += l.AlmacenCelulosa;
+            }
+        }
+
+        public void reiniciar_lineas()
+        {
+            foreach (Linea l in LineasProduccion)
+            {
+                l.reiniciar();
+            }
+
+        }
+
 
         public void agregarLinea()
         {

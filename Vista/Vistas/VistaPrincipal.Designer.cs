@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
+            buttonSimularHoras = new Button();
             textBox2 = new TextBox();
             simulacionProduccionBS = new BindingSource(components);
             textBox1 = new TextBox();
@@ -126,13 +127,13 @@
             label59 = new Label();
             comboLineas = new ComboBox();
             labelPotenciaUtilizadaLinea = new Label();
+            lineasBS = new BindingSource(components);
             labelLineas = new Label();
             label61 = new Label();
             label101 = new Label();
             label62 = new Label();
             label147 = new Label();
             labelEDesperdicioProductividadLinea = new Label();
-            lineasBS = new BindingSource(components);
             label146 = new Label();
             labelEProduccionRealLinea = new Label();
             label145 = new Label();
@@ -200,6 +201,7 @@
             label111 = new Label();
             labelAcidoBoricoLinea = new Label();
             label112 = new Label();
+            timerSimulacionProducto = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)simulacionProduccionBS).BeginInit();
@@ -229,6 +231,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel3.Controls.Add(buttonSimularHoras);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label4);
@@ -246,6 +249,19 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(290, 735);
             panel3.TabIndex = 0;
+            // 
+            // buttonSimularHoras
+            // 
+            buttonSimularHoras.BackColor = Color.FromArgb(128, 128, 255);
+            buttonSimularHoras.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSimularHoras.ForeColor = SystemColors.ButtonHighlight;
+            buttonSimularHoras.Location = new Point(3, 340);
+            buttonSimularHoras.Name = "buttonSimularHoras";
+            buttonSimularHoras.Size = new Size(287, 52);
+            buttonSimularHoras.TabIndex = 13;
+            buttonSimularHoras.Text = "Simular por horas";
+            buttonSimularHoras.UseVisualStyleBackColor = false;
+            buttonSimularHoras.Click += buttonSimularHoras_Click;
             // 
             // textBox2
             // 
@@ -1493,6 +1509,10 @@
             labelPotenciaUtilizadaLinea.TabIndex = 156;
             labelPotenciaUtilizadaLinea.Text = "-";
             // 
+            // lineasBS
+            // 
+            lineasBS.DataSource = typeof(Dominio.Linea);
+            // 
             // labelLineas
             // 
             labelLineas.AutoSize = true;
@@ -1559,10 +1579,6 @@
             labelEDesperdicioProductividadLinea.Size = new Size(15, 20);
             labelEDesperdicioProductividadLinea.TabIndex = 153;
             labelEDesperdicioProductividadLinea.Text = "-";
-            // 
-            // lineasBS
-            // 
-            lineasBS.DataSource = typeof(Dominio.Linea);
             // 
             // label146
             // 
@@ -2322,6 +2338,10 @@
             label112.TabIndex = 119;
             label112.Text = "Kg";
             // 
+            // timerSimulacionProducto
+            // 
+            timerSimulacionProducto.Interval = 1000;
+            // 
             // VistaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2526,5 +2546,7 @@
         private Label label111;
         private Label labelAcidoBoricoLinea;
         private Label label112;
+        private System.Windows.Forms.Timer timerSimulacionProducto;
+        private Button buttonSimularHoras;
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlLineaProduccion));
             panel1 = new Panel();
             labelTrituracion = new Label();
             panel2 = new Panel();
@@ -64,6 +65,12 @@
             label5 = new Label();
             textBoxCapacidadTrituradora = new TextBox();
             label4 = new Label();
+            panel5 = new Panel();
+            panel6 = new Panel();
+            panel7 = new Panel();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            panel10 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -81,9 +88,9 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel1.BackColor = Color.White;
             panel1.Controls.Add(labelTrituracion);
-            panel1.Location = new Point(181, 3);
+            panel1.Location = new Point(43, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(152, 142);
+            panel1.Size = new Size(152, 32);
             panel1.TabIndex = 0;
             // 
             // labelTrituracion
@@ -91,7 +98,7 @@
             labelTrituracion.Anchor = AnchorStyles.Bottom;
             labelTrituracion.AutoSize = true;
             labelTrituracion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTrituracion.Location = new Point(35, 119);
+            labelTrituracion.Location = new Point(35, 9);
             labelTrituracion.Name = "labelTrituracion";
             labelTrituracion.Size = new Size(84, 21);
             labelTrituracion.TabIndex = 0;
@@ -101,10 +108,11 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(panel6);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(386, 3);
+            panel2.Location = new Point(282, 1);
             panel2.Name = "panel2";
-            panel2.Size = new Size(154, 142);
+            panel2.Size = new Size(154, 32);
             panel2.TabIndex = 1;
             // 
             // label1
@@ -112,7 +120,7 @@
             label1.Anchor = AnchorStyles.Bottom;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(42, 119);
+            label1.Location = new Point(39, 11);
             label1.Name = "label1";
             label1.Size = new Size(72, 21);
             label1.TabIndex = 1;
@@ -122,10 +130,11 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(panel8);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(573, 3);
+            panel3.Location = new Point(531, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(155, 142);
+            panel3.Size = new Size(155, 34);
             panel3.TabIndex = 2;
             // 
             // label2
@@ -133,7 +142,7 @@
             label2.Anchor = AnchorStyles.Bottom;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(36, 121);
+            label2.Location = new Point(36, 13);
             label2.Name = "label2";
             label2.Size = new Size(83, 21);
             label2.TabIndex = 2;
@@ -144,9 +153,9 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel4.BackColor = Color.White;
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(771, 3);
+            panel4.Location = new Point(789, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(162, 142);
+            panel4.Size = new Size(162, 31);
             panel4.TabIndex = 3;
             // 
             // label3
@@ -154,7 +163,7 @@
             label3.Anchor = AnchorStyles.Bottom;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(29, 121);
+            label3.Location = new Point(29, 10);
             label3.Name = "label3";
             label3.Size = new Size(106, 21);
             label3.TabIndex = 2;
@@ -163,6 +172,10 @@
             // panelLinea
             // 
             panelLinea.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelLinea.Controls.Add(panel10);
+            panelLinea.Controls.Add(panel9);
+            panelLinea.Controls.Add(panel7);
+            panelLinea.Controls.Add(panel5);
             panelLinea.Controls.Add(panel1);
             panelLinea.Controls.Add(panel4);
             panelLinea.Controls.Add(panel2);
@@ -209,7 +222,7 @@
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label16.ForeColor = Color.FromArgb(234, 234, 234);
-            label16.Location = new Point(881, 105);
+            label16.Location = new Point(899, 105);
             label16.Name = "label16";
             label16.Size = new Size(46, 20);
             label16.TabIndex = 20;
@@ -220,7 +233,7 @@
             textBoxPotenciaEmpaquetadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaEmpaquetadora.DataBindings.Add(new Binding("Text", EmpaquetadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaEmpaquetadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaEmpaquetadora.Location = new Point(789, 98);
+            textBoxPotenciaEmpaquetadora.Location = new Point(807, 98);
             textBoxPotenciaEmpaquetadora.Name = "textBoxPotenciaEmpaquetadora";
             textBoxPotenciaEmpaquetadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaEmpaquetadora.Size = new Size(86, 27);
@@ -236,7 +249,7 @@
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.FromArgb(234, 234, 234);
-            label17.Location = new Point(771, 75);
+            label17.Location = new Point(789, 75);
             label17.Name = "label17";
             label17.Size = new Size(69, 20);
             label17.TabIndex = 18;
@@ -248,7 +261,7 @@
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.FromArgb(234, 234, 234);
-            label14.Location = new Point(683, 101);
+            label14.Location = new Point(644, 101);
             label14.Name = "label14";
             label14.Size = new Size(46, 20);
             label14.TabIndex = 17;
@@ -259,7 +272,7 @@
             textBoxPotenciaRefinadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaRefinadora.DataBindings.Add(new Binding("Text", RefinadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaRefinadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaRefinadora.Location = new Point(591, 94);
+            textBoxPotenciaRefinadora.Location = new Point(552, 94);
             textBoxPotenciaRefinadora.Name = "textBoxPotenciaRefinadora";
             textBoxPotenciaRefinadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaRefinadora.Size = new Size(86, 27);
@@ -275,7 +288,7 @@
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(234, 234, 234);
-            label15.Location = new Point(573, 71);
+            label15.Location = new Point(534, 71);
             label15.Name = "label15";
             label15.Size = new Size(69, 20);
             label15.TabIndex = 15;
@@ -287,7 +300,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(234, 234, 234);
-            label12.Location = new Point(496, 101);
+            label12.Location = new Point(374, 101);
             label12.Name = "label12";
             label12.Size = new Size(46, 20);
             label12.TabIndex = 14;
@@ -298,7 +311,7 @@
             textBoxPotenciaLimpiadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaLimpiadora.DataBindings.Add(new Binding("Text", LimpiadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaLimpiadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaLimpiadora.Location = new Point(404, 94);
+            textBoxPotenciaLimpiadora.Location = new Point(282, 94);
             textBoxPotenciaLimpiadora.Name = "textBoxPotenciaLimpiadora";
             textBoxPotenciaLimpiadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaLimpiadora.Size = new Size(86, 27);
@@ -314,7 +327,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(234, 234, 234);
-            label13.Location = new Point(386, 71);
+            label13.Location = new Point(264, 71);
             label13.Name = "label13";
             label13.Size = new Size(69, 20);
             label13.TabIndex = 12;
@@ -326,7 +339,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.FromArgb(234, 234, 234);
-            label11.Location = new Point(291, 101);
+            label11.Location = new Point(158, 105);
             label11.Name = "label11";
             label11.Size = new Size(46, 20);
             label11.TabIndex = 11;
@@ -337,7 +350,7 @@
             textBoxPotenciaTrituradora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaTrituradora.DataBindings.Add(new Binding("Text", TrituradoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaTrituradora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaTrituradora.Location = new Point(199, 94);
+            textBoxPotenciaTrituradora.Location = new Point(66, 98);
             textBoxPotenciaTrituradora.Name = "textBoxPotenciaTrituradora";
             textBoxPotenciaTrituradora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaTrituradora.Size = new Size(86, 27);
@@ -353,7 +366,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(234, 234, 234);
-            label10.Location = new Point(181, 71);
+            label10.Location = new Point(48, 75);
             label10.Name = "label10";
             label10.Size = new Size(69, 20);
             label10.TabIndex = 9;
@@ -365,7 +378,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(234, 234, 234);
-            label8.Location = new Point(881, 38);
+            label8.Location = new Point(899, 38);
             label8.Name = "label8";
             label8.Size = new Size(27, 20);
             label8.TabIndex = 8;
@@ -376,7 +389,7 @@
             textBoxCapacidadEmpaquetadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxCapacidadEmpaquetadora.DataBindings.Add(new Binding("Text", EmpaquetadoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxCapacidadEmpaquetadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxCapacidadEmpaquetadora.Location = new Point(789, 31);
+            textBoxCapacidadEmpaquetadora.Location = new Point(807, 31);
             textBoxCapacidadEmpaquetadora.Name = "textBoxCapacidadEmpaquetadora";
             textBoxCapacidadEmpaquetadora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadEmpaquetadora.Size = new Size(86, 27);
@@ -388,7 +401,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(234, 234, 234);
-            label9.Location = new Point(771, 10);
+            label9.Location = new Point(789, 10);
             label9.Name = "label9";
             label9.Size = new Size(144, 20);
             label9.TabIndex = 6;
@@ -400,7 +413,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(234, 234, 234);
-            label6.Location = new Point(683, 38);
+            label6.Location = new Point(644, 38);
             label6.Name = "label6";
             label6.Size = new Size(27, 20);
             label6.TabIndex = 5;
@@ -411,7 +424,7 @@
             textBoxCapacidadRefinadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxCapacidadRefinadora.DataBindings.Add(new Binding("Text", RefinadoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxCapacidadRefinadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxCapacidadRefinadora.Location = new Point(591, 31);
+            textBoxCapacidadRefinadora.Location = new Point(552, 31);
             textBoxCapacidadRefinadora.Name = "textBoxCapacidadRefinadora";
             textBoxCapacidadRefinadora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadRefinadora.Size = new Size(86, 27);
@@ -423,7 +436,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(234, 234, 234);
-            label7.Location = new Point(573, 10);
+            label7.Location = new Point(534, 10);
             label7.Name = "label7";
             label7.Size = new Size(144, 20);
             label7.TabIndex = 3;
@@ -435,7 +448,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(234, 234, 234);
-            label5.Location = new Point(291, 38);
+            label5.Location = new Point(158, 42);
             label5.Name = "label5";
             label5.Size = new Size(27, 20);
             label5.TabIndex = 2;
@@ -446,7 +459,7 @@
             textBoxCapacidadTrituradora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxCapacidadTrituradora.DataBindings.Add(new Binding("Text", TrituradoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxCapacidadTrituradora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxCapacidadTrituradora.Location = new Point(199, 31);
+            textBoxCapacidadTrituradora.Location = new Point(66, 35);
             textBoxCapacidadTrituradora.Name = "textBoxCapacidadTrituradora";
             textBoxCapacidadTrituradora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadTrituradora.Size = new Size(86, 27);
@@ -458,18 +471,78 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(234, 234, 234);
-            label4.Location = new Point(181, 10);
+            label4.Location = new Point(48, 14);
             label4.Name = "label4";
             label4.Size = new Size(144, 20);
             label4.TabIndex = 0;
             label4.Text = "Capacidad por hora";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.Transparent;
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Zoom;
+            panel5.Location = new Point(43, 36);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(152, 109);
+            panel5.TabIndex = 4;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
+            panel6.BackgroundImageLayout = ImageLayout.Zoom;
+            panel6.Location = new Point(0, 35);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(152, 109);
+            panel6.TabIndex = 5;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.Transparent;
+            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
+            panel7.BackgroundImageLayout = ImageLayout.Zoom;
+            panel7.Location = new Point(285, 39);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(152, 109);
+            panel7.TabIndex = 5;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.Transparent;
+            panel8.BackgroundImage = (Image)resources.GetObject("panel8.BackgroundImage");
+            panel8.BackgroundImageLayout = ImageLayout.Zoom;
+            panel8.Location = new Point(0, 36);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(152, 109);
+            panel8.TabIndex = 6;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.Transparent;
+            panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
+            panel9.BackgroundImageLayout = ImageLayout.Zoom;
+            panel9.Location = new Point(534, 39);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(152, 109);
+            panel9.TabIndex = 6;
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.Transparent;
+            panel10.BackgroundImage = (Image)resources.GetObject("panel10.BackgroundImage");
+            panel10.BackgroundImageLayout = ImageLayout.Zoom;
+            panel10.Location = new Point(789, 36);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(152, 109);
+            panel10.TabIndex = 7;
             // 
             // ControlLineaProduccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = Color.FromArgb(75, 54, 33);
+            BackColor = Color.DimGray;
             Controls.Add(panelDatos);
             Controls.Add(panelLinea);
             DoubleBuffered = true;
@@ -532,5 +605,11 @@
         private BindingSource LimpiadoraBS;
         private BindingSource RefinadoraBS;
         private BindingSource EmpaquetadoraBS;
+        private Panel panel5;
+        private Panel panel6;
+        private Panel panel8;
+        private Panel panel9;
+        private Panel panel7;
+        private Panel panel10;
     }
 }

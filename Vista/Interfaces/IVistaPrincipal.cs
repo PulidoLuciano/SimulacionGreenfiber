@@ -16,6 +16,7 @@ namespace Presentacion.Interfaces
         event EventHandler AgregarLineaProduccion;
         event EventHandler QuitarLineaProduccion;
         event EventHandler Simular;
+        event EventHandler TemporizadorClick;
         event EventHandler Reiniciar;
         event EventHandler Resize;
         event EventHandler SeleccionarLinea;
@@ -24,5 +25,7 @@ namespace Presentacion.Interfaces
 
         public void ActualizarSimulacion(SimulacionProduccion simulacion);
         public void MostrarDatosLinea(List<Linea> lineas);
+
+        public void DetenerTemporizador();
     }
 }

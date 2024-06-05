@@ -22,7 +22,8 @@ namespace Presentacion.Presentadores
             Vista.AgregarLineaProduccion += AgregarLinea;
             Vista.Resize += MostrarLineas;
             Vista.QuitarLineaProduccion += EliminarLineas;
-            Vista.Simular += SimularProduccion;
+            Vista.Simular += SimularJornadaCompleta;
+            Vista.TemporizadorClick += SimularHora;
             Vista.Reiniciar += ReiniciarProduccion;
             Vista.SeleccionarLinea += SeleccionarLinea;
             _simulacion = new SimulacionProduccion();
@@ -31,9 +32,15 @@ namespace Presentacion.Presentadores
             ActualizarLineasVista();
         }
 
+
         private void SeleccionarLinea(object sender, EventArgs e)
         {
             Vista.MostrarDatosLinea(_simulacion.LineasProduccion);
+        }
+
+        private void FinalizarSimulacion()
+        {
+            Vista.DetenerTemporizador();
         }
 
         private void ActualizarSimulacion()
@@ -76,10 +83,32 @@ namespace Presentacion.Presentadores
             ActualizarLineasVista();
         }
 
-        public void SimularProduccion(object sender, EventArgs args)
+        public void SimularJornadaCompleta(object sender, EventArgs args)
         {
             _simulacion.simular();
             ActualizarSimulacion();
+        }
+
+        public void SimularHora(object sender, EventArgs args)
+        {
+            if (_simulacion.HorasTranscurridas == 0)
+            {
+                _simulacion.reiniciar();
+                _simulacion.reiniciar_lineas();
+            }
+            if (_simulacion.HorasTranscurridas < _simulacion.HorasJornada)
+            {
+                _simulacion.simular_hora();
+                _simulacion.HorasTranscurridas++;
+            }
+            else
+            {
+                FinalizarSimulacion();
+                _simulacion.HorasTranscurridas = 0;
+            }
+
+            ActualizarSimulacion();
+
         }
 
         public void ReiniciarProduccion(object sender, EventArgs args)

@@ -13,6 +13,7 @@ namespace Dominio
 
     public class Linea
     {
+        public int _horas_transcurridas = 0;
         Trituradora _maquinaTrituradora = new Trituradora();
         Limpiadora _maquinaLimpiadora = new Limpiadora();
         Refinadora _maquinaRefinadora = new Refinadora();
@@ -49,8 +50,16 @@ namespace Dominio
         public double ProductoNetoProducido { get; set; }  // MOSTRAR
         public double TotalBolsas { get; set; }  // MOSTRAR
         public double PapelNetoReciclado { get; set; }  // MOSTRAR
-        public double PotenciaTotal { get; set; }  // MOSTRAR
-        public double ArbolesSalvados { get; set; }  // MOSTRAR
+        //public double PotenciaTotal { get; set; }  // MOSTRAR
+        //public double ArbolesSalvados { get; set; }  // MOSTRAR
+        public double PotenciaTotal{
+            get;
+            set;
+        }  // MOSTRAR
+        public double ArbolesSalvados{
+            get;
+            set;
+        }  // MOSTRAR
         public double ConsumoBorax { get; set; }  // MOSTRAR 
         public double ConsumoAcidoBorico { get; set; } // MOSTRAR
 
@@ -105,6 +114,8 @@ namespace Dominio
                 {
                     throw new Exception("Horas de jornada inválida.");
                 }
+
+                _horas_transcurridas = HorasJornada;
 
                 int horas = HorasJornada;
                 double u = 0;
@@ -245,7 +256,7 @@ namespace Dominio
                     horas--;
                 }
 
-                PotenciaTotal = HorasJornada * (_maquinaTrituradora.Potencia + _maquinaLimpiadora.Potencia + 
+                PotenciaTotal = HorasJornada * (_maquinaTrituradora.Potencia + _maquinaLimpiadora.Potencia +
                     _maquinaRefinadora.Potencia + _maquinaEmpaquetadora.Potencia);
                 ArbolesSalvados = 20 * (PapelNetoReciclado / 1000);
             }
@@ -254,8 +265,10 @@ namespace Dominio
                 Console.WriteLine(e.Message);
             }
         }
-        void reiniciar()
+        public void reiniciar()
         {
+            _horas_transcurridas = 0;
+
             ProductoNetoProducido = 0;// MOSTRAR
             TotalBolsas = 0;// MOSTRAR
             PapelNetoReciclado = 0;// MOSTRAR
@@ -285,6 +298,148 @@ namespace Dominio
             ProduccionRealTrituradora = 0;// MOSTRAR
             ProduccionRealRefinadora = 0;// MOSTRAR
             ProduccionRealEmpaquetadora = 0;// MOSTRAR
+        }
+
+        public void iniciar_hora(double MinPapel, double MaxPapel)
+        {
+            double u = 0;
+
+            // ----- RECOLECCION -----
+            double MasaRecolectada = 0;
+            NumerosAleatorios.Distribuciones.Uniform(MinPapel, MaxPapel, ref MasaRecolectada);
+            MasaNominalRecolectada += MasaRecolectada;
+
+            AlmacenRecolectado += MasaRecolectada;
+
+            // ----- TRITURACION -----
+            double MasaTriturada = 0;
+            NumerosAleatorios.Distribuciones.Normal(_maquinaTrituradora.CapacidadPromedio, 60, ref MasaTriturada);
+            ProduccionNominalTrituradora += MasaTriturada;
+
+            if (MasaTriturada > AlmacenRecolectado)
+            {
+                //DesperdicioTrituradora += MasaTriturada - AlmacenRecolectado;
+                MasaTriturada = AlmacenRecolectado;
+                AlmacenRecolectado = 0;
+            }
+            else
+            {
+                AlmacenRecolectado -= MasaTriturada;
+            }
+
+            ProduccionRealTrituradora += MasaTriturada;
+
+            // ----- LIMPIEZA -----
+            NumerosAleatorios.Generador.G(ref u);
+
+            double porcPapel = 0;
+
+
+            if (u <= 0.2)
+            {
+
+
+                NumerosAleatorios.Generador.G(ref u);
+
+                NumerosAleatorios.Distribuciones.Uniform(0.90, 0.98, ref porcPapel);
+
+                PapelEscaso += MasaTriturada;
+
+            }
+            else if (u <= 0.95)
+            {
+
+
+                NumerosAleatorios.Distribuciones.Normal(0.7, 0.08, ref porcPapel);
+
+                PapelIntermedio += MasaTriturada;
+            }
+            else
+            {
+
+
+                NumerosAleatorios.Distribuciones.Normal(0.5, 0.05, ref porcPapel);
+
+                PapelExcesivo += MasaTriturada;
+            }
+
+            double Papel = MasaTriturada * porcPapel;
+            double Basura = MasaTriturada * (1 - porcPapel);
+
+            AlmacenPapel += Papel;
+            AlmacenBasura += Basura;
+
+            // ----- REFINACION -----
+            double MasaFibra = 0;
+            NumerosAleatorios.Distribuciones.Normal(_maquinaRefinadora.CapacidadPromedio, 60, ref MasaFibra);
+            ProduccionNominalRefinadora += MasaFibra;
+
+            if (MasaFibra > AlmacenPapel)
+            {
+                //DesperdicioRefinadora += MasaFibra - AlmacenPapel;
+                MasaFibra = AlmacenPapel;
+                AlmacenPapel = 0;
+            }
+            else
+            {
+                AlmacenPapel -= MasaFibra;
+            }
+
+            ProduccionRealRefinadora += MasaFibra;
+
+
+            PapelNetoReciclado += MasaFibra;
+
+            double porcQuimico = 0;
+            NumerosAleatorios.Distribuciones.Uniform(0.2, 0.25, ref porcQuimico);
+
+            double MasaQuimicos = MasaFibra * porcQuimico;
+            ConsumoBorax += (MasaQuimicos - 11.6) / 1.185;
+            ConsumoAcidoBorico += 11.6 + (0.185 * ConsumoBorax);
+
+            double MasaCelusa = MasaFibra + MasaQuimicos;
+            AlmacenCelulosa += MasaCelusa;
+
+            // ----- EMPAQUETADO -----
+            double MasaEmpaquetada = 0;
+            NumerosAleatorios.Distribuciones.Normal(_maquinaEmpaquetadora.CapacidadPromedio, 60, ref MasaEmpaquetada);
+            ProduccionNominalEmpaquetadora += MasaEmpaquetada;
+
+            if (MasaEmpaquetada > AlmacenCelulosa)
+            {
+                //DesperdicioEmpaquetadora += MasaEmpaquetada - AlmacenCelulosa;
+                MasaEmpaquetada = AlmacenCelulosa;
+                AlmacenCelulosa = 0;
+            }
+            else
+            {
+                AlmacenCelulosa -= MasaEmpaquetada;
+            }
+
+            ProduccionRealEmpaquetadora += MasaEmpaquetada;
+
+            double MasaBolsa = 0;
+
+            while (MasaEmpaquetada > 15)
+            {
+                NumerosAleatorios.Distribuciones.Uniform(13, 15, ref MasaBolsa);
+                MasaEmpaquetada -= MasaBolsa;
+                ProductoNetoProducido += MasaBolsa;
+                TotalBolsas++;
+            }
+            if (MasaEmpaquetada > 13)
+            {
+                ProductoNetoProducido += MasaEmpaquetada;
+                TotalBolsas++;
+                MasaEmpaquetada = 0;
+            }
+
+            AlmacenCelulosa += MasaEmpaquetada;
+            _horas_transcurridas++;
+
+            PotenciaTotal = _horas_transcurridas * (_maquinaTrituradora.Potencia + _maquinaLimpiadora.Potencia +
+                    _maquinaRefinadora.Potencia + _maquinaEmpaquetadora.Potencia);
+            ArbolesSalvados = 20 * (PapelNetoReciclado / 1000);
         }
     }
 }
