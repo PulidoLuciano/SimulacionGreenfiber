@@ -30,15 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlLineaProduccion));
-            panel1 = new Panel();
-            labelTrituracion = new Label();
-            panel2 = new Panel();
-            label1 = new Label();
-            panel3 = new Panel();
-            label2 = new Label();
-            panel4 = new Panel();
-            label3 = new Label();
-            panelLinea = new Panel();
             panelDatos = new Panel();
             label16 = new Label();
             textBoxPotenciaEmpaquetadora = new TextBox();
@@ -65,126 +56,20 @@
             label5 = new Label();
             textBoxCapacidadTrituradora = new TextBox();
             label4 = new Label();
-            panel5 = new Panel();
-            panel6 = new Panel();
-            panel7 = new Panel();
-            panel8 = new Panel();
-            panel9 = new Panel();
             panel10 = new Panel();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
-            panelLinea.SuspendLayout();
+            panel9 = new Panel();
+            panel7 = new Panel();
+            panel5 = new Panel();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label18 = new Label();
             panelDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RefinadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TrituradoraBS).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(labelTrituracion);
-            panel1.Location = new Point(43, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(152, 32);
-            panel1.TabIndex = 0;
-            // 
-            // labelTrituracion
-            // 
-            labelTrituracion.Anchor = AnchorStyles.Bottom;
-            labelTrituracion.AutoSize = true;
-            labelTrituracion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTrituracion.Location = new Point(35, 9);
-            labelTrituracion.Name = "labelTrituracion";
-            labelTrituracion.Size = new Size(84, 21);
-            labelTrituracion.TabIndex = 0;
-            labelTrituracion.Text = "Trituracion";
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(panel6);
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(282, 1);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(154, 32);
-            panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Bottom;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(39, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(72, 21);
-            label1.TabIndex = 1;
-            label1.Text = "Limpieza";
-            // 
-            // panel3
-            // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(panel8);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(531, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(155, 34);
-            panel3.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(36, 13);
-            label2.Name = "label2";
-            label2.Size = new Size(83, 21);
-            label2.TabIndex = 2;
-            label2.Text = "Refinación";
-            // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(label3);
-            panel4.Location = new Point(789, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(162, 31);
-            panel4.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Bottom;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(29, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 21);
-            label3.TabIndex = 2;
-            label3.Text = "Empaquetado";
-            // 
-            // panelLinea
-            // 
-            panelLinea.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelLinea.Controls.Add(panel10);
-            panelLinea.Controls.Add(panel9);
-            panelLinea.Controls.Add(panel7);
-            panelLinea.Controls.Add(panel5);
-            panelLinea.Controls.Add(panel1);
-            panelLinea.Controls.Add(panel4);
-            panelLinea.Controls.Add(panel2);
-            panelLinea.Controls.Add(panel3);
-            panelLinea.Location = new Point(11, 11);
-            panelLinea.Name = "panelLinea";
-            panelLinea.Size = new Size(1099, 148);
-            panelLinea.TabIndex = 4;
-            panelLinea.Click += panelLinea_Click;
             // 
             // panelDatos
             // 
@@ -477,65 +362,101 @@
             label4.TabIndex = 0;
             label4.Text = "Capacidad por hora";
             // 
-            // panel5
+            // panel10
             // 
-            panel5.BackColor = Color.Transparent;
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
-            panel5.BackgroundImageLayout = ImageLayout.Zoom;
-            panel5.Location = new Point(43, 36);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(152, 109);
-            panel5.TabIndex = 4;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.White;
-            panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
-            panel6.BackgroundImageLayout = ImageLayout.Zoom;
-            panel6.Location = new Point(0, 35);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(152, 109);
-            panel6.TabIndex = 5;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.Transparent;
-            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
-            panel7.BackgroundImageLayout = ImageLayout.Zoom;
-            panel7.Location = new Point(285, 39);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(152, 109);
-            panel7.TabIndex = 5;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.Transparent;
-            panel8.BackgroundImage = (Image)resources.GetObject("panel8.BackgroundImage");
-            panel8.BackgroundImageLayout = ImageLayout.Zoom;
-            panel8.Location = new Point(0, 36);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(152, 109);
-            panel8.TabIndex = 6;
+            panel10.Anchor = AnchorStyles.Top;
+            panel10.BackColor = Color.Transparent;
+            panel10.BackgroundImage = (Image)resources.GetObject("panel10.BackgroundImage");
+            panel10.BackgroundImageLayout = ImageLayout.Zoom;
+            panel10.Location = new Point(792, 50);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(152, 109);
+            panel10.TabIndex = 7;
             // 
             // panel9
             // 
+            panel9.Anchor = AnchorStyles.Top;
             panel9.BackColor = Color.Transparent;
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
             panel9.BackgroundImageLayout = ImageLayout.Zoom;
-            panel9.Location = new Point(534, 39);
+            panel9.Location = new Point(549, 50);
             panel9.Name = "panel9";
             panel9.Size = new Size(152, 109);
             panel9.TabIndex = 6;
             // 
-            // panel10
+            // panel7
             // 
-            panel10.BackColor = Color.Transparent;
-            panel10.BackgroundImage = (Image)resources.GetObject("panel10.BackgroundImage");
-            panel10.BackgroundImageLayout = ImageLayout.Zoom;
-            panel10.Location = new Point(789, 36);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(152, 109);
-            panel10.TabIndex = 7;
+            panel7.Anchor = AnchorStyles.Top;
+            panel7.BackColor = Color.Transparent;
+            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
+            panel7.BackgroundImageLayout = ImageLayout.Zoom;
+            panel7.Location = new Point(279, 50);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(152, 109);
+            panel7.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            panel5.Anchor = AnchorStyles.Top;
+            panel5.BackColor = Color.Transparent;
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Zoom;
+            panel5.Location = new Point(59, 50);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(152, 109);
+            panel5.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.BackColor = Color.DimGray;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(72, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 32);
+            label1.TabIndex = 6;
+            label1.Text = "Trituración";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.BackColor = Color.DimGray;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(279, 8);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 32);
+            label2.TabIndex = 8;
+            label2.Text = "Limpieza";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top;
+            label3.AutoSize = true;
+            label3.BackColor = Color.DimGray;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(543, 8);
+            label3.Name = "label3";
+            label3.Size = new Size(135, 32);
+            label3.TabIndex = 9;
+            label3.Text = "Refinación";
+            // 
+            // label18
+            // 
+            label18.Anchor = AnchorStyles.Top;
+            label18.AutoSize = true;
+            label18.BackColor = Color.DimGray;
+            label18.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.White;
+            label18.Location = new Point(792, 8);
+            label18.Name = "label18";
+            label18.Size = new Size(172, 32);
+            label18.TabIndex = 10;
+            label18.Text = "Empaquetado";
             // 
             // ControlLineaProduccion
             // 
@@ -543,22 +464,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.DimGray;
+            Controls.Add(label18);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(panel10);
+            Controls.Add(label1);
             Controls.Add(panelDatos);
-            Controls.Add(panelLinea);
+            Controls.Add(panel9);
+            Controls.Add(panel5);
+            Controls.Add(panel7);
+            Cursor = Cursors.Hand;
             DoubleBuffered = true;
             Name = "ControlLineaProduccion";
             Padding = new Padding(8);
             Size = new Size(1121, 343);
             Click += ControlLineaProduccion_Click;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panelLinea.ResumeLayout(false);
             panelDatos.ResumeLayout(false);
             panelDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).EndInit();
@@ -566,19 +486,10 @@
             ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).EndInit();
             ((System.ComponentModel.ISupportInitialize)TrituradoraBS).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
-        private Label labelTrituracion;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Panel panelLinea;
         private Panel panelDatos;
         private Label label8;
         private TextBox textBoxCapacidadEmpaquetadora;
@@ -605,11 +516,13 @@
         private BindingSource LimpiadoraBS;
         private BindingSource RefinadoraBS;
         private BindingSource EmpaquetadoraBS;
-        private Panel panel5;
-        private Panel panel6;
-        private Panel panel8;
+        private Panel panel10;
         private Panel panel9;
         private Panel panel7;
-        private Panel panel10;
+        private Panel panel5;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label18;
     }
 }

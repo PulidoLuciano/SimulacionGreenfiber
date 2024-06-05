@@ -54,7 +54,7 @@ namespace Presentacion.Componentes
         void Seleccionar()
         {
             Seleccionado = !Seleccionado;
-            BackColor = (Seleccionado) ? Color.FromArgb(120, 100, 80) : Color.FromArgb(75, 54, 33);
+            BackColor = (Seleccionado) ? Color.FromArgb(120, 100, 80) : Color.DimGray;
         }
 
         private void ControlLineaProduccion_Click(object sender, EventArgs e)

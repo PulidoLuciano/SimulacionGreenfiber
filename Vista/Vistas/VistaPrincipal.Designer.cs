@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaPrincipal));
             panel1 = new Panel();
             panel3 = new Panel();
             buttonSimularHoras = new Button();
@@ -252,13 +253,16 @@
             // 
             // buttonSimularHoras
             // 
-            buttonSimularHoras.BackColor = Color.FromArgb(128, 128, 255);
-            buttonSimularHoras.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSimularHoras.ForeColor = SystemColors.ButtonHighlight;
-            buttonSimularHoras.Location = new Point(3, 340);
+            buttonSimularHoras.Anchor = AnchorStyles.Top;
+            buttonSimularHoras.BackColor = Color.FromArgb(119, 188, 32);
+            buttonSimularHoras.Cursor = Cursors.Hand;
+            buttonSimularHoras.FlatStyle = FlatStyle.Flat;
+            buttonSimularHoras.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSimularHoras.ForeColor = Color.FromArgb(255, 255, 248);
+            buttonSimularHoras.Location = new Point(35, 345);
             buttonSimularHoras.Name = "buttonSimularHoras";
-            buttonSimularHoras.Size = new Size(287, 52);
-            buttonSimularHoras.TabIndex = 13;
+            buttonSimularHoras.Size = new Size(220, 40);
+            buttonSimularHoras.TabIndex = 14;
             buttonSimularHoras.Text = "Simular por horas";
             buttonSimularHoras.UseVisualStyleBackColor = false;
             buttonSimularHoras.Click += buttonSimularHoras_Click;
@@ -452,6 +456,7 @@
             panelLineas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelLineas.AutoScroll = true;
             panelLineas.BackColor = Color.FromArgb(234, 234, 234);
+            panelLineas.BackgroundImage = (Image)resources.GetObject("panelLineas.BackgroundImage");
             panelLineas.BackgroundImageLayout = ImageLayout.Center;
             panelLineas.Location = new Point(6, 6);
             panelLineas.Name = "panelLineas";

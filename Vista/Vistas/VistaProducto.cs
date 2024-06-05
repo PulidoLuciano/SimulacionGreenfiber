@@ -117,6 +117,9 @@ namespace Presentacion.Vistas
         {
             botonSimular.Text = (bloquear) ? "Detener" : "Simular";
             sliderEspesor.Enabled = !bloquear;
+            radioCelulosa.Enabled = !bloquear;
+            radioLadrillo.Enabled = !bloquear;
+            radioMadera.Enabled = !bloquear;
         }
     }
 
