@@ -24,6 +24,7 @@ namespace Vistas
         {
             InitializeComponent();
             _controlesLineas = new List<ControlLineaProduccion>();
+            panelGraficos.Visible = false;
         }
 
         public event EventHandler AbrirVistaProducto
@@ -118,6 +119,13 @@ namespace Vistas
         private void buttonSimularHoras_Click(object sender, EventArgs e)
         {
             timerSimulacionProducto.Start();
+        }
+
+        private void buttonGraficos_Click(object sender, EventArgs e)
+        {
+            panelGraficos.Visible = (panelLineas.Visible);
+            panelLineas.Visible = !(panelLineas.Visible);
+            botonGraficos.Text = (panelLineas.Visible) ? "Comparar líneas" : "Ajustar líneas";
         }
     }
 
