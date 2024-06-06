@@ -448,7 +448,7 @@
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
             splitContainer1.Size = new Size(1476, 747);
-            splitContainer1.SplitterDistance = 309;
+            splitContainer1.SplitterDistance = 450;
             splitContainer1.TabIndex = 2;
             // 
             // panelLineas
@@ -461,7 +461,7 @@
             panelLineas.Location = new Point(6, 6);
             panelLineas.Name = "panelLineas";
             panelLineas.Padding = new Padding(3);
-            panelLineas.Size = new Size(1462, 295);
+            panelLineas.Size = new Size(1462, 436);
             panelLineas.TabIndex = 0;
             // 
             // splitContainer2
@@ -631,7 +631,7 @@
             splitContainer2.Panel2.Controls.Add(labelAcidoBoricoLinea);
             splitContainer2.Panel2.Controls.Add(label112);
             splitContainer2.Panel2.Padding = new Padding(3);
-            splitContainer2.Size = new Size(1476, 434);
+            splitContainer2.Size = new Size(1476, 293);
             splitContainer2.SplitterDistance = 731;
             splitContainer2.TabIndex = 0;
             // 

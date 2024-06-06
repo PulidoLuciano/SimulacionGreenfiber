@@ -64,11 +64,17 @@
             label2 = new Label();
             label3 = new Label();
             label18 = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             panelDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RefinadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TrituradoraBS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panelDatos
@@ -185,7 +191,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(234, 234, 234);
-            label12.Location = new Point(374, 101);
+            label12.Location = new Point(402, 101);
             label12.Name = "label12";
             label12.Size = new Size(46, 20);
             label12.TabIndex = 14;
@@ -196,7 +202,7 @@
             textBoxPotenciaLimpiadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaLimpiadora.DataBindings.Add(new Binding("Text", LimpiadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaLimpiadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaLimpiadora.Location = new Point(282, 94);
+            textBoxPotenciaLimpiadora.Location = new Point(310, 94);
             textBoxPotenciaLimpiadora.Name = "textBoxPotenciaLimpiadora";
             textBoxPotenciaLimpiadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaLimpiadora.Size = new Size(86, 27);
@@ -212,7 +218,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(234, 234, 234);
-            label13.Location = new Point(264, 71);
+            label13.Location = new Point(292, 71);
             label13.Name = "label13";
             label13.Size = new Size(69, 20);
             label13.TabIndex = 12;
@@ -390,7 +396,7 @@
             panel7.BackColor = Color.Transparent;
             panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
             panel7.BackgroundImageLayout = ImageLayout.Zoom;
-            panel7.Location = new Point(279, 50);
+            panel7.Location = new Point(307, 50);
             panel7.Name = "panel7";
             panel7.Size = new Size(152, 109);
             panel7.TabIndex = 5;
@@ -413,7 +419,7 @@
             label1.BackColor = Color.DimGray;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(72, 8);
+            label1.Location = new Point(59, 8);
             label1.Name = "label1";
             label1.Size = new Size(139, 32);
             label1.TabIndex = 6;
@@ -426,7 +432,7 @@
             label2.BackColor = Color.DimGray;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(279, 8);
+            label2.Location = new Point(307, 8);
             label2.Name = "label2";
             label2.Size = new Size(115, 32);
             label2.TabIndex = 8;
@@ -458,12 +464,48 @@
             label18.TabIndex = 10;
             label18.Text = "Empaquetado";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(225, 80);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(71, 57);
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(465, 80);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(71, 57);
+            pictureBox2.TabIndex = 12;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Top;
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(713, 80);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(71, 57);
+            pictureBox3.TabIndex = 13;
+            pictureBox3.TabStop = false;
+            // 
             // ControlLineaProduccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.DimGray;
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(label18);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -485,6 +527,9 @@
             ((System.ComponentModel.ISupportInitialize)RefinadoraBS).EndInit();
             ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).EndInit();
             ((System.ComponentModel.ISupportInitialize)TrituradoraBS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -524,5 +569,8 @@
         private Label label2;
         private Label label3;
         private Label label18;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }
