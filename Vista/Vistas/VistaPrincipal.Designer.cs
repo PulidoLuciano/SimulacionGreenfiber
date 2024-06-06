@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaPrincipal));
             panel1 = new Panel();
             panel3 = new Panel();
+            progressBar = new ProgressBar();
             buttonSimularHoras = new Button();
             textBox2 = new TextBox();
             simulacionProduccionBS = new BindingSource(components);
@@ -232,6 +233,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel3.Controls.Add(progressBar);
             panel3.Controls.Add(buttonSimularHoras);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(textBox1);
@@ -250,6 +252,18 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(290, 735);
             panel3.TabIndex = 0;
+            // 
+            // progressBar
+            // 
+            progressBar.DataBindings.Add(new Binding("Maximum", simulacionProduccionBS, "HorasJornada", true));
+            progressBar.DataBindings.Add(new Binding("Value", simulacionProduccionBS, "HorasTranscurridas", true));
+            progressBar.ForeColor = Color.FromArgb(119, 188, 32);
+            progressBar.Location = new Point(35, 391);
+            progressBar.MarqueeAnimationSpeed = 1000;
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(220, 23);
+            progressBar.Step = 1;
+            progressBar.TabIndex = 15;
             // 
             // buttonSimularHoras
             // 
@@ -2553,5 +2567,6 @@
         private Label label112;
         private System.Windows.Forms.Timer timerSimulacionProducto;
         private Button buttonSimularHoras;
+        private ProgressBar progressBar;
     }
 }
