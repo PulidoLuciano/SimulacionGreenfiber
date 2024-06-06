@@ -16,11 +16,12 @@ namespace Presentacion.Componentes
         public bool Seleccionado { get; set; }
         Linea _linea;
 
-        public ControlLineaProduccion(Linea linea)
+        public ControlLineaProduccion(Linea linea, int numero)
         {
             InitializeComponent();
             Seleccionado = false;
             _linea = linea;
+            labelNroLinea.Text = numero.ToString();
             ActualizarTrituradora(_linea.MaquinaTrituradora);
             ActualizarLimpiadora(_linea.MaquinaLimpiadora);
             ActualizarRefinadora(_linea.MaquinaRefinadora);

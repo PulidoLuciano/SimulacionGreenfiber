@@ -88,13 +88,15 @@ namespace Vistas
         {
             panelLineas.Controls.Clear();
             _controlesLineas.Clear();
+            int j = 1;
 
-            lineas.ToList().ForEach(l =>
+            lineas.ToList().ForEach((l) =>
             {
-                ControlLineaProduccion control = new ControlLineaProduccion(l);
+                ControlLineaProduccion control = new ControlLineaProduccion(l, j);
                 _controlesLineas.Add(control);
                 panelLineas.Controls.Add(control);
                 control.Width = panelLineas.Width - 20;
+                j++;
             });
 
             List<int> indexs = new List<int>();

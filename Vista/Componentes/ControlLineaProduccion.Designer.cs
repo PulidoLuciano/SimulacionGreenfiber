@@ -67,6 +67,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            labelNroLinea = new Label();
             panelDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RefinadoraBS).BeginInit();
@@ -497,12 +498,26 @@
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
             // 
+            // labelNroLinea
+            // 
+            labelNroLinea.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelNroLinea.AutoSize = true;
+            labelNroLinea.BackColor = Color.DimGray;
+            labelNroLinea.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelNroLinea.ForeColor = Color.White;
+            labelNroLinea.Location = new Point(1068, 8);
+            labelNroLinea.Name = "labelNroLinea";
+            labelNroLinea.Size = new Size(42, 32);
+            labelNroLinea.TabIndex = 14;
+            labelNroLinea.Text = "10";
+            // 
             // ControlLineaProduccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.DimGray;
+            Controls.Add(labelNroLinea);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -572,5 +587,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Label labelNroLinea;
     }
 }
