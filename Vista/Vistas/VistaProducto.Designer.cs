@@ -79,7 +79,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(234, 234, 234);
-            panel1.Controls.Add(graficaTemp);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(radioLadrillo);
@@ -106,7 +105,7 @@
             // 
             // graficaTemp
             // 
-            graficaTemp.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            graficaTemp.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             graficaTemp.BackColor = Color.FromArgb(234, 234, 234);
             chartArea1.AxisX.MajorGrid.LineColor = Color.Silver;
             chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
@@ -117,7 +116,7 @@
             graficaTemp.ChartAreas.Add(chartArea1);
             graficaTemp.DataBindings.Add(new Binding("Text", bindingSourceProducto, "CalorEspecifico", true));
             graficaTemp.DataBindings.Add(new Binding("DataSource", bindingSourceProducto, "TempInterior", true));
-            graficaTemp.Location = new Point(9, 444);
+            graficaTemp.Location = new Point(0, 310);
             graficaTemp.Name = "graficaTemp";
             graficaTemp.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.BorderWidth = 3;
@@ -459,6 +458,7 @@
             // panelInterior
             // 
             panelInterior.BackColor = Color.Transparent;
+            panelInterior.Controls.Add(graficaTemp);
             panelInterior.Controls.Add(label1);
             panelInterior.Controls.Add(labelExterior);
             panelInterior.Dock = DockStyle.Fill;

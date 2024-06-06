@@ -64,23 +64,23 @@
             label2 = new Label();
             label3 = new Label();
             label18 = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             labelNroLinea = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panelDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EmpaquetadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RefinadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TrituradoraBS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panelDatos
             // 
-            panelDatos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelDatos.Anchor = AnchorStyles.Bottom;
             panelDatos.Controls.Add(label16);
             panelDatos.Controls.Add(textBoxPotenciaEmpaquetadora);
             panelDatos.Controls.Add(label17);
@@ -102,9 +102,9 @@
             panelDatos.Controls.Add(label5);
             panelDatos.Controls.Add(textBoxCapacidadTrituradora);
             panelDatos.Controls.Add(label4);
-            panelDatos.Location = new Point(11, 165);
+            panelDatos.Location = new Point(181, 165);
             panelDatos.Name = "panelDatos";
-            panelDatos.Size = new Size(1099, 167);
+            panelDatos.Size = new Size(839, 167);
             panelDatos.TabIndex = 5;
             panelDatos.Click += panelDatos_Click;
             // 
@@ -114,7 +114,7 @@
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label16.ForeColor = Color.FromArgb(234, 234, 234);
-            label16.Location = new Point(899, 105);
+            label16.Location = new Point(782, 109);
             label16.Name = "label16";
             label16.Size = new Size(46, 20);
             label16.TabIndex = 20;
@@ -125,7 +125,7 @@
             textBoxPotenciaEmpaquetadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaEmpaquetadora.DataBindings.Add(new Binding("Text", EmpaquetadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaEmpaquetadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaEmpaquetadora.Location = new Point(807, 98);
+            textBoxPotenciaEmpaquetadora.Location = new Point(690, 102);
             textBoxPotenciaEmpaquetadora.Name = "textBoxPotenciaEmpaquetadora";
             textBoxPotenciaEmpaquetadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaEmpaquetadora.Size = new Size(86, 27);
@@ -141,7 +141,7 @@
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.FromArgb(234, 234, 234);
-            label17.Location = new Point(789, 75);
+            label17.Location = new Point(668, 79);
             label17.Name = "label17";
             label17.Size = new Size(69, 20);
             label17.TabIndex = 18;
@@ -153,7 +153,7 @@
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.FromArgb(234, 234, 234);
-            label14.Location = new Point(644, 101);
+            label14.Location = new Point(564, 105);
             label14.Name = "label14";
             label14.Size = new Size(46, 20);
             label14.TabIndex = 17;
@@ -164,7 +164,7 @@
             textBoxPotenciaRefinadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaRefinadora.DataBindings.Add(new Binding("Text", RefinadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaRefinadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaRefinadora.Location = new Point(552, 94);
+            textBoxPotenciaRefinadora.Location = new Point(472, 98);
             textBoxPotenciaRefinadora.Name = "textBoxPotenciaRefinadora";
             textBoxPotenciaRefinadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaRefinadora.Size = new Size(86, 27);
@@ -180,7 +180,7 @@
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(234, 234, 234);
-            label15.Location = new Point(534, 71);
+            label15.Location = new Point(454, 75);
             label15.Name = "label15";
             label15.Size = new Size(69, 20);
             label15.TabIndex = 15;
@@ -192,7 +192,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(234, 234, 234);
-            label12.Location = new Point(402, 101);
+            label12.Location = new Point(358, 105);
             label12.Name = "label12";
             label12.Size = new Size(46, 20);
             label12.TabIndex = 14;
@@ -203,7 +203,7 @@
             textBoxPotenciaLimpiadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaLimpiadora.DataBindings.Add(new Binding("Text", LimpiadoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaLimpiadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaLimpiadora.Location = new Point(310, 94);
+            textBoxPotenciaLimpiadora.Location = new Point(266, 98);
             textBoxPotenciaLimpiadora.Name = "textBoxPotenciaLimpiadora";
             textBoxPotenciaLimpiadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaLimpiadora.Size = new Size(86, 27);
@@ -219,7 +219,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(234, 234, 234);
-            label13.Location = new Point(292, 71);
+            label13.Location = new Point(248, 75);
             label13.Name = "label13";
             label13.Size = new Size(69, 20);
             label13.TabIndex = 12;
@@ -231,7 +231,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.FromArgb(234, 234, 234);
-            label11.Location = new Point(158, 105);
+            label11.Location = new Point(133, 105);
             label11.Name = "label11";
             label11.Size = new Size(46, 20);
             label11.TabIndex = 11;
@@ -242,7 +242,7 @@
             textBoxPotenciaTrituradora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxPotenciaTrituradora.DataBindings.Add(new Binding("Text", TrituradoraBS, "Potencia", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxPotenciaTrituradora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxPotenciaTrituradora.Location = new Point(66, 98);
+            textBoxPotenciaTrituradora.Location = new Point(41, 98);
             textBoxPotenciaTrituradora.Name = "textBoxPotenciaTrituradora";
             textBoxPotenciaTrituradora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaTrituradora.Size = new Size(86, 27);
@@ -258,7 +258,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(234, 234, 234);
-            label10.Location = new Point(48, 75);
+            label10.Location = new Point(23, 75);
             label10.Name = "label10";
             label10.Size = new Size(69, 20);
             label10.TabIndex = 9;
@@ -270,7 +270,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(234, 234, 234);
-            label8.Location = new Point(899, 38);
+            label8.Location = new Point(782, 42);
             label8.Name = "label8";
             label8.Size = new Size(27, 20);
             label8.TabIndex = 8;
@@ -281,7 +281,7 @@
             textBoxCapacidadEmpaquetadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxCapacidadEmpaquetadora.DataBindings.Add(new Binding("Text", EmpaquetadoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxCapacidadEmpaquetadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxCapacidadEmpaquetadora.Location = new Point(807, 31);
+            textBoxCapacidadEmpaquetadora.Location = new Point(690, 35);
             textBoxCapacidadEmpaquetadora.Name = "textBoxCapacidadEmpaquetadora";
             textBoxCapacidadEmpaquetadora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadEmpaquetadora.Size = new Size(86, 27);
@@ -293,7 +293,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(234, 234, 234);
-            label9.Location = new Point(789, 10);
+            label9.Location = new Point(672, 14);
             label9.Name = "label9";
             label9.Size = new Size(144, 20);
             label9.TabIndex = 6;
@@ -305,7 +305,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(234, 234, 234);
-            label6.Location = new Point(644, 38);
+            label6.Location = new Point(564, 42);
             label6.Name = "label6";
             label6.Size = new Size(27, 20);
             label6.TabIndex = 5;
@@ -316,7 +316,7 @@
             textBoxCapacidadRefinadora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxCapacidadRefinadora.DataBindings.Add(new Binding("Text", RefinadoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxCapacidadRefinadora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxCapacidadRefinadora.Location = new Point(552, 31);
+            textBoxCapacidadRefinadora.Location = new Point(472, 35);
             textBoxCapacidadRefinadora.Name = "textBoxCapacidadRefinadora";
             textBoxCapacidadRefinadora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadRefinadora.Size = new Size(86, 27);
@@ -328,7 +328,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(234, 234, 234);
-            label7.Location = new Point(534, 10);
+            label7.Location = new Point(454, 14);
             label7.Name = "label7";
             label7.Size = new Size(144, 20);
             label7.TabIndex = 3;
@@ -340,7 +340,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(234, 234, 234);
-            label5.Location = new Point(158, 42);
+            label5.Location = new Point(133, 42);
             label5.Name = "label5";
             label5.Size = new Size(27, 20);
             label5.TabIndex = 2;
@@ -351,7 +351,7 @@
             textBoxCapacidadTrituradora.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             textBoxCapacidadTrituradora.DataBindings.Add(new Binding("Text", TrituradoraBS, "CapacidadPromedio", true, DataSourceUpdateMode.OnValidation, null, "N2"));
             textBoxCapacidadTrituradora.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            textBoxCapacidadTrituradora.Location = new Point(66, 35);
+            textBoxCapacidadTrituradora.Location = new Point(41, 35);
             textBoxCapacidadTrituradora.Name = "textBoxCapacidadTrituradora";
             textBoxCapacidadTrituradora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadTrituradora.Size = new Size(86, 27);
@@ -363,7 +363,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(234, 234, 234);
-            label4.Location = new Point(48, 14);
+            label4.Location = new Point(23, 14);
             label4.Name = "label4";
             label4.Size = new Size(144, 20);
             label4.TabIndex = 0;
@@ -375,7 +375,7 @@
             panel10.BackColor = Color.Transparent;
             panel10.BackgroundImage = (Image)resources.GetObject("panel10.BackgroundImage");
             panel10.BackgroundImageLayout = ImageLayout.Zoom;
-            panel10.Location = new Point(792, 50);
+            panel10.Location = new Point(848, 50);
             panel10.Name = "panel10";
             panel10.Size = new Size(152, 109);
             panel10.TabIndex = 7;
@@ -386,7 +386,7 @@
             panel9.BackColor = Color.Transparent;
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
             panel9.BackgroundImageLayout = ImageLayout.Zoom;
-            panel9.Location = new Point(549, 50);
+            panel9.Location = new Point(633, 50);
             panel9.Name = "panel9";
             panel9.Size = new Size(152, 109);
             panel9.TabIndex = 6;
@@ -397,7 +397,7 @@
             panel7.BackColor = Color.Transparent;
             panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
             panel7.BackgroundImageLayout = ImageLayout.Zoom;
-            panel7.Location = new Point(307, 50);
+            panel7.Location = new Point(418, 50);
             panel7.Name = "panel7";
             panel7.Size = new Size(152, 109);
             panel7.TabIndex = 5;
@@ -408,7 +408,7 @@
             panel5.BackColor = Color.Transparent;
             panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
             panel5.BackgroundImageLayout = ImageLayout.Zoom;
-            panel5.Location = new Point(59, 50);
+            panel5.Location = new Point(203, 50);
             panel5.Name = "panel5";
             panel5.Size = new Size(152, 109);
             panel5.TabIndex = 4;
@@ -420,7 +420,7 @@
             label1.BackColor = Color.DimGray;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(59, 8);
+            label1.Location = new Point(203, 8);
             label1.Name = "label1";
             label1.Size = new Size(139, 32);
             label1.TabIndex = 6;
@@ -433,7 +433,7 @@
             label2.BackColor = Color.DimGray;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(307, 8);
+            label2.Location = new Point(418, 8);
             label2.Name = "label2";
             label2.Size = new Size(115, 32);
             label2.TabIndex = 8;
@@ -446,7 +446,7 @@
             label3.BackColor = Color.DimGray;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(543, 8);
+            label3.Location = new Point(627, 8);
             label3.Name = "label3";
             label3.Size = new Size(135, 32);
             label3.TabIndex = 9;
@@ -459,42 +459,20 @@
             label18.BackColor = Color.DimGray;
             label18.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.White;
-            label18.Location = new Point(792, 8);
+            label18.Location = new Point(848, 8);
             label18.Name = "label18";
             label18.Size = new Size(172, 32);
             label18.TabIndex = 10;
             label18.Text = "Empaquetado";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.Top;
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(225, 80);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(71, 57);
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Top;
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(465, 80);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(71, 57);
-            pictureBox2.TabIndex = 12;
-            pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             pictureBox3.Anchor = AnchorStyles.Top;
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
             pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox3.Location = new Point(713, 80);
+            pictureBox3.Location = new Point(791, 80);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(71, 57);
+            pictureBox3.Size = new Size(51, 40);
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
             // 
@@ -505,22 +483,45 @@
             labelNroLinea.BackColor = Color.DimGray;
             labelNroLinea.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelNroLinea.ForeColor = Color.White;
-            labelNroLinea.Location = new Point(1068, 8);
+            labelNroLinea.Location = new Point(1156, 8);
             labelNroLinea.Name = "labelNroLinea";
             labelNroLinea.Size = new Size(42, 32);
             labelNroLinea.TabIndex = 14;
             labelNroLinea.Text = "10";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(576, 80);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(51, 40);
+            pictureBox1.TabIndex = 15;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(361, 80);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(51, 40);
+            pictureBox2.TabIndex = 16;
+            pictureBox2.TabStop = false;
             // 
             // ControlLineaProduccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            AutoSize = true;
             BackColor = Color.DimGray;
-            Controls.Add(labelNroLinea);
-            Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
+            Controls.Add(labelNroLinea);
+            Controls.Add(pictureBox3);
             Controls.Add(label18);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -534,7 +535,7 @@
             DoubleBuffered = true;
             Name = "ControlLineaProduccion";
             Padding = new Padding(8);
-            Size = new Size(1121, 343);
+            Size = new Size(1209, 343);
             Click += ControlLineaProduccion_Click;
             panelDatos.ResumeLayout(false);
             panelDatos.PerformLayout();
@@ -542,9 +543,9 @@
             ((System.ComponentModel.ISupportInitialize)RefinadoraBS).EndInit();
             ((System.ComponentModel.ISupportInitialize)LimpiadoraBS).EndInit();
             ((System.ComponentModel.ISupportInitialize)TrituradoraBS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -584,9 +585,9 @@
         private Label label2;
         private Label label3;
         private Label label18;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Label labelNroLinea;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
