@@ -23,13 +23,13 @@ namespace Presentacion.Presentadores
             _simulacionProducto = new SimulacionProducto();
             Vista.EstablecerSimulacion(_simulacionProducto);
             Vista.CambiarVisualizacionEspesor(_simulacionProducto.EspesorCm);
-            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior);
+            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior, _simulacionProducto.Horas);
         }
 
         void Simular(object sender, EventArgs e)
         {
             _simulacionProducto.simularHora();
-            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior);
+            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior, _simulacionProducto.Horas);
         }
 
         void GestionarSimulacion(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Presentacion.Presentadores
         void CambiarMaterialSimulacion(object sender, EventArgs e)
         {
             _simulacionProducto.MaterialElegido = Vista.MaterialSeleccionado;
-            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior);
+            Vista.CambiarVisualizacionTemp(_simulacionProducto.TempInterior, _simulacionProducto.TempExterior, _simulacionProducto.Horas);
         }
 
         public void CambiarEspesor(object sender, EventArgs e)

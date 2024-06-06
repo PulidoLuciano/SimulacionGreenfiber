@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Extreme.Numerics" Version="8.1.25" />
     <PackageReference Include="Unity" Version="5.11.10" />
+    <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
   </ItemGroup>
 
   <ItemGroup>

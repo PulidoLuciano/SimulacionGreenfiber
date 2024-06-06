@@ -97,7 +97,7 @@ namespace Presentacion.Vistas
             bindingSourceProducto.DataSource = simulacion;
         }
 
-        public void CambiarVisualizacionTemp(double tempInterior, double tempExterior)
+        public void CambiarVisualizacionTemp(double tempInterior, double tempExterior, int hora)
         {
             panelExterior.BackColor = (tempExterior >= 15) ?
                 Color.FromArgb((int)Math.Truncate(3.33 * tempExterior - 50), 255, 0, 0) :
@@ -106,6 +106,7 @@ namespace Presentacion.Vistas
                 Color.FromArgb((int)Math.Truncate(3.33 * tempInterior - 50), 255, 0, 0) :
                 Color.FromArgb((int)Math.Truncate(-6 * tempInterior + 90), 0, 0, 255);
             bindingSourceProducto.ResetBindings(false);
+            graficaTemp.Series["serieTemperatura"].Points.AddXY(hora, tempInterior);
         }
 
         public void CambiarVisualizacionEspesor(double espesor)
@@ -120,6 +121,8 @@ namespace Presentacion.Vistas
             radioCelulosa.Enabled = !bloquear;
             radioLadrillo.Enabled = !bloquear;
             radioMadera.Enabled = !bloquear;
+            botonProduccion.Enabled = !bloquear;
+            if(bloquear) graficaTemp.Series["serieTemperatura"].Points.Clear();
         }
     }
 

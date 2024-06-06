@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             panel1 = new Panel();
+            graficaTemp = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            bindingSourceProducto = new BindingSource(components);
+            label10 = new Label();
+            label11 = new Label();
             radioLadrillo = new RadioButton();
             radioMadera = new RadioButton();
             label9 = new Label();
             radioCelulosa = new RadioButton();
             label4 = new Label();
-            bindingSourceProducto = new BindingSource(components);
             label5 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -55,9 +61,8 @@
             panelInterior = new Panel();
             panelExterior = new Panel();
             timerSimulacion = new System.Windows.Forms.Timer(components);
-            label10 = new Label();
-            label11 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)graficaTemp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSourceProducto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sliderEspesor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitExterior).BeginInit();
@@ -74,6 +79,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(234, 234, 234);
+            panel1.Controls.Add(graficaTemp);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(radioLadrillo);
@@ -97,6 +103,71 @@
             panel1.Padding = new Padding(3);
             panel1.Size = new Size(293, 591);
             panel1.TabIndex = 2;
+            // 
+            // graficaTemp
+            // 
+            graficaTemp.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            graficaTemp.BackColor = Color.FromArgb(234, 234, 234);
+            chartArea1.AxisX.MajorGrid.LineColor = Color.Silver;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.MajorGrid.LineColor = Color.Silver;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.BackColor = Color.White;
+            chartArea1.Name = "ChartArea1";
+            graficaTemp.ChartAreas.Add(chartArea1);
+            graficaTemp.DataBindings.Add(new Binding("Text", bindingSourceProducto, "CalorEspecifico", true));
+            graficaTemp.DataBindings.Add(new Binding("DataSource", bindingSourceProducto, "TempInterior", true));
+            graficaTemp.Location = new Point(9, 444);
+            graficaTemp.Name = "graficaTemp";
+            graficaTemp.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = Color.FromArgb(0, 192, 0);
+            series1.IsXValueIndexed = true;
+            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series1.MarkerColor = Color.White;
+            series1.Name = "serieTemperatura";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            graficaTemp.Series.Add(series1);
+            graficaTemp.Size = new Size(275, 281);
+            graficaTemp.TabIndex = 11;
+            graficaTemp.Text = "chart1";
+            title1.Alignment = ContentAlignment.TopLeft;
+            title1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title1.Name = "Title1";
+            title1.Text = "Temperatura interior por hora";
+            graficaTemp.Titles.Add(title1);
+            // 
+            // bindingSourceProducto
+            // 
+            bindingSourceProducto.DataSource = typeof(Dominio.SimulacionProducto);
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top;
+            label10.AutoSize = true;
+            label10.DataBindings.Add(new Binding("Text", bindingSourceProducto, "Densidad", true, DataSourceUpdateMode.OnPropertyChanged, "0", "0 kg/m³"));
+            label10.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(61, 57, 53);
+            label10.Location = new Point(112, 157);
+            label10.Name = "label10";
+            label10.Size = new Size(23, 25);
+            label10.TabIndex = 32;
+            label10.Text = "0";
+            // 
+            // label11
+            // 
+            label11.Anchor = AnchorStyles.Top;
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(61, 57, 53);
+            label11.Location = new Point(6, 157);
+            label11.Name = "label11";
+            label11.Size = new Size(100, 25);
+            label11.TabIndex = 31;
+            label11.Text = "Densidad:";
             // 
             // radioLadrillo
             // 
@@ -157,10 +228,6 @@
             label4.Size = new Size(23, 25);
             label4.TabIndex = 26;
             label4.Text = "0";
-            // 
-            // bindingSourceProducto
-            // 
-            bindingSourceProducto.DataSource = typeof(Dominio.SimulacionProducto);
             // 
             // label5
             // 
@@ -415,31 +482,6 @@
             // 
             timerSimulacion.Interval = 250;
             // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.Top;
-            label10.AutoSize = true;
-            label10.DataBindings.Add(new Binding("Text", bindingSourceProducto, "Densidad", true, DataSourceUpdateMode.OnPropertyChanged, "0", "0 kg/m³"));
-            label10.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(61, 57, 53);
-            label10.Location = new Point(112, 157);
-            label10.Name = "label10";
-            label10.Size = new Size(23, 25);
-            label10.TabIndex = 32;
-            label10.Text = "0";
-            // 
-            // label11
-            // 
-            label11.Anchor = AnchorStyles.Top;
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.FromArgb(61, 57, 53);
-            label11.Location = new Point(6, 157);
-            label11.Name = "label11";
-            label11.Size = new Size(100, 25);
-            label11.TabIndex = 31;
-            label11.Text = "Densidad:";
-            // 
             // VistaProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -454,6 +496,7 @@
             Text = "VistaProducto";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)graficaTemp).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSourceProducto).EndInit();
             ((System.ComponentModel.ISupportInitialize)sliderEspesor).EndInit();
             splitExterior.Panel1.ResumeLayout(false);
@@ -500,5 +543,6 @@
         private RadioButton radioMadera;
         private Label label10;
         private Label label11;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficaTemp;
     }
 }

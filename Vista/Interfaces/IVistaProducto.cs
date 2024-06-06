@@ -22,7 +22,7 @@ namespace Presentacion.Interfaces
 
         public void CerrarVentana();
         public void EstablecerSimulacion(SimulacionProducto simulacion);
-        public void CambiarVisualizacionTemp(double tempInterior, double tempExterior);
+        public void CambiarVisualizacionTemp(double tempInterior, double tempExterior, int hora);
         public void CambiarVisualizacionEspesor(double espesor);
         public void BloquearControles(bool bloquear);
     }
