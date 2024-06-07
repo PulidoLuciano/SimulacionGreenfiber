@@ -30,17 +30,17 @@
         {
             components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaPrincipal));
             panel1 = new Panel();
             panel3 = new Panel();
@@ -62,10 +62,10 @@
             botonAgregarLinea = new Button();
             splitContainer1 = new SplitContainer();
             panelGraficos = new Panel();
-            chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            graficaEmpaquetado = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            graficaRefinacion = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            graficaTrituracion = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            graficaBolsas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panelLineas = new FlowLayoutPanel();
             splitContainer2 = new SplitContainer();
             label99 = new Label();
@@ -230,10 +230,10 @@
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panelGraficos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)graficaEmpaquetado).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)graficaRefinacion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)graficaTrituracion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)graficaBolsas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
@@ -493,79 +493,115 @@
             // 
             panelGraficos.AutoScroll = true;
             panelGraficos.BackColor = Color.FromArgb(234, 234, 234);
-            panelGraficos.Controls.Add(chart4);
-            panelGraficos.Controls.Add(chart3);
-            panelGraficos.Controls.Add(chart2);
-            panelGraficos.Controls.Add(chart1);
+            panelGraficos.Controls.Add(graficaEmpaquetado);
+            panelGraficos.Controls.Add(graficaRefinacion);
+            panelGraficos.Controls.Add(graficaTrituracion);
+            panelGraficos.Controls.Add(graficaBolsas);
             panelGraficos.Dock = DockStyle.Fill;
             panelGraficos.Location = new Point(3, 3);
             panelGraficos.Name = "panelGraficos";
             panelGraficos.Size = new Size(1468, 442);
             panelGraficos.TabIndex = 1;
             // 
-            // chart4
+            // graficaEmpaquetado
             // 
+            graficaEmpaquetado.Anchor = AnchorStyles.Top;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea1.AxisX.Title = "Nro. Línea";
+            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisY.MajorGrid.LineColor = Color.Silver;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea1.AxisY.Title = "Desperdicio en Kg";
             chartArea1.Name = "ChartArea1";
-            chart4.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart4.Legends.Add(legend1);
-            chart4.Location = new Point(1017, 18);
-            chart4.Name = "chart4";
+            graficaEmpaquetado.ChartAreas.Add(chartArea1);
+            graficaEmpaquetado.Location = new Point(702, 396);
+            graficaEmpaquetado.Name = "graficaEmpaquetado";
             series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart4.Series.Add(series1);
-            chart4.Size = new Size(300, 300);
-            chart4.TabIndex = 3;
-            chart4.Text = "chart4";
+            series1.Color = Color.FromArgb(119, 188, 32);
+            series1.Name = "serieSimulacion";
+            graficaEmpaquetado.Series.Add(series1);
+            graficaEmpaquetado.Size = new Size(712, 382);
+            graficaEmpaquetado.TabIndex = 6;
+            graficaEmpaquetado.Text = "chart3";
+            title1.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title1.Name = "Title1";
+            title1.Text = "Desperdicio cap. Empaquetado";
+            graficaEmpaquetado.Titles.Add(title1);
             // 
-            // chart3
+            // graficaRefinacion
             // 
+            graficaRefinacion.Anchor = AnchorStyles.Top;
+            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea2.AxisX.Title = "Nro. Línea";
+            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea2.AxisY.MajorGrid.LineColor = Color.Silver;
+            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea2.AxisY.Title = "Desperdicio en Kg";
             chartArea2.Name = "ChartArea1";
-            chart3.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chart3.Legends.Add(legend2);
-            chart3.Location = new Point(690, 18);
-            chart3.Name = "chart3";
+            graficaRefinacion.ChartAreas.Add(chartArea2);
+            graficaRefinacion.Location = new Point(-31, 396);
+            graficaRefinacion.Name = "graficaRefinacion";
             series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart3.Series.Add(series2);
-            chart3.Size = new Size(300, 300);
-            chart3.TabIndex = 2;
-            chart3.Text = "chart3";
+            series2.Color = Color.FromArgb(119, 188, 32);
+            series2.Name = "serieSimulacion";
+            graficaRefinacion.Series.Add(series2);
+            graficaRefinacion.Size = new Size(712, 382);
+            graficaRefinacion.TabIndex = 5;
+            graficaRefinacion.Text = "chart2";
+            title2.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title2.Name = "Title1";
+            title2.Text = "Desperdicio cap. Refinación";
+            graficaRefinacion.Titles.Add(title2);
             // 
-            // chart2
+            // graficaTrituracion
             // 
+            graficaTrituracion.Anchor = AnchorStyles.Top;
+            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea3.AxisX.Title = "Nro. Línea";
+            chartArea3.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea3.AxisY.MajorGrid.LineColor = Color.Silver;
+            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea3.AxisY.Title = "Desperdicio en Kg";
             chartArea3.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chart2.Legends.Add(legend3);
-            chart2.Location = new Point(355, 18);
-            chart2.Name = "chart2";
+            graficaTrituracion.ChartAreas.Add(chartArea3);
+            graficaTrituracion.Location = new Point(702, 5);
+            graficaTrituracion.Name = "graficaTrituracion";
             series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chart2.Series.Add(series3);
-            chart2.Size = new Size(300, 300);
-            chart2.TabIndex = 1;
-            chart2.Text = "chart2";
+            series3.Color = Color.FromArgb(119, 188, 32);
+            series3.Name = "serieSimulacion";
+            graficaTrituracion.Series.Add(series3);
+            graficaTrituracion.Size = new Size(712, 382);
+            graficaTrituracion.TabIndex = 4;
+            graficaTrituracion.Text = "chart5";
+            title3.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title3.Name = "Title1";
+            title3.Text = "Desperdicio cap. Trituración";
+            graficaTrituracion.Titles.Add(title3);
             // 
-            // chart1
+            // graficaBolsas
             // 
+            graficaBolsas.Anchor = AnchorStyles.Top;
+            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea4.AxisX.Title = "Nro. Línea";
+            chartArea4.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea4.AxisY.MajorGrid.LineColor = Color.Silver;
+            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea4.AxisY.Title = "Cantidad de bolsas";
             chartArea4.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chart1.Legends.Add(legend4);
-            chart1.Location = new Point(20, 18);
-            chart1.Name = "chart1";
+            graficaBolsas.ChartAreas.Add(chartArea4);
+            graficaBolsas.Location = new Point(-31, 5);
+            graficaBolsas.Name = "graficaBolsas";
             series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chart1.Series.Add(series4);
-            chart1.Size = new Size(300, 300);
-            chart1.TabIndex = 0;
-            chart1.Text = "chart1";
+            series4.Color = Color.FromArgb(119, 188, 32);
+            series4.Name = "serieSimulacion";
+            graficaBolsas.Series.Add(series4);
+            graficaBolsas.Size = new Size(712, 382);
+            graficaBolsas.TabIndex = 0;
+            graficaBolsas.Text = "chart1";
+            title4.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title4.Name = "Title1";
+            title4.Text = "Cantidad de bolsas";
+            graficaBolsas.Titles.Add(title4);
             // 
             // panelLineas
             // 
@@ -2485,10 +2521,10 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panelGraficos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)chart4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)graficaEmpaquetado).EndInit();
+            ((System.ComponentModel.ISupportInitialize)graficaRefinacion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)graficaTrituracion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)graficaBolsas).EndInit();
             splitContainer2.Panel1.ResumeLayout(false);
             splitContainer2.Panel1.PerformLayout();
             splitContainer2.Panel2.ResumeLayout(false);
@@ -2676,9 +2712,9 @@
         private Button buttonSimularHoras;
         private ProgressBar progressBar;
         private Panel panelGraficos;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficaBolsas;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficaEmpaquetado;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficaRefinacion;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficaTrituracion;
     }
 }

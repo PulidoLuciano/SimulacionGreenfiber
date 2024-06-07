@@ -71,6 +71,19 @@ namespace Vistas
             simulacionProduccionBS.DataSource = simulacion;
             simulacionProduccionBS.ResetBindings(false);
             lineasBS.ResetBindings(false);
+            graficaBolsas.Series["serieSimulacion"].Points.Clear();
+            graficaTrituracion.Series["serieSimulacion"].Points.Clear();
+            graficaRefinacion.Series["serieSimulacion"].Points.Clear();
+            graficaEmpaquetado.Series["serieSimulacion"].Points.Clear();
+            int i = 1;
+            simulacion.LineasProduccion.ForEach(linea =>
+            {
+                graficaBolsas.Series["serieSimulacion"].Points.AddXY(i, linea.TotalBolsas);
+                graficaTrituracion.Series["serieSimulacion"].Points.AddXY(i, linea.DesperdicioTrituradoraV2);
+                graficaRefinacion.Series["serieSimulacion"].Points.AddXY(i, linea.DesperdicioRefinadoraV2);
+                graficaEmpaquetado.Series["serieSimulacion"].Points.AddXY(i, linea.DesperdicioEmpaquetadoraV2);
+                i++;
+            });
         }
 
         private void botonSimular_Paint(object sender, PaintEventArgs e)
