@@ -100,6 +100,7 @@ namespace Vistas
 
         public void ListarLineas(List<Linea> lineas)
         {
+            panelLineas.Dock = DockStyle.Fill;
             panelLineas.Controls.Clear();
             _controlesLineas.Clear();
             int j = 1;
@@ -139,6 +140,15 @@ namespace Vistas
             panelGraficos.Visible = (panelLineas.Visible);
             panelLineas.Visible = !(panelLineas.Visible);
             botonGraficos.Text = (panelLineas.Visible) ? "Comparar líneas" : "Ajustar líneas";
+        }
+
+        private void splitContainer1_Resize(object sender, EventArgs e)
+        {
+            panelLineas.Dock = DockStyle.Fill;
+            _controlesLineas?.ForEach(control =>
+            {
+                control.Width = panelLineas.Width - 20;
+            });
         }
     }
 

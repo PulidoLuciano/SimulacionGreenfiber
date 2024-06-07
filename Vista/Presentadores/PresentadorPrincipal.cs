@@ -30,6 +30,7 @@ namespace Presentacion.Presentadores
             _simulacion.agregarLinea();
             ActualizarSimulacion();
             ActualizarLineasVista();
+            Vista.ListarLineas(_simulacion.LineasProduccion);
         }
 
 
