@@ -130,6 +130,7 @@
             textBoxPotenciaEmpaquetadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaEmpaquetadora.Size = new Size(86, 27);
             textBoxPotenciaEmpaquetadora.TabIndex = 19;
+            textBoxPotenciaEmpaquetadora.KeyPress += soloPermitirNumeros;
             // 
             // EmpaquetadoraBS
             // 
@@ -169,6 +170,7 @@
             textBoxPotenciaRefinadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaRefinadora.Size = new Size(86, 27);
             textBoxPotenciaRefinadora.TabIndex = 16;
+            textBoxPotenciaRefinadora.KeyPress += soloPermitirNumeros;
             // 
             // RefinadoraBS
             // 
@@ -208,6 +210,7 @@
             textBoxPotenciaLimpiadora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaLimpiadora.Size = new Size(86, 27);
             textBoxPotenciaLimpiadora.TabIndex = 13;
+            textBoxPotenciaLimpiadora.KeyPress += soloPermitirNumeros;
             // 
             // LimpiadoraBS
             // 
@@ -247,6 +250,7 @@
             textBoxPotenciaTrituradora.RightToLeft = RightToLeft.Yes;
             textBoxPotenciaTrituradora.Size = new Size(86, 27);
             textBoxPotenciaTrituradora.TabIndex = 10;
+            textBoxPotenciaTrituradora.KeyPress += soloPermitirNumeros;
             // 
             // TrituradoraBS
             // 
@@ -286,6 +290,7 @@
             textBoxCapacidadEmpaquetadora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadEmpaquetadora.Size = new Size(86, 27);
             textBoxCapacidadEmpaquetadora.TabIndex = 7;
+            textBoxCapacidadEmpaquetadora.KeyPress += soloPermitirNumeros;
             // 
             // label9
             // 
@@ -321,6 +326,7 @@
             textBoxCapacidadRefinadora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadRefinadora.Size = new Size(86, 27);
             textBoxCapacidadRefinadora.TabIndex = 4;
+            textBoxCapacidadRefinadora.KeyPress += soloPermitirNumeros;
             // 
             // label7
             // 
@@ -356,6 +362,7 @@
             textBoxCapacidadTrituradora.RightToLeft = RightToLeft.Yes;
             textBoxCapacidadTrituradora.Size = new Size(86, 27);
             textBoxCapacidadTrituradora.TabIndex = 1;
+            textBoxCapacidadTrituradora.KeyPress += soloPermitirNumeros;
             // 
             // label4
             // 

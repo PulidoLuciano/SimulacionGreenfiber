@@ -150,6 +150,11 @@ namespace Vistas
                 control.Width = panelLineas.Width - 20;
             });
         }
+
+        private void soloPermitirNumeros(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',';
+        }
     }
 
     public class VistaPrincipalConPresentador : VistaBase<PresentadorPrincipal> { }
